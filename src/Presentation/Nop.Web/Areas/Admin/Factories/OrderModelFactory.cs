@@ -215,6 +215,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of order item models</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareOrderItemModelsAsync(IList<OrderItemModel> models, Order order)
         {
             if (models == null)
@@ -327,6 +328,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of return request brief models</param>
         /// <param name="orderItem">Order item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareReturnRequestBriefModelsAsync(IList<OrderItemModel.ReturnRequestBriefModel> models, OrderItem orderItem)
         {
             if (models == null)
@@ -351,6 +353,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Order model</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareOrderModelTotalsAsync(OrderModel model, Order order)
         {
             if (model == null)
@@ -502,6 +505,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Order model</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareOrderModelPaymentInfoAsync(OrderModel model, Order order)
         {
             if (model == null)
@@ -581,6 +585,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Order model</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareOrderModelShippingInfoAsync(OrderModel model, Order order)
         {
             if (model == null)
@@ -631,6 +636,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// <param name="models">List of product attribute models</param>
         /// <param name="order">Order</param>
         /// <param name="product">Product</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareProductAttributeModelsAsync(IList<AddProductToOrderModel.ProductAttributeModel> models, Order order, Product product)
         {
             if (models == null)
@@ -711,6 +717,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// <param name="model">Shipment item model</param>
         /// <param name="orderItem">Order item</param>
         /// <param name="product">Product item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareShipmentItemModelAsync(ShipmentItemModel model, OrderItem orderItem, Product product)
         {
             if (model == null)
@@ -758,6 +765,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of shipment status event models</param>
         /// <param name="shipment">Shipment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareShipmentStatusEventModelsAsync(IList<ShipmentStatusEventModel> models, Shipment shipment)
         {
             if (models == null)

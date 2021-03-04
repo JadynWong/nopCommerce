@@ -197,6 +197,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of product warehouse inventory models</param>
         /// <param name="product">Product</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareProductWarehouseInventoryModelsAsync(IList<ProductWarehouseInventoryModel> models, Product product)
         {
             if (models == null)
@@ -280,6 +281,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Product attribute condition model</param>
         /// <param name="productAttributeMapping">Product attribute mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareProductAttributeConditionModelAsync(ProductAttributeConditionModel model,
             ProductAttributeMapping productAttributeMapping)
         {

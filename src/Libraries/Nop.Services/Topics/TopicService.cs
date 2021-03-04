@@ -54,6 +54,7 @@ namespace Nop.Services.Topics
         /// Deletes a topic
         /// </summary>
         /// <param name="topic">Topic</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteTopicAsync(Topic topic)
         {
             await _topicRepository.DeleteAsync(topic);
@@ -178,6 +179,7 @@ namespace Nop.Services.Topics
         /// Inserts a topic
         /// </summary>
         /// <param name="topic">Topic</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertTopicAsync(Topic topic)
         {
             await _topicRepository.InsertAsync(topic);
@@ -187,6 +189,7 @@ namespace Nop.Services.Topics
         /// Updates the topic
         /// </summary>
         /// <param name="topic">Topic</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateTopicAsync(Topic topic)
         {
             await _topicRepository.UpdateAsync(topic);

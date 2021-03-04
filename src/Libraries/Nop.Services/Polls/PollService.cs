@@ -102,6 +102,7 @@ namespace Nop.Services.Polls
         /// Deletes a poll
         /// </summary>
         /// <param name="poll">The poll</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeletePollAsync(Poll poll)
         {
             await _pollRepository.DeleteAsync(poll);
@@ -111,6 +112,7 @@ namespace Nop.Services.Polls
         /// Inserts a poll
         /// </summary>
         /// <param name="poll">Poll</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertPollAsync(Poll poll)
         {
             await _pollRepository.InsertAsync(poll);
@@ -120,6 +122,7 @@ namespace Nop.Services.Polls
         /// Updates the poll
         /// </summary>
         /// <param name="poll">Poll</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdatePollAsync(Poll poll)
         {
             await _pollRepository.UpdateAsync(poll);
@@ -139,6 +142,7 @@ namespace Nop.Services.Polls
         /// Deletes a poll answer
         /// </summary>
         /// <param name="pollAnswer">Poll answer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeletePollAnswerAsync(PollAnswer pollAnswer)
         {
             await _pollAnswerRepository.DeleteAsync(pollAnswer);
@@ -166,6 +170,7 @@ namespace Nop.Services.Polls
         /// Inserts a poll answer
         /// </summary>
         /// <param name="pollAnswer">Poll answer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertPollAnswerAsync(PollAnswer pollAnswer)
         {
             await _pollAnswerRepository.InsertAsync(pollAnswer);
@@ -175,6 +180,7 @@ namespace Nop.Services.Polls
         /// Updates the poll answer
         /// </summary>
         /// <param name="pollAnswer">Poll answer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdatePollAnswerAsync(PollAnswer pollAnswer)
         {
             await _pollAnswerRepository.UpdateAsync(pollAnswer);
@@ -204,6 +210,7 @@ namespace Nop.Services.Polls
         /// Inserts a poll voting record
         /// </summary>
         /// <param name="pollVotingRecord">Voting record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertPollVotingRecordAsync(PollVotingRecord pollVotingRecord)
         {
             await _pollVotingRecordRepository.InsertAsync(pollVotingRecord);

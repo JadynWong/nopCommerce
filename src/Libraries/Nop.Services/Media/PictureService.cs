@@ -109,6 +109,7 @@ namespace Nop.Services.Media
         /// <param name="pictureId">Picture identifier</param>
         /// <param name="pictureBinary">Picture binary</param>
         /// <param name="mimeType">MIME type</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SavePictureInFileAsync(int pictureId, byte[] pictureBinary, string mimeType)
         {
             var lastPart = await GetFileExtensionFromMimeTypeAsync(mimeType);
@@ -120,6 +121,7 @@ namespace Nop.Services.Media
         /// Delete a picture on file system
         /// </summary>
         /// <param name="picture">Picture</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task DeletePictureOnFileSystemAsync(Picture picture)
         {
             if (picture == null)
@@ -135,6 +137,7 @@ namespace Nop.Services.Media
         /// Delete picture thumbs
         /// </summary>
         /// <param name="picture">Picture</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task DeletePictureThumbsAsync(Picture picture)
         {
             var filter = $"{picture.Id:0000000}*.*";
@@ -257,6 +260,7 @@ namespace Nop.Services.Media
         /// <param name="thumbFileName">Thumb file name</param>
         /// <param name="mimeType">MIME type</param>
         /// <param name="binary">Picture binary</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SaveThumbAsync(string thumbFilePath, string thumbFileName, string mimeType, byte[] binary)
         {
             //ensure \thumb directory exists
@@ -649,6 +653,7 @@ namespace Nop.Services.Media
         /// Deletes a picture
         /// </summary>
         /// <param name="picture">Picture</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeletePictureAsync(Picture picture)
         {
             if (picture == null)
@@ -1047,6 +1052,7 @@ namespace Nop.Services.Media
         /// Sets a value indicating whether the images should be stored in data base
         /// </summary>
         /// <param name="isStoreInDb">A value indicating whether the images should be stored in data base</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetIsStoreInDbAsync(bool isStoreInDb)
         {
             //check whether it's a new value

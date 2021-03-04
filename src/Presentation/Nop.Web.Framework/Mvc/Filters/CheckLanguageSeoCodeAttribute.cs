@@ -76,7 +76,10 @@ namespace Nop.Web.Framework.Mvc.Filters
             /// Called asynchronously before the action, after model binding is complete.
             /// </summary>
             /// <param name="context">A context for action filters</param>
-            /// <returns>A task that on completion indicates the necessary filter actions have been executed</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a task that on completion indicates the necessary filter actions have been executed
+        /// </returns>
             private async Task CheckLanguageSeoCodeAsync(ActionExecutingContext context)
             {
                 if (context == null)
@@ -129,7 +132,10 @@ namespace Nop.Web.Framework.Mvc.Filters
             /// </summary>
             /// <param name="context">A context for action filters</param>
             /// <param name="next">A delegate invoked to execute the next action filter or the action itself</param>
-            /// <returns>A task that on completion indicates the filter has executed</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a task that on completion indicates the filter has executed
+        /// </returns>
             public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
             {
                 await CheckLanguageSeoCodeAsync(context);

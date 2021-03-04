@@ -39,6 +39,7 @@ namespace Nop.Services.Customers
         /// Deletes a customer attribute
         /// </summary>
         /// <param name="customerAttribute">Customer attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCustomerAttributeAsync(CustomerAttribute customerAttribute)
         {
             await _customerAttributeRepository.DeleteAsync(customerAttribute);
@@ -72,6 +73,7 @@ namespace Nop.Services.Customers
         /// Inserts a customer attribute
         /// </summary>
         /// <param name="customerAttribute">Customer attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertCustomerAttributeAsync(CustomerAttribute customerAttribute)
         {
             await _customerAttributeRepository.InsertAsync(customerAttribute);
@@ -81,6 +83,7 @@ namespace Nop.Services.Customers
         /// Updates the customer attribute
         /// </summary>
         /// <param name="customerAttribute">Customer attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateCustomerAttributeAsync(CustomerAttribute customerAttribute)
         {
             await _customerAttributeRepository.UpdateAsync(customerAttribute);
@@ -90,6 +93,7 @@ namespace Nop.Services.Customers
         /// Deletes a customer attribute value
         /// </summary>
         /// <param name="customerAttributeValue">Customer attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCustomerAttributeValueAsync(CustomerAttributeValue customerAttributeValue)
         {
             await _customerAttributeValueRepository.DeleteAsync(customerAttributeValue);
@@ -128,6 +132,7 @@ namespace Nop.Services.Customers
         /// Inserts a customer attribute value
         /// </summary>
         /// <param name="customerAttributeValue">Customer attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertCustomerAttributeValueAsync(CustomerAttributeValue customerAttributeValue)
         {
             await _customerAttributeValueRepository.InsertAsync(customerAttributeValue);
@@ -137,6 +142,7 @@ namespace Nop.Services.Customers
         /// Updates the customer attribute value
         /// </summary>
         /// <param name="customerAttributeValue">Customer attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateCustomerAttributeValueAsync(CustomerAttributeValue customerAttributeValue)
         {
             await _customerAttributeValueRepository.UpdateAsync(customerAttributeValue);

@@ -92,6 +92,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Controllers
         /// Prepare SendinblueModel
         /// </summary>
         /// <param name="model">Model</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         private async Task PrepareModelAsync(ConfigurationModel model)
         {
             //load settings for active store scope

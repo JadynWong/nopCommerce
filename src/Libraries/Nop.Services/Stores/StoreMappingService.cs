@@ -45,6 +45,7 @@ namespace Nop.Services.Stores
         /// Inserts a store mapping record
         /// </summary>
         /// <param name="storeMapping">Store mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InsertStoreMappingAsync(StoreMapping storeMapping)
         {
             await _storeMappingRepository.InsertAsync(storeMapping);
@@ -97,6 +98,7 @@ namespace Nop.Services.Stores
         /// Deletes a store mapping record
         /// </summary>
         /// <param name="storeMapping">Store mapping record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteStoreMappingAsync(StoreMapping storeMapping)
         {
             await _storeMappingRepository.DeleteAsync(storeMapping);
@@ -134,6 +136,7 @@ namespace Nop.Services.Stores
         /// <typeparam name="TEntity">Type of entity that supports store mapping</typeparam>
         /// <param name="entity">Entity</param>
         /// <param name="storeId">Store id</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertStoreMappingAsync<TEntity>(TEntity entity, int storeId) where TEntity : BaseEntity, IStoreMappingSupported
         {
             if (entity == null)

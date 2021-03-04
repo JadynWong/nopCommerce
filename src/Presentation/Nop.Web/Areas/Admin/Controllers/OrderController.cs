@@ -180,6 +180,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             return await HasAccessToOrderAsync(shipment.OrderId);
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task LogEditOrderAsync(int orderId)
         {
             var order = await _orderService.GetOrderByIdAsync(orderId);

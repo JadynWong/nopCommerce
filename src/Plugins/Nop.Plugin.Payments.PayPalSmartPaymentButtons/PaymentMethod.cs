@@ -128,6 +128,7 @@ namespace Nop.Plugin.Payments.PayPalSmartPaymentButtons
         /// Post process payment (used by payment gateways that require redirecting to a third-party URL)
         /// </summary>
         /// <param name="postProcessPaymentRequest">Payment info required for an order processing</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public Task PostProcessPaymentAsync(PostProcessPaymentRequest postProcessPaymentRequest)
         {
             return Task.CompletedTask;
@@ -356,6 +357,7 @@ namespace Nop.Plugin.Payments.PayPalSmartPaymentButtons
         /// <summary>
         /// Install the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //settings
@@ -419,6 +421,7 @@ namespace Nop.Plugin.Payments.PayPalSmartPaymentButtons
         /// <summary>
         /// Uninstall the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //webhooks

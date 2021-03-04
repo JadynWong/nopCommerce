@@ -175,6 +175,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare the reward points model to add to the customer
         /// </summary>
         /// <param name="model">Reward points model to add to the customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareAddRewardPointsToCustomerModelAsync(AddRewardPointsToCustomerModel model)
         {
             if (model == null)
@@ -193,6 +194,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of customer associated external authorization models</param>
         /// <param name="customer">Customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareAssociatedExternalAuthModelsAsync(IList<CustomerAssociatedExternalAuthModel> models, Customer customer)
         {
             if (models == null)
@@ -223,6 +225,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of customer attribute models</param>
         /// <param name="customer">Customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareCustomerAttributeModelsAsync(IList<CustomerModel.CustomerAttributeModel> models, Customer customer)
         {
             if (models == null)
@@ -318,6 +321,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Address model</param>
         /// <param name="address">Address</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareModelAddressHtmlAsync(AddressModel model, Address address)
         {
             if (model == null)

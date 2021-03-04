@@ -115,6 +115,7 @@ namespace Nop.Plugin.Pickup.PickupInStore
         /// <summary>
         /// Install the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //sample pickup point
@@ -178,6 +179,7 @@ namespace Nop.Plugin.Pickup.PickupInStore
         /// <summary>
         /// Uninstall the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //locales

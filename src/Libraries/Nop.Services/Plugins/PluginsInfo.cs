@@ -103,6 +103,7 @@ namespace Nop.Services.Plugins
         /// <summary>
         /// Save plugins info to the file
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveAsync()
         {
             //save the file

@@ -32,6 +32,7 @@ namespace Nop.Services.Tax
         /// Deletes a tax category
         /// </summary>
         /// <param name="taxCategory">Tax category</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteTaxCategoryAsync(TaxCategory taxCategory)
         {
             await _taxCategoryRepository.DeleteAsync(taxCategory);
@@ -67,6 +68,7 @@ namespace Nop.Services.Tax
         /// Inserts a tax category
         /// </summary>
         /// <param name="taxCategory">Tax category</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertTaxCategoryAsync(TaxCategory taxCategory)
         {
             await _taxCategoryRepository.InsertAsync(taxCategory);
@@ -76,6 +78,7 @@ namespace Nop.Services.Tax
         /// Updates the tax category
         /// </summary>
         /// <param name="taxCategory">Tax category</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateTaxCategoryAsync(TaxCategory taxCategory)
         {
             await _taxCategoryRepository.UpdateAsync(taxCategory);

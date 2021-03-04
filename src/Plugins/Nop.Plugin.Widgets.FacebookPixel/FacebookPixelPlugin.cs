@@ -88,6 +88,7 @@ namespace Nop.Plugin.Widgets.FacebookPixel
         /// <summary>
         /// Install plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             await _localizationService.AddLocaleResourceAsync(new Dictionary<string, string>
@@ -145,6 +146,7 @@ namespace Nop.Plugin.Widgets.FacebookPixel
         /// <summary>
         /// Uninstall plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             _widgetSettings.ActiveWidgetSystemNames.Remove(FacebookPixelDefaults.SystemName);

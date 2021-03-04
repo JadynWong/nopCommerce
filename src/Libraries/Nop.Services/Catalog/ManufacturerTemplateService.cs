@@ -32,6 +32,7 @@ namespace Nop.Services.Catalog
         /// Delete manufacturer template
         /// </summary>
         /// <param name="manufacturerTemplate">Manufacturer template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteManufacturerTemplateAsync(ManufacturerTemplate manufacturerTemplate)
         {
             await _manufacturerTemplateRepository.DeleteAsync(manufacturerTemplate);
@@ -67,6 +68,7 @@ namespace Nop.Services.Catalog
         /// Inserts manufacturer template
         /// </summary>
         /// <param name="manufacturerTemplate">Manufacturer template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertManufacturerTemplateAsync(ManufacturerTemplate manufacturerTemplate)
         {
             await _manufacturerTemplateRepository.InsertAsync(manufacturerTemplate);
@@ -76,6 +78,7 @@ namespace Nop.Services.Catalog
         /// Updates the manufacturer template
         /// </summary>
         /// <param name="manufacturerTemplate">Manufacturer template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateManufacturerTemplateAsync(ManufacturerTemplate manufacturerTemplate)
         {
             await _manufacturerTemplateRepository.UpdateAsync(manufacturerTemplate);

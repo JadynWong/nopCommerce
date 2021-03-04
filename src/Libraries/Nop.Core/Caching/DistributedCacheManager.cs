@@ -159,6 +159,7 @@ namespace Nop.Core.Caching
         /// </summary>
         /// <param name="cacheKey">Cache key</param>
         /// <param name="cacheKeyParameters">Parameters to create cache key</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task RemoveAsync(CacheKey cacheKey, params object[] cacheKeyParameters)
         {
             cacheKey = PrepareKey(cacheKey, cacheKeyParameters);
@@ -175,6 +176,7 @@ namespace Nop.Core.Caching
         /// </summary>
         /// <param name="key">Key of cached item</param>
         /// <param name="data">Value for caching</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task SetAsync(CacheKey key, object data)
         {
             if ((key?.CacheTime ?? 0) <= 0 || data == null)
@@ -192,6 +194,7 @@ namespace Nop.Core.Caching
         /// </summary>
         /// <param name="prefix">Cache key prefix</param>
         /// <param name="prefixParameters">Parameters to create cache key prefix</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task RemoveByPrefixAsync(string prefix, params object[] prefixParameters)
         {
             prefix = PrepareKeyPrefix(prefix, prefixParameters);
@@ -209,6 +212,7 @@ namespace Nop.Core.Caching
         /// <summary>
         /// Clear all cache data
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task ClearAsync()
         {
             //we can't use _perRequestCache.Clear(),

@@ -77,6 +77,7 @@ namespace Nop.Services.Catalog
         /// Clean up manufacturer references for a specified discount
         /// </summary>
         /// <param name="discount">Discount</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ClearDiscountManufacturerMappingAsync(Discount discount)
         {
             if (discount is null)
@@ -91,6 +92,7 @@ namespace Nop.Services.Catalog
         /// Deletes a manufacturer
         /// </summary>
         /// <param name="manufacturer">Manufacturer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteManufacturerAsync(Manufacturer manufacturer)
         {
             await _manufacturerRepository.DeleteAsync(manufacturer);
@@ -100,6 +102,7 @@ namespace Nop.Services.Catalog
         /// Delete manufacturers
         /// </summary>
         /// <param name="manufacturers">Manufacturers</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteManufacturersAsync(IList<Manufacturer> manufacturers)
         {
             await _manufacturerRepository.DeleteAsync(manufacturers);
@@ -282,6 +285,7 @@ namespace Nop.Services.Catalog
         /// Inserts a manufacturer
         /// </summary>
         /// <param name="manufacturer">Manufacturer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertManufacturerAsync(Manufacturer manufacturer)
         {
             await _manufacturerRepository.InsertAsync(manufacturer);
@@ -291,6 +295,7 @@ namespace Nop.Services.Catalog
         /// Updates the manufacturer
         /// </summary>
         /// <param name="manufacturer">Manufacturer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateManufacturerAsync(Manufacturer manufacturer)
         {
             await _manufacturerRepository.UpdateAsync(manufacturer);
@@ -300,6 +305,7 @@ namespace Nop.Services.Catalog
         /// Deletes a product manufacturer mapping
         /// </summary>
         /// <param name="productManufacturer">Product manufacturer mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductManufacturerAsync(ProductManufacturer productManufacturer)
         {
             await _productManufacturerRepository.DeleteAsync(productManufacturer);
@@ -397,6 +403,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product manufacturer mapping
         /// </summary>
         /// <param name="productManufacturer">Product manufacturer mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductManufacturerAsync(ProductManufacturer productManufacturer)
         {
             await _productManufacturerRepository.InsertAsync(productManufacturer);
@@ -406,6 +413,7 @@ namespace Nop.Services.Catalog
         /// Updates the product manufacturer mapping
         /// </summary>
         /// <param name="productManufacturer">Product manufacturer mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductManufacturerAsync(ProductManufacturer productManufacturer)
         {
             await _productManufacturerRepository.UpdateAsync(productManufacturer);
@@ -487,6 +495,7 @@ namespace Nop.Services.Catalog
         /// Inserts a discount-manufacturer mapping record
         /// </summary>
         /// <param name="discountManufacturerMapping">Discount-manufacturer mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task InsertDiscountManufacturerMappingAsync(DiscountManufacturerMapping discountManufacturerMapping)
         {
             await _discountManufacturerMappingRepository.InsertAsync(discountManufacturerMapping);
@@ -496,6 +505,7 @@ namespace Nop.Services.Catalog
         /// Deletes a discount-manufacturer mapping record
         /// </summary>
         /// <param name="discountManufacturerMapping">Discount-manufacturer mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task DeleteDiscountManufacturerMappingAsync(DiscountManufacturerMapping discountManufacturerMapping)
         {
             await _discountManufacturerMappingRepository.DeleteAsync(discountManufacturerMapping);

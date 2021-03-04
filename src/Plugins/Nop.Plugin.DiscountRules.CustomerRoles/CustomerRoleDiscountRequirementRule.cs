@@ -95,6 +95,7 @@ namespace Nop.Plugin.DiscountRules.CustomerRoles
         /// <summary>
         /// Install the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //locales
@@ -113,6 +114,7 @@ namespace Nop.Plugin.DiscountRules.CustomerRoles
         /// <summary>
         /// Uninstall the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //discount requirements

@@ -50,6 +50,7 @@ namespace Nop.Services.Directory
         /// Deletes a country
         /// </summary>
         /// <param name="country">Country</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCountryAsync(Country country)
         {
             await _countryRepository.DeleteAsync(country);
@@ -189,6 +190,7 @@ namespace Nop.Services.Directory
         /// Inserts a country
         /// </summary>
         /// <param name="country">Country</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertCountryAsync(Country country)
         {
             await _countryRepository.InsertAsync(country);
@@ -198,6 +200,7 @@ namespace Nop.Services.Directory
         /// Updates the country
         /// </summary>
         /// <param name="country">Country</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateCountryAsync(Country country)
         {
             await _countryRepository.UpdateAsync(country);

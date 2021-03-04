@@ -53,6 +53,7 @@ namespace Nop.Services.Messages
         /// Inserts a campaign
         /// </summary>
         /// <param name="campaign">Campaign</param>        
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertCampaignAsync(Campaign campaign)
         {
             await _campaignRepository.InsertAsync(campaign);
@@ -62,6 +63,7 @@ namespace Nop.Services.Messages
         /// Updates a campaign
         /// </summary>
         /// <param name="campaign">Campaign</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateCampaignAsync(Campaign campaign)
         {
             await _campaignRepository.UpdateAsync(campaign);
@@ -71,6 +73,7 @@ namespace Nop.Services.Messages
         /// Deleted a queued email
         /// </summary>
         /// <param name="campaign">Campaign</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCampaignAsync(Campaign campaign)
         {
             await _campaignRepository.DeleteAsync(campaign);
@@ -165,6 +168,7 @@ namespace Nop.Services.Messages
         /// <param name="campaign">Campaign</param>
         /// <param name="emailAccount">Email account</param>
         /// <param name="email">Email</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SendCampaignAsync(Campaign campaign, EmailAccount emailAccount, string email)
         {
             if (campaign == null)

@@ -77,6 +77,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// Insert the log item
         /// </summary>
         /// <param name="logItem">Log item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertTaxTransactionLogAsync(TaxTransactionLog logItem)
         {
             if (logItem == null)
@@ -89,6 +90,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// Update the log item
         /// </summary>
         /// <param name="logItem">Log item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateTaxTransactionLogAsync(TaxTransactionLog logItem)
         {
             if (logItem == null)
@@ -101,6 +103,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// Delete the log item
         /// </summary>
         /// <param name="logItem">Log item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteTaxTransactionLogAsync(TaxTransactionLog logItem)
         {
             await _taxTransactionLogRepository.DeleteAsync(logItem, false);
@@ -110,6 +113,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// Delete log items
         /// </summary>
         /// <param name="ids">Log items identifiers</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteTaxTransactionLogAsync(int[] ids)
         {
             await _taxTransactionLogRepository.DeleteAsync(logItem => ids.Contains(logItem.Id));

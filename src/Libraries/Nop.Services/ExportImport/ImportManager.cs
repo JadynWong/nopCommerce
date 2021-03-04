@@ -174,6 +174,7 @@ namespace Nop.Services.ExportImport
             return ExportedAttributeType.NotSpecified;
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         private static async Task SetOutLineForSpecificationAttributeRowAsync(object cellValue, ExcelWorksheet worksheet, int endRow)
         {
             var attributeType = (cellValue ?? string.Empty).ToString();
@@ -279,6 +280,7 @@ namespace Nop.Services.ExportImport
             return newPicture;
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         private async Task LogPictureInsertErrorAsync(string picturePath, Exception ex)
         {
             var extension = _fileProvider.GetFileExtension(picturePath);
@@ -290,6 +292,7 @@ namespace Nop.Services.ExportImport
             await _logger.ErrorAsync($"Insert picture failed (file name: {fileName})", ex);
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task ImportProductImagesUsingServicesAsync(IList<ProductPictureMetadata> productPictureMetadata)
         {
             foreach (var product in productPictureMetadata)
@@ -345,6 +348,7 @@ namespace Nop.Services.ExportImport
             }
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task ImportProductImagesUsingHashAsync(IList<ProductPictureMetadata> productPictureMetadata, IList<Product> allProductsBySku)
         {
             //performance optimization, load all pictures hashes
@@ -567,6 +571,7 @@ namespace Nop.Services.ExportImport
             return (category, isNew, curentCategoryBreadCrumb);
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SaveCategoryAsync(bool isNew, Category category, Dictionary<string, ValueTask<Category>> allCategories, string curentCategoryBreadCrumb, bool setSeName, string seName)
         {
             if (isNew)
@@ -586,6 +591,7 @@ namespace Nop.Services.ExportImport
                 await _urlRecordService.SaveSlugAsync(category, await _urlRecordService.ValidateSeNameAsync(category, seName, category.Name, true), 0);
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SetOutLineForProductAttributeRowAsync(object cellValue, ExcelWorksheet worksheet, int endRow)
         {
             try
@@ -604,6 +610,7 @@ namespace Nop.Services.ExportImport
             }
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task ImportProductAttributeAsync(PropertyManager<ExportProductAttribute> productAttributeManager, Product lastLoadedProduct)
         {
             if (!_catalogSettings.ExportImportProductAttributes || lastLoadedProduct == null || productAttributeManager.IsCaption)
@@ -714,6 +721,7 @@ namespace Nop.Services.ExportImport
             }
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         private async Task ImportSpecificationAttributeAsync(PropertyManager<ExportSpecificationAttribute> specificationAttributeManager, Product lastLoadedProduct)
         {
             if (!_catalogSettings.ExportImportProductSpecificationAttributes || lastLoadedProduct == null || specificationAttributeManager.IsCaption)
@@ -1075,6 +1083,7 @@ namespace Nop.Services.ExportImport
             };
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         private async Task ImportProductsFromSplitedXlsxAsync(ExcelWorksheet worksheet, ImportProductMetadata metadata)
         {
             foreach (var path in SplitProductFile(worksheet, metadata))
@@ -1168,6 +1177,7 @@ namespace Nop.Services.ExportImport
         /// Import products from XLSX file
         /// </summary>
         /// <param name="stream">Stream</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ImportProductsFromXlsxAsync(Stream stream)
         {
             using var xlPackage = new ExcelPackage(stream);
@@ -1910,6 +1920,7 @@ namespace Nop.Services.ExportImport
         /// Import manufacturers from XLSX file
         /// </summary>
         /// <param name="stream">Stream</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ImportManufacturersFromXlsxAsync(Stream stream)
         {
             using var xlPackage = new ExcelPackage(stream);
@@ -2041,6 +2052,7 @@ namespace Nop.Services.ExportImport
         /// Import categories from XLSX file
         /// </summary>
         /// <param name="stream">Stream</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ImportCategoriesFromXlsxAsync(Stream stream)
         {
             using var xlPackage = new ExcelPackage(stream);

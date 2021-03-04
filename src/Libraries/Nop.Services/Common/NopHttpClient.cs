@@ -59,7 +59,10 @@ namespace Nop.Services.Common
         /// <summary>
         /// Check whether the site is available
         /// </summary>
-        /// <returns>The asynchronous task whose result determines that request is completed</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the asynchronous task whose result determines that request is completed
+        /// </returns>
         public virtual async Task PingAsync()
         {
             await _httpClient.GetStringAsync("/");

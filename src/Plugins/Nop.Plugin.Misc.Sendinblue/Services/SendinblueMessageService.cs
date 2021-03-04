@@ -91,6 +91,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
         /// </summary>
         /// <param name="messageTemplate">Message template</param>
         /// <param name="tokens">Tokens</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         private async Task SendSmsNotificationAsync(MessageTemplate messageTemplate, IEnumerable<Token> tokens)
         {
             //get plugin settings

@@ -216,6 +216,7 @@ namespace Nop.Services.Orders
         /// <param name="discountAmountExclTax">Discount amount (excl tax)</param>
         /// <param name="shippingTotalExclTax">Shipping (excl tax)</param>
         /// <param name="taxTotal">Tax</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task UpdateTotalAsync(UpdateOrderParameters updateOrderParameters, decimal subTotalExclTax,
             decimal discountAmountExclTax, decimal shippingTotalExclTax, decimal taxTotal)
         {
@@ -908,6 +909,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="updateOrderParameters">Parameters for the updating order</param>
         /// <param name="restoredCart">Shopping cart</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateOrderTotalsAsync(UpdateOrderParameters updateOrderParameters, IList<ShoppingCartItem> restoredCart)
         {
             //sub total

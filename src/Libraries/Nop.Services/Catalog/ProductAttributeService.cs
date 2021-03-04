@@ -52,6 +52,7 @@ namespace Nop.Services.Catalog
         /// Deletes a product attribute
         /// </summary>
         /// <param name="productAttribute">Product attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductAttributeAsync(ProductAttribute productAttribute)
         {
             await _productAttributeRepository.DeleteAsync(productAttribute);
@@ -61,6 +62,7 @@ namespace Nop.Services.Catalog
         /// Deletes product attributes
         /// </summary>
         /// <param name="productAttributes">Product attributes</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductAttributesAsync(IList<ProductAttribute> productAttributes)
         {
             if (productAttributes == null)
@@ -113,6 +115,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product attribute
         /// </summary>
         /// <param name="productAttribute">Product attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductAttributeAsync(ProductAttribute productAttribute)
         {
             await _productAttributeRepository.InsertAsync(productAttribute);
@@ -122,6 +125,7 @@ namespace Nop.Services.Catalog
         /// Updates the product attribute
         /// </summary>
         /// <param name="productAttribute">Product attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductAttributeAsync(ProductAttribute productAttribute)
         {
             await _productAttributeRepository.UpdateAsync(productAttribute);
@@ -154,6 +158,7 @@ namespace Nop.Services.Catalog
         /// Deletes a product attribute mapping
         /// </summary>
         /// <param name="productAttributeMapping">Product attribute mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductAttributeMappingAsync(ProductAttributeMapping productAttributeMapping)
         {
             await _productAttributeMappingRepository.DeleteAsync(productAttributeMapping);
@@ -192,6 +197,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product attribute mapping
         /// </summary>
         /// <param name="productAttributeMapping">The product attribute mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductAttributeMappingAsync(ProductAttributeMapping productAttributeMapping)
         {
             await _productAttributeMappingRepository.InsertAsync(productAttributeMapping);
@@ -201,6 +207,7 @@ namespace Nop.Services.Catalog
         /// Updates the product attribute mapping
         /// </summary>
         /// <param name="productAttributeMapping">The product attribute mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductAttributeMappingAsync(ProductAttributeMapping productAttributeMapping)
         {
             await _productAttributeMappingRepository.UpdateAsync(productAttributeMapping);
@@ -214,6 +221,7 @@ namespace Nop.Services.Catalog
         /// Deletes a product attribute value
         /// </summary>
         /// <param name="productAttributeValue">Product attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductAttributeValueAsync(ProductAttributeValue productAttributeValue)
         {
             await _productAttributeValueRepository.DeleteAsync(productAttributeValue);
@@ -251,6 +259,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product attribute value
         /// </summary>
         /// <param name="productAttributeValue">The product attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductAttributeValueAsync(ProductAttributeValue productAttributeValue)
         {
             await _productAttributeValueRepository.InsertAsync(productAttributeValue);
@@ -260,6 +269,7 @@ namespace Nop.Services.Catalog
         /// Updates the product attribute value
         /// </summary>
         /// <param name="productAttributeValue">The product attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductAttributeValueAsync(ProductAttributeValue productAttributeValue)
         {
             await _productAttributeValueRepository.UpdateAsync(productAttributeValue);
@@ -273,6 +283,7 @@ namespace Nop.Services.Catalog
         /// Deletes a predefined product attribute value
         /// </summary>
         /// <param name="ppav">Predefined product attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeletePredefinedProductAttributeValueAsync(PredefinedProductAttributeValue ppav)
         {
             await _predefinedProductAttributeValueRepository.DeleteAsync(ppav);
@@ -311,6 +322,7 @@ namespace Nop.Services.Catalog
         /// Inserts a predefined product attribute value
         /// </summary>
         /// <param name="ppav">The predefined product attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertPredefinedProductAttributeValueAsync(PredefinedProductAttributeValue ppav)
         {
             await _predefinedProductAttributeValueRepository.InsertAsync(ppav);
@@ -320,6 +332,7 @@ namespace Nop.Services.Catalog
         /// Updates the predefined product attribute value
         /// </summary>
         /// <param name="ppav">The predefined product attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdatePredefinedProductAttributeValueAsync(PredefinedProductAttributeValue ppav)
         {
             await _predefinedProductAttributeValueRepository.UpdateAsync(ppav);
@@ -333,6 +346,7 @@ namespace Nop.Services.Catalog
         /// Deletes a product attribute combination
         /// </summary>
         /// <param name="combination">Product attribute combination</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductAttributeCombinationAsync(ProductAttributeCombination combination)
         {
             await _productAttributeCombinationRepository.DeleteAsync(combination);
@@ -394,6 +408,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product attribute combination
         /// </summary>
         /// <param name="combination">Product attribute combination</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductAttributeCombinationAsync(ProductAttributeCombination combination)
         {
             await _productAttributeCombinationRepository.InsertAsync(combination);
@@ -403,6 +418,7 @@ namespace Nop.Services.Catalog
         /// Updates a product attribute combination
         /// </summary>
         /// <param name="combination">Product attribute combination</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductAttributeCombinationAsync(ProductAttributeCombination combination)
         {
             await _productAttributeCombinationRepository.UpdateAsync(combination);

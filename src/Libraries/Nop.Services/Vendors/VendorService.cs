@@ -105,6 +105,7 @@ namespace Nop.Services.Vendors
         /// Delete a vendor
         /// </summary>
         /// <param name="vendor">Vendor</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteVendorAsync(Vendor vendor)
         {
             await _vendorRepository.DeleteAsync(vendor);
@@ -145,6 +146,7 @@ namespace Nop.Services.Vendors
         /// Inserts a vendor
         /// </summary>
         /// <param name="vendor">Vendor</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertVendorAsync(Vendor vendor)
         {
             await _vendorRepository.InsertAsync(vendor);
@@ -154,6 +156,7 @@ namespace Nop.Services.Vendors
         /// Updates the vendor
         /// </summary>
         /// <param name="vendor">Vendor</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateVendorAsync(Vendor vendor)
         {
             await _vendorRepository.UpdateAsync(vendor);
@@ -189,6 +192,7 @@ namespace Nop.Services.Vendors
         /// Deletes a vendor note
         /// </summary>
         /// <param name="vendorNote">The vendor note</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteVendorNoteAsync(VendorNote vendorNote)
         {
             await _vendorNoteRepository.DeleteAsync(vendorNote);
@@ -198,6 +202,7 @@ namespace Nop.Services.Vendors
         /// Inserts a vendor note
         /// </summary>
         /// <param name="vendorNote">Vendor note</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertVendorNoteAsync(VendorNote vendorNote)
         {
             await _vendorNoteRepository.InsertAsync(vendorNote);

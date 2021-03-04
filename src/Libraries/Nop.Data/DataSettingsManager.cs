@@ -193,6 +193,7 @@ namespace Nop.Data
         /// </summary>
         /// <param name="settings">Data settings</param>
         /// <param name="fileProvider">File provider</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public static async Task SaveSettingsAsync(DataSettings settings, INopFileProvider fileProvider = null)
         {
             Singleton<DataSettings>.Instance = settings ?? throw new ArgumentNullException(nameof(settings));

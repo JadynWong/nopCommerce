@@ -136,6 +136,7 @@ namespace Nop.Services.Discounts
         /// Delete discount
         /// </summary>
         /// <param name="discount">Discount</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteDiscountAsync(Discount discount)
         {
             //first, delete related discount requirements
@@ -230,6 +231,7 @@ namespace Nop.Services.Discounts
         /// Inserts a discount
         /// </summary>
         /// <param name="discount">Discount</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertDiscountAsync(Discount discount)
         {
             await _discountRepository.InsertAsync(discount);
@@ -239,6 +241,7 @@ namespace Nop.Services.Discounts
         /// Updates the discount
         /// </summary>
         /// <param name="discount">Discount</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateDiscountAsync(Discount discount)
         {
             await _discountRepository.UpdateAsync(discount);
@@ -400,6 +403,7 @@ namespace Nop.Services.Discounts
         /// </summary>
         /// <param name="discountRequirement">Discount requirement</param>
         /// <param name="recursive">A value indicating whether to recursively delete child requirements</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteDiscountRequirementAsync(DiscountRequirement discountRequirement, bool recursive = false)
         {
             if (discountRequirement == null)
@@ -416,6 +420,7 @@ namespace Nop.Services.Discounts
         /// Inserts a discount requirement
         /// </summary>
         /// <param name="discountRequirement">Discount requirement</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertDiscountRequirementAsync(DiscountRequirement discountRequirement)
         {
             await _discountRequirementRepository.InsertAsync(discountRequirement);
@@ -425,6 +430,7 @@ namespace Nop.Services.Discounts
         /// Updates a discount requirement
         /// </summary>
         /// <param name="discountRequirement">Discount requirement</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateDiscountRequirementAsync(DiscountRequirement discountRequirement)
         {
             await _discountRequirementRepository.UpdateAsync(discountRequirement);
@@ -644,6 +650,7 @@ namespace Nop.Services.Discounts
         /// Insert discount usage history record
         /// </summary>
         /// <param name="discountUsageHistory">Discount usage history record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertDiscountUsageHistoryAsync(DiscountUsageHistory discountUsageHistory)
         {
             await _discountUsageHistoryRepository.InsertAsync(discountUsageHistory);
@@ -653,6 +660,7 @@ namespace Nop.Services.Discounts
         /// Delete discount usage history record
         /// </summary>
         /// <param name="discountUsageHistory">Discount usage history record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteDiscountUsageHistoryAsync(DiscountUsageHistory discountUsageHistory)
         {
             await _discountUsageHistoryRepository.DeleteAsync(discountUsageHistory);

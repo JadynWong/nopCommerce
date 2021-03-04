@@ -63,6 +63,7 @@ namespace Nop.Services.Shipping.Date
         /// Insert a delivery date
         /// </summary>
         /// <param name="deliveryDate">Delivery date</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertDeliveryDateAsync(DeliveryDate deliveryDate)
         {
             await _deliveryDateRepository.InsertAsync(deliveryDate);
@@ -72,6 +73,7 @@ namespace Nop.Services.Shipping.Date
         /// Update the delivery date
         /// </summary>
         /// <param name="deliveryDate">Delivery date</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateDeliveryDateAsync(DeliveryDate deliveryDate)
         {
             await _deliveryDateRepository.UpdateAsync(deliveryDate);
@@ -81,6 +83,7 @@ namespace Nop.Services.Shipping.Date
         /// Delete a delivery date
         /// </summary>
         /// <param name="deliveryDate">The delivery date</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteDeliveryDateAsync(DeliveryDate deliveryDate)
         {
             await _deliveryDateRepository.DeleteAsync(deliveryDate);
@@ -118,6 +121,7 @@ namespace Nop.Services.Shipping.Date
         /// Insert the product availability range
         /// </summary>
         /// <param name="productAvailabilityRange">Product availability range</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductAvailabilityRangeAsync(ProductAvailabilityRange productAvailabilityRange)
         {
             await _productAvailabilityRangeRepository.InsertAsync(productAvailabilityRange);
@@ -127,6 +131,7 @@ namespace Nop.Services.Shipping.Date
         /// Update the product availability range
         /// </summary>
         /// <param name="productAvailabilityRange">Product availability range</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductAvailabilityRangeAsync(ProductAvailabilityRange productAvailabilityRange)
         {
             await _productAvailabilityRangeRepository.UpdateAsync(productAvailabilityRange);
@@ -136,6 +141,7 @@ namespace Nop.Services.Shipping.Date
         /// Delete the product availability range
         /// </summary>
         /// <param name="productAvailabilityRange">Product availability range</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductAvailabilityRangeAsync(ProductAvailabilityRange productAvailabilityRange)
         {
             await _productAvailabilityRangeRepository.DeleteAsync(productAvailabilityRange);

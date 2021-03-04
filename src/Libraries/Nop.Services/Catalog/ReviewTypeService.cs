@@ -62,6 +62,7 @@ namespace Nop.Services.Catalog
         /// Inserts a review type
         /// </summary>
         /// <param name="reviewType">Review type</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertReviewTypeAsync(ReviewType reviewType)
         {
             await _reviewTypeRepository.InsertAsync(reviewType);
@@ -71,6 +72,7 @@ namespace Nop.Services.Catalog
         /// Updates a review type
         /// </summary>
         /// <param name="reviewType">Review type</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateReviewTypeAsync(ReviewType reviewType)
         {
             await _reviewTypeRepository.UpdateAsync(reviewType);
@@ -80,6 +82,7 @@ namespace Nop.Services.Catalog
         /// Delete review type
         /// </summary>
         /// <param name="reviewType">Review type</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteReviewTypeAsync(ReviewType reviewType)
         {
             await _reviewTypeRepository.DeleteAsync(reviewType);
@@ -113,6 +116,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product review and review type mapping
         /// </summary>
         /// <param name="productReviewReviewType">Product review and review type mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductReviewReviewTypeMappingsAsync(ProductReviewReviewTypeMapping productReviewReviewType)
         {
             await _productReviewReviewTypeMappingRepository.InsertAsync(productReviewReviewType);

@@ -179,6 +179,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <typeparam name="TEntity">Entity type</typeparam>
         /// <param name="ident">Identity value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetTableIdentAsync<TEntity>(int ident) where TEntity : BaseEntity
         {
             using var currentConnection = await CreateDataConnectionAsync();
@@ -194,6 +195,7 @@ namespace Nop.Data.DataProviders
         /// <summary>
         /// Creates a backup of the database
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task BackupDatabaseAsync(string fileName)
         {
             using var currentConnection = await CreateDataConnectionAsync();
@@ -205,6 +207,7 @@ namespace Nop.Data.DataProviders
         /// Restores the database from a backup
         /// </summary>
         /// <param name="backupFileName">The name of the backup file</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task RestoreDatabaseAsync(string backupFileName)
         {
             using var currentConnection = await CreateDataConnectionAsync();
@@ -231,6 +234,7 @@ namespace Nop.Data.DataProviders
         /// <summary>
         /// Re-index database tables
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ReIndexTablesAsync()
         {
             using var currentConnection = await CreateDataConnectionAsync();
@@ -310,6 +314,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <param name="entities">Entities with data to update</param>
         /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UpdateEntitiesAsync<TEntity>(IEnumerable<TEntity> entities)
         {
             using var dataContext = await CreateDataConnectionAsync();

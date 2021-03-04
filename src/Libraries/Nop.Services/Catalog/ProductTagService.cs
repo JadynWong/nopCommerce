@@ -65,6 +65,7 @@ namespace Nop.Services.Catalog
         /// </summary>
         /// <param name="productId">Product identifier</param>
         /// <param name="productTagId">Product tag identifier</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task DeleteProductProductTagMappingAsync(int productId, int productTagId)
         {
             var mappingRecord = await _productProductTagMappingRepository.Table
@@ -110,6 +111,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product tag
         /// </summary>
         /// <param name="productTag">Product tag</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InsertProductTagAsync(ProductTag productTag)
         {
             await _productTagRepository.InsertAsync(productTag);
@@ -123,6 +125,7 @@ namespace Nop.Services.Catalog
         /// Delete a product tag
         /// </summary>
         /// <param name="productTag">Product tag</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductTagAsync(ProductTag productTag)
         {
             await _productTagRepository.DeleteAsync(productTag);
@@ -132,6 +135,7 @@ namespace Nop.Services.Catalog
         /// Delete product tags
         /// </summary>
         /// <param name="productTags">Product tags</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductTagsAsync(IList<ProductTag> productTags)
         {
             if (productTags == null)
@@ -201,6 +205,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product-product tag mapping
         /// </summary>
         /// <param name="tagMapping">Product-product tag mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductProductTagMappingAsync(ProductProductTagMapping tagMapping)
         {
             await _productProductTagMappingRepository.InsertAsync(tagMapping);
@@ -210,6 +215,7 @@ namespace Nop.Services.Catalog
         /// Updates the product tag
         /// </summary>
         /// <param name="productTag">Product tag</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductTagAsync(ProductTag productTag)
         {
             if (productTag == null)
@@ -285,6 +291,7 @@ namespace Nop.Services.Catalog
         /// </summary>
         /// <param name="product">Product for update</param>
         /// <param name="productTags">Product tags</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductTagsAsync(Product product, string[] productTags)
         {
             if (product == null)

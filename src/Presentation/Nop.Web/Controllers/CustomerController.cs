@@ -307,6 +307,7 @@ namespace Nop.Web.Controllers
             return attributesXml;
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task LogGdprAsync(Customer customer, CustomerInfoModel oldCustomerInfoModel,
             CustomerInfoModel newCustomerInfoModel, IFormCollection form)
         {

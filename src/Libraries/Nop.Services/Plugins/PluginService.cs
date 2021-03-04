@@ -328,6 +328,7 @@ namespace Nop.Services.Plugins
         /// <param name="systemName">Plugin system name</param>
         /// <param name="customer">Customer</param>
         /// <param name="checkDependencies">Specifies whether to check plugin dependencies</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PreparePluginToInstallAsync(string systemName, Customer customer = null, bool checkDependencies = true)
         {
             //add plugin name to the appropriate list (if not yet contained) and save changes
@@ -368,6 +369,7 @@ namespace Nop.Services.Plugins
         /// Prepare plugin to the uninstallation
         /// </summary>
         /// <param name="systemName">Plugin system name</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PreparePluginToUninstallAsync(string systemName)
         {
             //add plugin name to the appropriate list (if not yet contained) and save changes
@@ -421,6 +423,7 @@ namespace Nop.Services.Plugins
         /// Prepare plugin to the removing
         /// </summary>
         /// <param name="systemName">Plugin system name</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PreparePluginToDeleteAsync(string systemName)
         {
             //add plugin name to the appropriate list (if not yet contained) and save changes
@@ -457,6 +460,7 @@ namespace Nop.Services.Plugins
         /// <summary>
         /// Install plugins
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InstallPluginsAsync()
         {
             //get all uninstalled plugins
@@ -512,6 +516,7 @@ namespace Nop.Services.Plugins
         /// <summary>
         /// Uninstall plugins
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UninstallPluginsAsync()
         {
             //get all installed plugins
@@ -566,6 +571,7 @@ namespace Nop.Services.Plugins
         /// <summary>
         /// Delete plugins
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeletePluginsAsync()
         {
             //get all uninstalled plugins (delete plugin only previously uninstalled)
@@ -625,6 +631,7 @@ namespace Nop.Services.Plugins
         /// <summary>
         /// Update plugins
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdatePluginsAsync()
         {
             foreach (var installedPlugin in _pluginsInfo.InstalledPlugins)

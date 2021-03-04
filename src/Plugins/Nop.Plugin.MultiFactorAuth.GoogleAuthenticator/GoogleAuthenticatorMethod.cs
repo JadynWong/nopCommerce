@@ -74,6 +74,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator
         /// <summary>
         /// Install the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //settings
@@ -122,6 +123,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator
         /// <summary>
         /// Uninstall the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //settings

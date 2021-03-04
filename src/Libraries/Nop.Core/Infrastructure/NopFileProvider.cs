@@ -538,6 +538,7 @@ namespace Nop.Core.Infrastructure
         /// </summary>
         /// <param name="filePath">The file to write to</param>
         /// <param name="bytes">The bytes to write to the file</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task WriteAllBytesAsync(string filePath, byte[] bytes)
         {
             await File.WriteAllBytesAsync(filePath, bytes);
@@ -550,6 +551,7 @@ namespace Nop.Core.Infrastructure
         /// <param name="path">The file to write to</param>
         /// <param name="contents">The string to write to the file</param>
         /// <param name="encoding">The encoding to apply to the string</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task WriteAllTextAsync(string path, string contents, Encoding encoding)
         {
             await File.WriteAllTextAsync(path, contents, encoding);

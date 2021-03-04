@@ -85,6 +85,7 @@ namespace Nop.Services.Affiliates
         /// Marks affiliate as deleted 
         /// </summary>
         /// <param name="affiliate">Affiliate</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAffiliateAsync(Affiliate affiliate)
         {
             await _affiliateRepository.DeleteAsync(affiliate);
@@ -155,6 +156,7 @@ namespace Nop.Services.Affiliates
         /// Inserts an affiliate
         /// </summary>
         /// <param name="affiliate">Affiliate</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertAffiliateAsync(Affiliate affiliate)
         {
             await _affiliateRepository.InsertAsync(affiliate);
@@ -164,6 +166,7 @@ namespace Nop.Services.Affiliates
         /// Updates the affiliate
         /// </summary>
         /// <param name="affiliate">Affiliate</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateAffiliateAsync(Affiliate affiliate)
         {
             await _affiliateRepository.UpdateAsync(affiliate);

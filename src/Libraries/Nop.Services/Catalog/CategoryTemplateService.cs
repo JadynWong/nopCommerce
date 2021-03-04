@@ -32,6 +32,7 @@ namespace Nop.Services.Catalog
         /// Delete category template
         /// </summary>
         /// <param name="categoryTemplate">Category template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCategoryTemplateAsync(CategoryTemplate categoryTemplate)
         {
             await _categoryTemplateRepository.DeleteAsync(categoryTemplate);
@@ -67,6 +68,7 @@ namespace Nop.Services.Catalog
         /// Inserts category template
         /// </summary>
         /// <param name="categoryTemplate">Category template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertCategoryTemplateAsync(CategoryTemplate categoryTemplate)
         {
             await _categoryTemplateRepository.InsertAsync(categoryTemplate);
@@ -76,6 +78,7 @@ namespace Nop.Services.Catalog
         /// Updates the category template
         /// </summary>
         /// <param name="categoryTemplate">Category template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateCategoryTemplateAsync(CategoryTemplate categoryTemplate)
         {
             await _categoryTemplateRepository.UpdateAsync(categoryTemplate);

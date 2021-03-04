@@ -80,6 +80,7 @@ namespace Nop.Services.Common
         /// Inserts a search term record
         /// </summary>
         /// <param name="searchTerm">Search term</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertSearchTermAsync(SearchTerm searchTerm)
         {
             await _searchTermRepository.InsertAsync(searchTerm);
@@ -89,6 +90,7 @@ namespace Nop.Services.Common
         /// Updates the search term record
         /// </summary>
         /// <param name="searchTerm">Search term</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateSearchTermAsync(SearchTerm searchTerm)
         {
             await _searchTermRepository.UpdateAsync(searchTerm);

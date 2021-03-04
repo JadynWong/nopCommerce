@@ -1121,6 +1121,7 @@ namespace Nop.Services.Seo
         /// Updates the URL record
         /// </summary>
         /// <param name="urlRecord">URL record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task UpdateUrlRecordAsync(UrlRecord urlRecord)
         {
             await _urlRecordRepository.UpdateAsync(urlRecord);
@@ -1134,6 +1135,7 @@ namespace Nop.Services.Seo
         /// Deletes an URL records
         /// </summary>
         /// <param name="urlRecords">URL records</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteUrlRecordsAsync(IList<UrlRecord> urlRecords)
         {
             await _urlRecordRepository.DeleteAsync(urlRecords);
@@ -1153,6 +1155,7 @@ namespace Nop.Services.Seo
         /// Inserts an URL record
         /// </summary>
         /// <param name="urlRecord">URL record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertUrlRecordAsync(UrlRecord urlRecord)
         {
             await _urlRecordRepository.InsertAsync(urlRecord);
@@ -1286,6 +1289,7 @@ namespace Nop.Services.Seo
         /// <param name="entity">Entity</param>
         /// <param name="slug">Slug</param>
         /// <param name="languageId">Language ID</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveSlugAsync<T>(T entity, string slug, int languageId) where T : BaseEntity, ISlugSupported
         {
             if (entity == null)

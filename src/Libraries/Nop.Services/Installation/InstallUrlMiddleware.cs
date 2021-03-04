@@ -33,7 +33,10 @@ namespace Nop.Services.Installation
         /// </summary>
         /// <param name="context">HTTP context</param>
         /// <param name="webHelper">Web helper</param>
-        /// <returns>Task</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the ask
+        /// </returns>
         public async Task InvokeAsync(HttpContext context, IWebHelper webHelper)
         {
             //whether database is installed

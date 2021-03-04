@@ -59,6 +59,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Currency exchange rate provider model</param>
         /// <param name="prepareExchangeRates">Whether to prepare exchange rate models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareExchangeRateProviderModelAsync(CurrencyExchangeRateProviderModel model, bool prepareExchangeRates)
         {
             if (model == null)
@@ -85,6 +86,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare exchange rate models
         /// </summary>
         /// <param name="models">List of currency exchange rate model</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareExchangeRateModelsAsync(IList<CurrencyExchangeRateModel> models)
         {
             if (models == null)

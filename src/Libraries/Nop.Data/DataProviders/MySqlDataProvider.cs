@@ -212,6 +212,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <typeparam name="TEntity">Entity type</typeparam>
         /// <param name="ident">Identity value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetTableIdentAsync<TEntity>(int ident) where TEntity : BaseEntity
         {
             var currentIdent = await GetTableIdentAsync<TEntity>();
@@ -227,6 +228,7 @@ namespace Nop.Data.DataProviders
         /// <summary>
         /// Creates a backup of the database
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual Task BackupDatabaseAsync(string fileName)
         {
             throw new DataException("This database provider does not support backup");
@@ -236,6 +238,7 @@ namespace Nop.Data.DataProviders
         /// Restores the database from a backup
         /// </summary>
         /// <param name="backupFileName">The name of the backup file</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual Task RestoreDatabaseAsync(string backupFileName)
         {
             throw new DataException("This database provider does not support backup");
@@ -244,6 +247,7 @@ namespace Nop.Data.DataProviders
         /// <summary>
         /// Re-index database tables
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ReIndexTablesAsync()
         {
             using var currentConnection = await CreateDataConnectionAsync();

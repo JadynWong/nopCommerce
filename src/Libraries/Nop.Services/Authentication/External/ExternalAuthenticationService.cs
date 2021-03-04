@@ -284,6 +284,7 @@ namespace Nop.Services.Authentication.External
         /// Delete the external authentication record
         /// </summary>
         /// <param name="externalAuthenticationRecord">External authentication record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteExternalAuthenticationRecordAsync(ExternalAuthenticationRecord externalAuthenticationRecord)
         {
             if (externalAuthenticationRecord == null)
@@ -297,6 +298,7 @@ namespace Nop.Services.Authentication.External
         /// </summary>
         /// <param name="customer">Customer</param>
         /// <param name="parameters">External authentication parameters</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task AssociateExternalAccountWithUserAsync(Customer customer, ExternalAuthenticationParameters parameters)
         {
             if (customer == null)
@@ -337,6 +339,7 @@ namespace Nop.Services.Authentication.External
         /// Remove the association
         /// </summary>
         /// <param name="parameters">External authentication parameters</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task RemoveAssociationAsync(ExternalAuthenticationParameters parameters)
         {
             if (parameters == null)

@@ -35,6 +35,7 @@ namespace Nop.Services.Messages
         /// Inserts a queued email
         /// </summary>
         /// <param name="queuedEmail">Queued email</param>        
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertQueuedEmailAsync(QueuedEmail queuedEmail)
         {
             await _queuedEmailRepository.InsertAsync(queuedEmail);
@@ -44,6 +45,7 @@ namespace Nop.Services.Messages
         /// Updates a queued email
         /// </summary>
         /// <param name="queuedEmail">Queued email</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateQueuedEmailAsync(QueuedEmail queuedEmail)
         {
             await _queuedEmailRepository.UpdateAsync(queuedEmail);
@@ -53,6 +55,7 @@ namespace Nop.Services.Messages
         /// Deleted a queued email
         /// </summary>
         /// <param name="queuedEmail">Queued email</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteQueuedEmailAsync(QueuedEmail queuedEmail)
         {
             await _queuedEmailRepository.DeleteAsync(queuedEmail);
@@ -62,6 +65,7 @@ namespace Nop.Services.Messages
         /// Deleted a queued emails
         /// </summary>
         /// <param name="queuedEmails">Queued emails</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteQueuedEmailsAsync(IList<QueuedEmail> queuedEmails)
         {
             await _queuedEmailRepository.DeleteAsync(queuedEmails);
@@ -166,6 +170,7 @@ namespace Nop.Services.Messages
         /// <summary>
         /// Delete all queued emails
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAllEmailsAsync()
         {
             await _queuedEmailRepository.TruncateAsync();

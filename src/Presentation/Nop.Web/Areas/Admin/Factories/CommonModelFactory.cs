@@ -195,6 +195,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare store URL warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareStoreUrlWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -226,6 +227,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare copyright removal key warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareRemovalKeyWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -260,6 +262,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare primary exchange rate currency warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareExchangeRateCurrencyWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -298,6 +301,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare primary store currency warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PreparePrimaryStoreCurrencyWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -326,6 +330,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare base weight warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareBaseWeightWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -364,6 +369,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare base dimension warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareBaseDimensionWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -402,6 +408,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare payment methods warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PreparePaymentMethodsWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -429,6 +436,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare plugins warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PreparePluginsWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -493,6 +501,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare performance settings warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PreparePerformanceSettingsWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -523,6 +532,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare file permissions warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareFilePermissionsWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)
@@ -599,6 +609,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare plugins enabled warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PreparePluginsEnabledWarningModelAsync(List<SystemWarningModel> models)
         {
             var plugins = await _pluginService.GetPluginsAsync<IPlugin>();
@@ -755,6 +766,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare proxy connection warning model
         /// </summary>
         /// <param name="models">List of system warning models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareProxyConnectionWarningModelAsync(IList<SystemWarningModel> models)
         {
             if (models == null)

@@ -293,6 +293,7 @@ namespace Nop.Services.Seo
         /// </summary>
         /// <param name="stream">Stream</param>
         /// <param name="sitemapNumber">The number of sitemaps</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteSitemapIndexAsync(Stream stream, int sitemapNumber)
         {
             var urlHelper = GetUrlHelper();
@@ -328,6 +329,7 @@ namespace Nop.Services.Seo
         /// </summary>
         /// <param name="stream">Stream</param>
         /// <param name="sitemapUrls">List of sitemap URLs</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteSitemapAsync(Stream stream, IList<SitemapUrl> sitemapUrls)
         {
             await using var writer = new XmlTextWriter(stream, Encoding.UTF8)
@@ -363,6 +365,7 @@ namespace Nop.Services.Seo
         /// </summary>
         /// <param name="writer">XML stream writer</param>
         /// <param name="sitemapUrl">Sitemap URL</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteSitemapUrlAsync(XmlTextWriter writer, SitemapUrl sitemapUrl)
         {
             if (string.IsNullOrEmpty(sitemapUrl.Location))
@@ -405,6 +408,7 @@ namespace Nop.Services.Seo
         /// </summary>
         /// <param name="id">Sitemap identifier</param>
         /// <param name="stream">Stream of sitemap.</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task GenerateAsync(Stream stream, int? id)
         {
             //generate all URLs for the sitemap

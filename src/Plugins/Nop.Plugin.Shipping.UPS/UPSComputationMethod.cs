@@ -84,6 +84,7 @@ namespace Nop.Plugin.Shipping.UPS
         /// <summary>
         /// Install plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //settings
@@ -158,6 +159,7 @@ namespace Nop.Plugin.Shipping.UPS
         /// <summary>
         /// Uninstall plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //settings

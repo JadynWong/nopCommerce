@@ -72,6 +72,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #region Utilities
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SaveStoreMappingsAsync(Language language, LanguageModel model)
         {
             language.LimitedToStores = model.SelectedStoreIds.Any();

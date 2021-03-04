@@ -83,6 +83,7 @@ namespace Nop.Services.Configuration
         /// <param name="value">Value</param>
         /// <param name="storeId">Store identifier</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SetSettingAsync(Type type, string key, object value, int storeId = 0, bool clearCache = true)
         {
             if (key == null)
@@ -122,6 +123,7 @@ namespace Nop.Services.Configuration
         /// </summary>
         /// <param name="setting">Setting</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertSettingAsync(Setting setting, bool clearCache = true)
         {
             await _settingRepository.InsertAsync(setting);
@@ -136,6 +138,7 @@ namespace Nop.Services.Configuration
         /// </summary>
         /// <param name="setting">Setting</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateSettingAsync(Setting setting, bool clearCache = true)
         {
             if (setting == null)
@@ -152,6 +155,7 @@ namespace Nop.Services.Configuration
         /// Deletes a setting
         /// </summary>
         /// <param name="setting">Setting</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSettingAsync(Setting setting)
         {
             await _settingRepository.DeleteAsync(setting);
@@ -164,6 +168,7 @@ namespace Nop.Services.Configuration
         /// Deletes settings
         /// </summary>
         /// <param name="settings">Settings</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSettingsAsync(IList<Setting> settings)
         {
             await _settingRepository.DeleteAsync(settings);
@@ -247,6 +252,7 @@ namespace Nop.Services.Configuration
         /// <param name="value">Value</param>
         /// <param name="storeId">Store identifier</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetSettingAsync<T>(string key, T value, int storeId = 0, bool clearCache = true)
         {
             await SetSettingAsync(typeof(T), key, value, storeId, clearCache);
@@ -339,6 +345,7 @@ namespace Nop.Services.Configuration
         /// <typeparam name="T">Type</typeparam>
         /// <param name="storeId">Store identifier</param>
         /// <param name="settings">Setting instance</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveSettingAsync<T>(T settings, int storeId = 0) where T : ISettings, new()
         {
             /* We do not clear cache after each setting update.
@@ -374,6 +381,7 @@ namespace Nop.Services.Configuration
         /// <param name="keySelector">Key selector</param>
         /// <param name="storeId">Store ID</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveSettingAsync<T, TPropType>(T settings,
             Expression<Func<T, TPropType>> keySelector,
             int storeId = 0, bool clearCache = true) where T : ISettings, new()
@@ -403,6 +411,7 @@ namespace Nop.Services.Configuration
         /// <param name="overrideForStore">A value indicating whether to setting is overridden in some store</param>
         /// <param name="storeId">Store ID</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveSettingOverridablePerStoreAsync<T, TPropType>(T settings,
             Expression<Func<T, TPropType>> keySelector,
             bool overrideForStore, int storeId = 0, bool clearCache = true) where T : ISettings, new()
@@ -417,6 +426,7 @@ namespace Nop.Services.Configuration
         /// Delete all settings
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSettingAsync<T>() where T : ISettings, new()
         {
             var settingsToDelete = new List<Setting>();
@@ -438,6 +448,7 @@ namespace Nop.Services.Configuration
         /// <param name="settings">Settings</param>
         /// <param name="keySelector">Key selector</param>
         /// <param name="storeId">Store ID</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSettingAsync<T, TPropType>(T settings,
             Expression<Func<T, TPropType>> keySelector, int storeId = 0) where T : ISettings, new()
         {
@@ -458,6 +469,7 @@ namespace Nop.Services.Configuration
         /// <summary>
         /// Clear cache
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ClearCacheAsync()
         {
             await _staticCacheManager.RemoveByPrefixAsync(NopEntityCacheDefaults<Setting>.Prefix);

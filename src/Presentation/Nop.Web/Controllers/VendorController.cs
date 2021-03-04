@@ -85,6 +85,7 @@ namespace Nop.Web.Controllers
 
         #region Utilities
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task UpdatePictureSeoNamesAsync(Vendor vendor)
         {
             var picture = await _pictureService.GetPictureByIdAsync(vendor.PictureId);

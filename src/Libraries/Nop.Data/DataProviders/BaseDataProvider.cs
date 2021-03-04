@@ -246,6 +246,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <param name="entity">Entity with data to update</param>
         /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateEntityAsync<TEntity>(TEntity entity) where TEntity : BaseEntity
         {
             using var dataContext = await CreateDataConnectionAsync();
@@ -258,6 +259,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <param name="entities">Entities with data to update</param>
         /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateEntitiesAsync<TEntity>(IEnumerable<TEntity> entities) where TEntity : BaseEntity
         {
             //we don't use the Merge API on this level, because this API not support all databases.
@@ -272,6 +274,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <param name="entity">Entity for delete operation</param>
         /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteEntityAsync<TEntity>(TEntity entity) where TEntity : BaseEntity
         {
             using var dataContext = await CreateDataConnectionAsync();
@@ -283,6 +286,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <param name="entities">Entities for delete operation</param>
         /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task BulkDeleteEntitiesAsync<TEntity>(IList<TEntity> entities) where TEntity : BaseEntity
         {
             using var dataContext = await CreateDataConnectionAsync();
@@ -314,6 +318,7 @@ namespace Nop.Data.DataProviders
         /// </summary>
         /// <param name="entities">Entities for insert operation</param>
         /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task BulkInsertEntitiesAsync<TEntity>(IEnumerable<TEntity> entities) where TEntity : BaseEntity
         {
             using var dataContext = await CreateDataConnectionAsync(LinqToDbDataProvider);

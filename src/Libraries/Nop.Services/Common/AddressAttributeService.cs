@@ -39,6 +39,7 @@ namespace Nop.Services.Common
         /// Deletes an address attribute
         /// </summary>
         /// <param name="addressAttribute">Address attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAddressAttributeAsync(AddressAttribute addressAttribute)
         {
             await _addressAttributeRepository.DeleteAsync(addressAttribute);
@@ -72,6 +73,7 @@ namespace Nop.Services.Common
         /// Inserts an address attribute
         /// </summary>
         /// <param name="addressAttribute">Address attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertAddressAttributeAsync(AddressAttribute addressAttribute)
         {
             await _addressAttributeRepository.InsertAsync(addressAttribute);
@@ -81,6 +83,7 @@ namespace Nop.Services.Common
         /// Updates the address attribute
         /// </summary>
         /// <param name="addressAttribute">Address attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateAddressAttributeAsync(AddressAttribute addressAttribute)
         {
             await _addressAttributeRepository.UpdateAsync(addressAttribute);
@@ -90,6 +93,7 @@ namespace Nop.Services.Common
         /// Deletes an address attribute value
         /// </summary>
         /// <param name="addressAttributeValue">Address attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAddressAttributeValueAsync(AddressAttributeValue addressAttributeValue)
         {
             await _addressAttributeValueRepository.DeleteAsync(addressAttributeValue);
@@ -127,6 +131,7 @@ namespace Nop.Services.Common
         /// Inserts an address attribute value
         /// </summary>
         /// <param name="addressAttributeValue">Address attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertAddressAttributeValueAsync(AddressAttributeValue addressAttributeValue)
         {
             await _addressAttributeValueRepository.InsertAsync(addressAttributeValue);
@@ -136,6 +141,7 @@ namespace Nop.Services.Common
         /// Updates the address attribute value
         /// </summary>
         /// <param name="addressAttributeValue">Address attribute value</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateAddressAttributeValueAsync(AddressAttributeValue addressAttributeValue)
         {
             await _addressAttributeValueRepository.UpdateAsync(addressAttributeValue);

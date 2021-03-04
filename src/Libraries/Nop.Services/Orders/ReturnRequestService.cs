@@ -41,6 +41,7 @@ namespace Nop.Services.Orders
         /// Deletes a return request
         /// </summary>
         /// <param name="returnRequest">Return request</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteReturnRequestAsync(ReturnRequest returnRequest)
         {
             await _returnRequestRepository.DeleteAsync(returnRequest);
@@ -107,6 +108,7 @@ namespace Nop.Services.Orders
         /// Delete a return request action
         /// </summary>
         /// <param name="returnRequestAction">Return request action</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteReturnRequestActionAsync(ReturnRequestAction returnRequestAction)
         {
             await _returnRequestActionRepository.DeleteAsync(returnRequestAction);
@@ -140,6 +142,7 @@ namespace Nop.Services.Orders
         /// Inserts a return request
         /// </summary>
         /// <param name="returnRequest">Return request</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertReturnRequestAsync(ReturnRequest returnRequest)
         {
             await _returnRequestRepository.InsertAsync(returnRequest);
@@ -149,6 +152,7 @@ namespace Nop.Services.Orders
         /// Inserts a return request action
         /// </summary>
         /// <param name="returnRequestAction">Return request action</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertReturnRequestActionAsync(ReturnRequestAction returnRequestAction)
         {
             await _returnRequestActionRepository.InsertAsync(returnRequestAction);
@@ -158,6 +162,7 @@ namespace Nop.Services.Orders
         /// Updates the return request
         /// </summary>
         /// <param name="returnRequest">Return request</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateReturnRequestAsync(ReturnRequest returnRequest)
         {
             await _returnRequestRepository.UpdateAsync(returnRequest);
@@ -167,6 +172,7 @@ namespace Nop.Services.Orders
         /// Updates the return request action
         /// </summary>
         /// <param name="returnRequestAction">Return request action</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateReturnRequestActionAsync(ReturnRequestAction returnRequestAction)
         {
             await _returnRequestActionRepository.UpdateAsync(returnRequestAction);
@@ -176,6 +182,7 @@ namespace Nop.Services.Orders
         /// Delete a return request reason
         /// </summary>
         /// <param name="returnRequestReason">Return request reason</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteReturnRequestReasonAsync(ReturnRequestReason returnRequestReason)
         {
             await _returnRequestReasonRepository.DeleteAsync(returnRequestReason);
@@ -209,6 +216,7 @@ namespace Nop.Services.Orders
         /// Inserts a return request reason
         /// </summary>
         /// <param name="returnRequestReason">Return request reason</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertReturnRequestReasonAsync(ReturnRequestReason returnRequestReason)
         {
             await _returnRequestReasonRepository.InsertAsync(returnRequestReason);
@@ -218,6 +226,7 @@ namespace Nop.Services.Orders
         /// Updates the  return request reason
         /// </summary>
         /// <param name="returnRequestReason">Return request reason</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateReturnRequestReasonAsync(ReturnRequestReason returnRequestReason)
         {
             await _returnRequestReasonRepository.UpdateAsync(returnRequestReason);

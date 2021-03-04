@@ -42,6 +42,7 @@ namespace Nop.Services.Directory
         /// Deletes measure dimension
         /// </summary>
         /// <param name="measureDimension">Measure dimension</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteMeasureDimensionAsync(MeasureDimension measureDimension)
         {
             await _measureDimensionRepository.DeleteAsync(measureDimension);
@@ -94,6 +95,7 @@ namespace Nop.Services.Directory
         /// Inserts a measure dimension
         /// </summary>
         /// <param name="measure">Measure dimension</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertMeasureDimensionAsync(MeasureDimension measure)
         {
             await _measureDimensionRepository.InsertAsync(measure);
@@ -103,6 +105,7 @@ namespace Nop.Services.Directory
         /// Updates the measure dimension
         /// </summary>
         /// <param name="measure">Measure dimension</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateMeasureDimensionAsync(MeasureDimension measure)
         {
             await _measureDimensionRepository.UpdateAsync(measure);
@@ -197,6 +200,7 @@ namespace Nop.Services.Directory
         /// Deletes measure weight
         /// </summary>
         /// <param name="measureWeight">Measure weight</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteMeasureWeightAsync(MeasureWeight measureWeight)
         {
             await _measureWeightRepository.DeleteAsync(measureWeight);
@@ -249,6 +253,7 @@ namespace Nop.Services.Directory
         /// Inserts a measure weight
         /// </summary>
         /// <param name="measure">Measure weight</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertMeasureWeightAsync(MeasureWeight measure)
         {
             await _measureWeightRepository.InsertAsync(measure);
@@ -258,6 +263,7 @@ namespace Nop.Services.Directory
         /// Updates the measure weight
         /// </summary>
         /// <param name="measure">Measure weight</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateMeasureWeightAsync(MeasureWeight measure)
         {
             await _measureWeightRepository.UpdateAsync(measure);

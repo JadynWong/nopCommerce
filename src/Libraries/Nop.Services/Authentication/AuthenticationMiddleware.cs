@@ -45,7 +45,10 @@ namespace Nop.Services.Authentication
         /// Invoke middleware actions
         /// </summary>
         /// <param name="context">HTTP context</param>
-        /// <returns>Task</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the ask
+        /// </returns>
         public async Task InvokeAsync(HttpContext context)
         {
             context.Features.Set<IAuthenticationFeature>(new AuthenticationFeature

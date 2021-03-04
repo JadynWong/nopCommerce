@@ -184,6 +184,7 @@ namespace Nop.Services.Shipping
         /// Deletes a shipping method
         /// </summary>
         /// <param name="shippingMethod">The shipping method</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteShippingMethodAsync(ShippingMethod shippingMethod)
         {
             await _shippingMethodRepository.DeleteAsync(shippingMethod);
@@ -238,6 +239,7 @@ namespace Nop.Services.Shipping
         /// Inserts a shipping method
         /// </summary>
         /// <param name="shippingMethod">Shipping method</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertShippingMethodAsync(ShippingMethod shippingMethod)
         {
             await _shippingMethodRepository.InsertAsync(shippingMethod);
@@ -247,6 +249,7 @@ namespace Nop.Services.Shipping
         /// Updates the shipping method
         /// </summary>
         /// <param name="shippingMethod">Shipping method</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateShippingMethodAsync(ShippingMethod shippingMethod)
         {
             await _shippingMethodRepository.UpdateAsync(shippingMethod);
@@ -288,6 +291,7 @@ namespace Nop.Services.Shipping
         /// Inserts a shipping country mapping
         /// </summary>
         /// <param name="shippingMethodCountryMapping">Shipping country mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertShippingMethodCountryMappingAsync(ShippingMethodCountryMapping shippingMethodCountryMapping)
         {
             await _shippingMethodCountryMappingRepository.InsertAsync(shippingMethodCountryMapping);
@@ -297,6 +301,7 @@ namespace Nop.Services.Shipping
         /// Delete the shipping country mapping
         /// </summary>
         /// <param name="shippingMethodCountryMapping">Shipping country mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteShippingMethodCountryMappingAsync(ShippingMethodCountryMapping shippingMethodCountryMapping)
         {
             await _shippingMethodCountryMappingRepository.DeleteAsync(shippingMethodCountryMapping);
@@ -310,6 +315,7 @@ namespace Nop.Services.Shipping
         /// Deletes a warehouse
         /// </summary>
         /// <param name="warehouse">The warehouse</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteWarehouseAsync(Warehouse warehouse)
         {
             await _warehouseRepository.DeleteAsync(warehouse);
@@ -349,6 +355,7 @@ namespace Nop.Services.Shipping
         /// Inserts a warehouse
         /// </summary>
         /// <param name="warehouse">Warehouse</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertWarehouseAsync(Warehouse warehouse)
         {
             await _warehouseRepository.InsertAsync(warehouse);
@@ -358,6 +365,7 @@ namespace Nop.Services.Shipping
         /// Updates the warehouse
         /// </summary>
         /// <param name="warehouse">Warehouse</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateWarehouseAsync(Warehouse warehouse)
         {
             await _warehouseRepository.UpdateAsync(warehouse);

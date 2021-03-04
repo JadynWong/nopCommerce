@@ -326,6 +326,7 @@ namespace Nop.Services.Media.RoxyFileman
         /// <summary>
         /// Create configuration file for RoxyFileman
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task CreateConfigurationAsync()
         {
             var filePath = GetConfigurationFilePath();

@@ -424,6 +424,7 @@ namespace Nop.Web.Factories
         /// </summary>
         /// <param name="forum">Forum</param>
         /// <param name="model">Edit forum topic model</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PrepareTopicCreateModelAsync(Forum forum, EditForumTopicModel model)
         {
             if (forum == null)
@@ -449,6 +450,7 @@ namespace Nop.Web.Factories
         /// <param name="forumTopic">Forum topic</param>
         /// <param name="model">Edit forum topic model</param>
         /// <param name="excludeProperties">Whether to exclude populating of model properties from the entity</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PrepareTopicEditModelAsync(ForumTopic forumTopic, EditForumTopicModel model, bool excludeProperties)
         {
             if (forumTopic == null)

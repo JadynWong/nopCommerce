@@ -69,6 +69,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Condition attributes model</param>
         /// <param name="checkoutAttribute">Checkout attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareConditionAttributesModelAsync(ConditionModel model, CheckoutAttribute checkoutAttribute)
         {
             if (model == null)

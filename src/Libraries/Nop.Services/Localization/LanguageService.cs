@@ -49,6 +49,7 @@ namespace Nop.Services.Localization
         /// Deletes a language
         /// </summary>
         /// <param name="language">Language</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteLanguageAsync(Language language)
         {
             if (language == null)
@@ -117,6 +118,7 @@ namespace Nop.Services.Localization
         /// Inserts a language
         /// </summary>
         /// <param name="language">Language</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertLanguageAsync(Language language)
         {
             await _languageRepository.InsertAsync(language);
@@ -126,6 +128,7 @@ namespace Nop.Services.Localization
         /// Updates a language
         /// </summary>
         /// <param name="language">Language</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateLanguageAsync(Language language)
         {
             //update language

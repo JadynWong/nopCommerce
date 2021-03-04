@@ -346,6 +346,7 @@ namespace Nop.Web.Factories
         /// </summary>
         /// <param name="model">Catalog products model</param>
         /// <param name="products">The products</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareCatalogProductsAsync(CatalogProductsModel model, IPagedList<Product> products)
         {
             if (!string.IsNullOrEmpty(model.WarningMessage))
@@ -1759,6 +1760,7 @@ namespace Nop.Web.Factories
         /// </summary>
         /// <param name="model">Catalog products model</param>
         /// <param name="command">Model to get the catalog products</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PrepareSortingOptionsAsync(CatalogProductsModel model, CatalogProductsCommand command)
         {
             //set the order by position by default
@@ -1800,6 +1802,7 @@ namespace Nop.Web.Factories
         /// </summary>
         /// <param name="model">Catalog products model</param>
         /// <param name="command">Model to get the catalog products</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PrepareViewModesAsync(CatalogProductsModel model, CatalogProductsCommand command)
         {
             model.AllowProductViewModeChanging = _catalogSettings.AllowProductViewModeChanging;
@@ -1835,6 +1838,7 @@ namespace Nop.Web.Factories
         /// <param name="allowCustomersToSelectPageSize">Are customers allowed to select page size?</param>
         /// <param name="pageSizeOptions">Page size options</param>
         /// <param name="fixedPageSize">Fixed page size</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual Task PreparePageSizeOptionsAsync(CatalogProductsModel model, CatalogProductsCommand command,
             bool allowCustomersToSelectPageSize, string pageSizeOptions, int fixedPageSize)
         {

@@ -148,6 +148,7 @@ namespace Nop.Services.Catalog
         /// Clean up category references for a  specified discount
         /// </summary>
         /// <param name="discount">Discount</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ClearDiscountCategoryMappingAsync(Discount discount)
         {
             if (discount is null)
@@ -162,6 +163,7 @@ namespace Nop.Services.Catalog
         /// Delete category
         /// </summary>
         /// <param name="category">Category</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCategoryAsync(Category category)
         {
             await _categoryRepository.DeleteAsync(category);
@@ -179,6 +181,7 @@ namespace Nop.Services.Catalog
         /// Delete Categories
         /// </summary>
         /// <param name="categories">Categories</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCategoriesAsync(IList<Category> categories)
         {
             if (categories == null)
@@ -431,6 +434,7 @@ namespace Nop.Services.Catalog
         /// Inserts category
         /// </summary>
         /// <param name="category">Category</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertCategoryAsync(Category category)
         {
             await _categoryRepository.InsertAsync(category);
@@ -452,6 +456,7 @@ namespace Nop.Services.Catalog
         /// Inserts a discount-category mapping record
         /// </summary>
         /// <param name="discountCategoryMapping">Discount-category mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertDiscountCategoryMappingAsync(DiscountCategoryMapping discountCategoryMapping)
         {
             await _discountCategoryMappingRepository.InsertAsync(discountCategoryMapping);
@@ -461,6 +466,7 @@ namespace Nop.Services.Catalog
         /// Deletes a discount-category mapping record
         /// </summary>
         /// <param name="discountCategoryMapping">Discount-category mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteDiscountCategoryMappingAsync(DiscountCategoryMapping discountCategoryMapping)
         {
             await _discountCategoryMappingRepository.DeleteAsync(discountCategoryMapping);
@@ -470,6 +476,7 @@ namespace Nop.Services.Catalog
         /// Updates the category
         /// </summary>
         /// <param name="category">Category</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateCategoryAsync(Category category)
         {
             if (category == null)
@@ -495,6 +502,7 @@ namespace Nop.Services.Catalog
         /// Deletes a product category mapping
         /// </summary>
         /// <param name="productCategory">Product category</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductCategoryAsync(ProductCategory productCategory)
         {
             await _productCategoryRepository.DeleteAsync(productCategory);
@@ -563,6 +571,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product category mapping
         /// </summary>
         /// <param name="productCategory">>Product category mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductCategoryAsync(ProductCategory productCategory)
         {
             await _productCategoryRepository.InsertAsync(productCategory);
@@ -572,6 +581,7 @@ namespace Nop.Services.Catalog
         /// Updates the product category mapping 
         /// </summary>
         /// <param name="productCategory">>Product category mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductCategoryAsync(ProductCategory productCategory)
         {
             await _productCategoryRepository.UpdateAsync(productCategory);

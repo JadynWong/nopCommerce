@@ -88,6 +88,7 @@ namespace Nop.Services.Gdpr
         /// Insert a GDPR log
         /// </summary>
         /// <param name="gdprLog">GDPR log</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InsertLogAsync(GdprLog gdprLog)
         {
             await _gdprLogRepository.InsertAsync(gdprLog);
@@ -129,6 +130,7 @@ namespace Nop.Services.Gdpr
         /// Insert a GDPR consent
         /// </summary>
         /// <param name="gdprConsent">GDPR consent</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertConsentAsync(GdprConsent gdprConsent)
         {
             await _gdprConsentRepository.InsertAsync(gdprConsent);
@@ -138,6 +140,7 @@ namespace Nop.Services.Gdpr
         /// Update the GDPR consent
         /// </summary>
         /// <param name="gdprConsent">GDPR consent</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateConsentAsync(GdprConsent gdprConsent)
         {
             await _gdprConsentRepository.UpdateAsync(gdprConsent);
@@ -147,6 +150,7 @@ namespace Nop.Services.Gdpr
         /// Delete a GDPR consent
         /// </summary>
         /// <param name="gdprConsent">GDPR consent</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteConsentAsync(GdprConsent gdprConsent)
         {
             await _gdprConsentRepository.DeleteAsync(gdprConsent);
@@ -221,6 +225,7 @@ namespace Nop.Services.Gdpr
         /// <param name="consentId">Consent identifier</param>
         /// <param name="requestType">Request type</param>
         /// <param name="requestDetails">Request details</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertLogAsync(Customer customer, int consentId, GdprRequestType requestType, string requestDetails)
         {
             if (customer == null)
@@ -247,6 +252,7 @@ namespace Nop.Services.Gdpr
         /// Permanent delete of customer
         /// </summary>
         /// <param name="customer">Customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PermanentDeleteCustomerAsync(Customer customer)
         {
             if (customer == null)

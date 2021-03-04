@@ -33,6 +33,7 @@ namespace Nop.Plugin.Tax.FixedOrByCountryStateZip.Services
         /// Deletes a tax rate
         /// </summary>
         /// <param name="taxRate">Tax rate</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteTaxRateAsync(TaxRate taxRate)
         {
             await _taxRateRepository.DeleteAsync(taxRate);
@@ -70,6 +71,7 @@ namespace Nop.Plugin.Tax.FixedOrByCountryStateZip.Services
         /// Inserts a tax rate
         /// </summary>
         /// <param name="taxRate">Tax rate</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertTaxRateAsync(TaxRate taxRate)
         {
             await _taxRateRepository.InsertAsync(taxRate);
@@ -79,6 +81,7 @@ namespace Nop.Plugin.Tax.FixedOrByCountryStateZip.Services
         /// Updates the tax rate
         /// </summary>
         /// <param name="taxRate">Tax rate</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateTaxRateAsync(TaxRate taxRate)
         {
             await _taxRateRepository.UpdateAsync(taxRate);

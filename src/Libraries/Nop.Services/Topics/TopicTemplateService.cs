@@ -32,6 +32,7 @@ namespace Nop.Services.Topics
         /// Delete topic template
         /// </summary>
         /// <param name="topicTemplate">Topic template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteTopicTemplateAsync(TopicTemplate topicTemplate)
         {
             await _topicTemplateRepository.DeleteAsync(topicTemplate);
@@ -67,6 +68,7 @@ namespace Nop.Services.Topics
         /// Inserts topic template
         /// </summary>
         /// <param name="topicTemplate">Topic template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertTopicTemplateAsync(TopicTemplate topicTemplate)
         {
             await _topicTemplateRepository.InsertAsync(topicTemplate);
@@ -76,6 +78,7 @@ namespace Nop.Services.Topics
         /// Updates the topic template
         /// </summary>
         /// <param name="topicTemplate">Topic template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateTopicTemplateAsync(TopicTemplate topicTemplate)
         {
             await _topicTemplateRepository.UpdateAsync(topicTemplate);

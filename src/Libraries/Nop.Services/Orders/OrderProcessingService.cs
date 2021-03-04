@@ -379,6 +379,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="order">Order</param>
         /// <param name="note">Note text</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task AddOrderNoteAsync(Order order, string note)
         {
             await _orderService.InsertOrderNoteAsync(new OrderNote
@@ -850,6 +851,7 @@ namespace Nop.Services.Orders
         /// Send "order placed" notifications and save order notes
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SendNotificationsAndSaveNotesAsync(Order order)
         {
             //notes, messages
@@ -891,6 +893,7 @@ namespace Nop.Services.Orders
         /// Award (earn) reward points (for placing a new order)
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task AwardRewardPointsAsync(Order order)
         {
             if (order is null)
@@ -935,6 +938,7 @@ namespace Nop.Services.Orders
         /// Reduce (cancel) reward points (previously awarded for placing an order)
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task ReduceRewardPointsAsync(Order order)
         {
             if (order is null)
@@ -972,6 +976,7 @@ namespace Nop.Services.Orders
         /// Return back redeemed reward points to a customer (spent when placing an order)
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task ReturnBackRedeemedRewardPointsAsync(Order order)
         {
             if (order == null)
@@ -991,6 +996,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="order">Order</param>
         /// <param name="activate">A value indicating whether to activate gift cards; true - activate, false - deactivate</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SetActivatedValueForPurchasedGiftCardsAsync(Order order, bool activate)
         {
             var giftCards = await _giftCardService.GetAllGiftCardsAsync(order.Id, isGiftCardActivated: !activate);
@@ -1035,6 +1041,7 @@ namespace Nop.Services.Orders
         /// <param name="order">Order</param>
         /// <param name="os">New order status</param>
         /// <param name="notifyCustomer">True to notify customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SetOrderStatusAsync(Order order, OrderStatus os, bool notifyCustomer)
         {
             if (order == null)
@@ -1097,6 +1104,7 @@ namespace Nop.Services.Orders
         /// Process order paid status
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task ProcessOrderPaidAsync(Order order)
         {
             if (order == null)
@@ -1152,6 +1160,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="order">Order</param>
         /// <param name="add">A value indicating whether to add configured customer role; true - add, false - remove</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task ProcessCustomerRolesWithPurchasedProductSpecifiedAsync(Order order, bool add)
         {
             if (order == null)
@@ -1228,6 +1237,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="processPaymentRequest">Process payment request</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task CreateFirstRecurringPaymentAsync(ProcessPaymentRequest processPaymentRequest, Order order)
         {
             var rp = new RecurringPayment
@@ -1268,6 +1278,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="details">Place order container</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task MoveShoppingCartItemsToOrderItemsAsync(PlaceOrderContainer details, Order order)
         {
             foreach (var sc in details.Cart)
@@ -1346,6 +1357,7 @@ namespace Nop.Services.Orders
         /// <param name="orderItem">Order item</param>
         /// <param name="unitPriceExclTax">Unit price exclude tax, it set as amount if not set specific amount and product.OverriddenGiftCardAmount isn't set to</param>
         /// <param name="amount">Amount</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task AddGiftCardsAsync(Product product, string attributesXml, int quantity, OrderItem orderItem, decimal? unitPriceExclTax = null, decimal? amount = null)
         {
             if (!product.IsGiftCard)
@@ -1421,6 +1433,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="details">Place order container</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SaveGiftCardUsageHistoryAsync(PlaceOrderContainer details, Order order)
         {
             if (details.AppliedGiftCards == null || !details.AppliedGiftCards.Any())
@@ -1441,6 +1454,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="details">PlaceOrderContainer</param>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SaveDiscountUsageHistoryAsync(PlaceOrderContainer details, Order order)
         {
             if (details.AppliedDiscounts == null || !details.AppliedDiscounts.Any())
@@ -1469,6 +1483,7 @@ namespace Nop.Services.Orders
         /// Checks order status
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task CheckOrderStatusAsync(Order order)
         {
             if (order == null)
@@ -1609,6 +1624,7 @@ namespace Nop.Services.Orders
         /// Update order totals
         /// </summary>
         /// <param name="updateOrderParameters">Parameters for the updating order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateOrderTotalsAsync(UpdateOrderParameters updateOrderParameters)
         {
             if (!_orderSettings.AutoUpdateOrderTotalsOnEditingOrder)
@@ -1722,6 +1738,7 @@ namespace Nop.Services.Orders
         /// Deletes an order
         /// </summary>
         /// <param name="order">The order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteOrderAsync(Order order)
         {
             if (order == null)
@@ -2119,6 +2136,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="shipment">Shipment</param>
         /// <param name="notifyCustomer">True to notify customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ShipAsync(Shipment shipment, bool notifyCustomer)
         {
             if (shipment == null)
@@ -2176,6 +2194,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="shipment">Shipment</param>
         /// <param name="notifyCustomer">True to notify customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeliverAsync(Shipment shipment, bool notifyCustomer)
         {
             if (shipment == null)
@@ -2237,6 +2256,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="order">Order</param>
         /// <param name="notifyCustomer">True to notify customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task CancelOrderAsync(Order order, bool notifyCustomer)
         {
             if (order == null)
@@ -2313,6 +2333,7 @@ namespace Nop.Services.Orders
         /// Marks order as authorized
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task MarkAsAuthorizedAsync(Order order)
         {
             if (order == null)
@@ -2446,6 +2467,7 @@ namespace Nop.Services.Orders
         /// Marks order as paid
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task MarkOrderAsPaidAsync(Order order)
         {
             if (order == null)
@@ -2605,6 +2627,7 @@ namespace Nop.Services.Orders
         /// Refunds an order (offline)
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task RefundOfflineAsync(Order order)
         {
             if (order == null)
@@ -2795,6 +2818,7 @@ namespace Nop.Services.Orders
         /// </summary>
         /// <param name="order">Order</param>
         /// <param name="amountToRefund">Amount to refund</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PartiallyRefundOfflineAsync(Order order, decimal amountToRefund)
         {
             if (order == null)
@@ -2946,6 +2970,7 @@ namespace Nop.Services.Orders
         /// async Tasks order (offline)
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task VoidOfflineAsync(Order order)
         {
             if (order == null)
@@ -2971,6 +2996,7 @@ namespace Nop.Services.Orders
         /// Place order items in current user shopping cart.
         /// </summary>
         /// <param name="order">The order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ReOrderAsync(Order order)
         {
             if (order == null)

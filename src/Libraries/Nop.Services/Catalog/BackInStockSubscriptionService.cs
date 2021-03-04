@@ -48,6 +48,7 @@ namespace Nop.Services.Catalog
         /// Delete a back in stock subscription
         /// </summary>
         /// <param name="subscription">Subscription</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSubscriptionAsync(BackInStockSubscription subscription)
         {
             await _backInStockSubscriptionRepository.DeleteAsync(subscription);
@@ -120,6 +121,7 @@ namespace Nop.Services.Catalog
         /// Inserts subscription
         /// </summary>
         /// <param name="subscription">Subscription</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertSubscriptionAsync(BackInStockSubscription subscription)
         {
             await _backInStockSubscriptionRepository.InsertAsync(subscription);

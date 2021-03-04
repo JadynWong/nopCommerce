@@ -433,6 +433,7 @@ namespace Nop.Services.Customers
         /// <param name="customer">Customer</param>
         /// <param name="newEmail">New email</param>
         /// <param name="requireValidation">Require validation of new email address</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetEmailAsync(Customer customer, string newEmail, bool requireValidation)
         {
             if (customer == null)
@@ -491,6 +492,7 @@ namespace Nop.Services.Customers
         /// </summary>
         /// <param name="customer">Customer</param>
         /// <param name="newUsername">New Username</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetUsernameAsync(Customer customer, string newUsername)
         {
             if (customer == null)

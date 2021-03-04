@@ -52,6 +52,7 @@ namespace Nop.Services.Messages
         /// Delete a message template
         /// </summary>
         /// <param name="messageTemplate">Message template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteMessageTemplateAsync(MessageTemplate messageTemplate)
         {
             await _messageTemplateRepository.DeleteAsync(messageTemplate);
@@ -61,6 +62,7 @@ namespace Nop.Services.Messages
         /// Inserts a message template
         /// </summary>
         /// <param name="messageTemplate">Message template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertMessageTemplateAsync(MessageTemplate messageTemplate)
         {
             await _messageTemplateRepository.InsertAsync(messageTemplate);
@@ -70,6 +72,7 @@ namespace Nop.Services.Messages
         /// Updates a message template
         /// </summary>
         /// <param name="messageTemplate">Message template</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateMessageTemplateAsync(MessageTemplate messageTemplate)
         {
             await _messageTemplateRepository.UpdateAsync(messageTemplate);

@@ -59,6 +59,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Services
         /// Insert the configuration
         /// </summary>
         /// <param name="configuration">Configuration</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected async Task InsertConfigurationAsync(GoogleAuthenticatorRecord configuration)
         {
             if (configuration == null)
@@ -72,6 +73,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Services
         /// Update the configuration
         /// </summary>
         /// <param name="configuration">Configuration</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected async Task UpdateConfigurationAsync(GoogleAuthenticatorRecord configuration)
         {
             if (configuration == null)
@@ -153,6 +155,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Services
         /// </summary>
         /// <param name="customerEmail">Customer email</param>
         /// <param name="key">Secret key</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task AddGoogleAuthenticatorAccountAsync(string customerEmail, string key)
         {
             var account = new GoogleAuthenticatorRecord
@@ -169,6 +172,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Services
         /// </summary>
         /// <param name="customerEmail">Customer email</param>
         /// <param name="key">Secret key</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task UpdateGoogleAuthenticatorAccountAsync(string customerEmail, string key)
         {
             var account = GetConfigurationByCustomerEmail(customerEmail);

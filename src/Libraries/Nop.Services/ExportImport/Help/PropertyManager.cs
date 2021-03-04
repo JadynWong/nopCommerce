@@ -116,6 +116,7 @@ namespace Nop.Services.ExportImport.Help
         /// <param name="row">Row index</param>
         /// <param name="cellOffset">Cell offset</param>
         /// <param name="fWorksheet">Filters worksheet</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task WriteToXlsxAsync(ExcelWorksheet worksheet, int row, int cellOffset = 0, ExcelWorksheet fWorksheet = null)
         {
             if (CurrentObject == null)

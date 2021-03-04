@@ -120,6 +120,7 @@ namespace Nop.Plugin.ExchangeRate.EcbExchange
         /// <summary>
         /// Install the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //locales
@@ -131,6 +132,7 @@ namespace Nop.Plugin.ExchangeRate.EcbExchange
         /// <summary>
         /// Uninstall the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //locales

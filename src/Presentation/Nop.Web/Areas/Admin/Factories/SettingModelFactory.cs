@@ -133,6 +133,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare store theme models
         /// </summary>
         /// <param name="models">List of store theme models</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareStoreThemeModelsAsync(IList<StoreInformationSettingsModel.ThemeModel> models)
         {
             if (models == null)
@@ -698,6 +699,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// Prepare setting model to add
         /// </summary>
         /// <param name="model">Setting model to add</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareAddSettingModelAsync(SettingModel model)
         {
             if (model == null)

@@ -296,6 +296,7 @@ namespace Nop.Plugin.Shipping.ShipStation.Services
             return services.ToList();
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteAddressToXmlAsync(XmlWriter writer, bool isBillingAddress, Address address)
         {
             await writer.WriteElementStringAsync("Name", $"{address.FirstName} {address.LastName}");
@@ -314,6 +315,7 @@ namespace Nop.Plugin.Shipping.ShipStation.Services
             await writer.WriteElementStringAsync("Country", (await _countryService.GetCountryByAddressAsync(address)).TwoLetterIsoCode);
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteOrderItemsToXmlAsync(XmlWriter writer, ICollection<OrderItem> orderItems)
         {
             await writer.WriteStartElementAsync("Items");
@@ -344,6 +346,7 @@ namespace Nop.Plugin.Shipping.ShipStation.Services
             await writer.FlushAsync();
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteCustomerToXmlAsync(XmlWriter writer, Order order, Core.Domain.Customers.Customer customer)
         {
             await writer.WriteStartElementAsync("Customer");
@@ -372,6 +375,7 @@ namespace Nop.Plugin.Shipping.ShipStation.Services
             };
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteOrderToXmlAsync(XmlWriter writer, Order order)
         {
             await writer.WriteStartElementAsync("Order");
@@ -418,6 +422,7 @@ namespace Nop.Plugin.Shipping.ShipStation.Services
         /// <param name="carrier">Carrier</param>
         /// <param name="service">Service</param>
         /// <param name="trackingNumber">Tracking number</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task CreateOrUpdateShippingAsync(string orderNumber, string carrier, string service, string trackingNumber)
         {
             try

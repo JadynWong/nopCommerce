@@ -86,6 +86,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of vendor associated customer models</param>
         /// <param name="vendor">Vendor</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareAssociatedCustomerModelsAsync(IList<VendorAssociatedCustomerModel> models, Vendor vendor)
         {
             if (models == null)
@@ -110,6 +111,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="models">List of vendor attribute models</param>
         /// <param name="vendor">Vendor</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task PrepareVendorAttributeModelsAsync(IList<VendorModel.VendorAttributeModel> models, Vendor vendor)
         {
             if (models == null)

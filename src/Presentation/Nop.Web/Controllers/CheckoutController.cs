@@ -171,6 +171,7 @@ namespace Nop.Web.Controllers
         /// Saves the pickup option
         /// </summary>
         /// <param name="pickupPoint">The pickup option</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task SavePickupOptionAsync(PickupPoint pickupPoint)
         {
             var name = !string.IsNullOrEmpty(pickupPoint.Name) ?

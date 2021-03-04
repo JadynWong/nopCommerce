@@ -61,6 +61,7 @@ namespace Nop.Services.Media
         /// Deletes a download
         /// </summary>
         /// <param name="download">Download</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteDownloadAsync(Download download)
         {
             await _downloadRepository.DeleteAsync(download);
@@ -70,6 +71,7 @@ namespace Nop.Services.Media
         /// Inserts a download
         /// </summary>
         /// <param name="download">Download</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertDownloadAsync(Download download)
         {
             await _downloadRepository.InsertAsync(download);

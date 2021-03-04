@@ -46,6 +46,7 @@ namespace Nop.Services.Directory
         /// Deletes currency
         /// </summary>
         /// <param name="currency">Currency</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteCurrencyAsync(Currency currency)
         {
             await _currencyRepository.DeleteAsync(currency);
@@ -106,6 +107,7 @@ namespace Nop.Services.Directory
         /// Inserts a currency
         /// </summary>
         /// <param name="currency">Currency</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertCurrencyAsync(Currency currency)
         {
             await _currencyRepository.InsertAsync(currency);
@@ -115,6 +117,7 @@ namespace Nop.Services.Directory
         /// Updates the currency
         /// </summary>
         /// <param name="currency">Currency</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateCurrencyAsync(Currency currency)
         {
             await _currencyRepository.UpdateAsync(currency);

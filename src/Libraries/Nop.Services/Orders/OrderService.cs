@@ -240,6 +240,7 @@ namespace Nop.Services.Orders
         /// Deletes an order
         /// </summary>
         /// <param name="order">The order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteOrderAsync(Order order)
         {
             await _orderRepository.DeleteAsync(order);
@@ -365,6 +366,7 @@ namespace Nop.Services.Orders
         /// Inserts an order
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertOrderAsync(Order order)
         {
             await _orderRepository.InsertAsync(order);
@@ -374,6 +376,7 @@ namespace Nop.Services.Orders
         /// Updates the order
         /// </summary>
         /// <param name="order">The order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateOrderAsync(Order order)
         {
             await _orderRepository.UpdateAsync(order);
@@ -589,6 +592,7 @@ namespace Nop.Services.Orders
         /// Delete an order item
         /// </summary>
         /// <param name="orderItem">The order item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteOrderItemAsync(OrderItem orderItem)
         {
             await _orderItemRepository.DeleteAsync(orderItem);
@@ -729,6 +733,7 @@ namespace Nop.Services.Orders
         /// Inserts a order item
         /// </summary>
         /// <param name="orderItem">Order item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertOrderItemAsync(OrderItem orderItem)
         {
             await _orderItemRepository.InsertAsync(orderItem);
@@ -738,6 +743,7 @@ namespace Nop.Services.Orders
         /// Updates a order item
         /// </summary>
         /// <param name="orderItem">Order item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateOrderItemAsync(OrderItem orderItem)
         {
             await _orderItemRepository.UpdateAsync(orderItem);
@@ -782,6 +788,7 @@ namespace Nop.Services.Orders
         /// Deletes an order note
         /// </summary>
         /// <param name="orderNote">The order note</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteOrderNoteAsync(OrderNote orderNote)
         {
             await _orderNoteRepository.DeleteAsync(orderNote);
@@ -811,6 +818,7 @@ namespace Nop.Services.Orders
         /// Inserts an order note
         /// </summary>
         /// <param name="orderNote">The order note</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertOrderNoteAsync(OrderNote orderNote)
         {
             await _orderNoteRepository.InsertAsync(orderNote);
@@ -824,6 +832,7 @@ namespace Nop.Services.Orders
         /// Deletes a recurring payment
         /// </summary>
         /// <param name="recurringPayment">Recurring payment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteRecurringPaymentAsync(RecurringPayment recurringPayment)
         {
             await _recurringPaymentRepository.DeleteAsync(recurringPayment);
@@ -843,6 +852,7 @@ namespace Nop.Services.Orders
         /// Inserts a recurring payment
         /// </summary>
         /// <param name="recurringPayment">Recurring payment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertRecurringPaymentAsync(RecurringPayment recurringPayment)
         {
             await _recurringPaymentRepository.InsertAsync(recurringPayment);
@@ -852,6 +862,7 @@ namespace Nop.Services.Orders
         /// Updates the recurring payment
         /// </summary>
         /// <param name="recurringPayment">Recurring payment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateRecurringPaymentAsync(RecurringPayment recurringPayment)
         {
             await _recurringPaymentRepository.UpdateAsync(recurringPayment);
@@ -924,6 +935,7 @@ namespace Nop.Services.Orders
         /// Inserts a recurring payment history entry
         /// </summary>
         /// <param name="recurringPaymentHistory">Recurring payment history entry</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertRecurringPaymentHistoryAsync(RecurringPaymentHistory recurringPaymentHistory)
         {
             await _recurringPaymentHistoryRepository.InsertAsync(recurringPaymentHistory);

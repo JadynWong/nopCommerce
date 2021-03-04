@@ -204,6 +204,7 @@ namespace Nop.Web.Framework
         /// Sets the current customer
         /// </summary>
         /// <param name="customer">Current customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetCurrentCustomerAsync(Customer customer = null)
         {
             if (customer == null)
@@ -312,6 +313,7 @@ namespace Nop.Web.Framework
         /// Sets current user working language
         /// </summary>
         /// <param name="language">Language</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetWorkingLanguageAsync(Language language)
         {
             //save passed language identifier
@@ -463,6 +465,7 @@ namespace Nop.Web.Framework
         /// Sets current user working currency
         /// </summary>
         /// <param name="currency">Currency</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetWorkingCurrencyAsync(Currency currency)
         {
             //save passed currency identifier
@@ -522,6 +525,7 @@ namespace Nop.Web.Framework
             return _cachedTaxDisplayType.Value;
         }
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SetTaxDisplayTypeAsync(TaxDisplayType taxDisplayType)
         {
             //whether customers are allowed to select tax display type

@@ -60,6 +60,7 @@ namespace Nop.Services.Shipping
         /// Deletes a shipment
         /// </summary>
         /// <param name="shipment">Shipment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteShipmentAsync(Shipment shipment)
         {
             await _shipmentRepository.DeleteAsync(shipment);
@@ -231,6 +232,7 @@ namespace Nop.Services.Shipping
         /// Inserts a shipment
         /// </summary>
         /// <param name="shipment">Shipment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertShipmentAsync(Shipment shipment)
         {
             await _shipmentRepository.InsertAsync(shipment);
@@ -240,6 +242,7 @@ namespace Nop.Services.Shipping
         /// Updates the shipment
         /// </summary>
         /// <param name="shipment">Shipment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateShipmentAsync(Shipment shipment)
         {
             await _shipmentRepository.UpdateAsync(shipment);
@@ -262,6 +265,7 @@ namespace Nop.Services.Shipping
         /// Inserts a shipment item
         /// </summary>
         /// <param name="shipmentItem">Shipment item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertShipmentItemAsync(ShipmentItem shipmentItem)
         {
             await _siRepository.InsertAsync(shipmentItem);

@@ -161,6 +161,7 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// Insert the shipping by weight record
         /// </summary>
         /// <param name="shippingByWeightRecord">Shipping by weight record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertShippingByWeightRecordAsync(ShippingByWeightByTotalRecord shippingByWeightRecord)
         {
             await _sbwtRepository.InsertAsync(shippingByWeightRecord, false);
@@ -172,6 +173,7 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// Update the shipping by weight record
         /// </summary>
         /// <param name="shippingByWeightRecord">Shipping by weight record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateShippingByWeightRecordAsync(ShippingByWeightByTotalRecord shippingByWeightRecord)
         {
             await _sbwtRepository.UpdateAsync(shippingByWeightRecord, false);
@@ -183,6 +185,7 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal.Services
         /// Delete the shipping by weight record
         /// </summary>
         /// <param name="shippingByWeightRecord">Shipping by weight record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteShippingByWeightRecordAsync(ShippingByWeightByTotalRecord shippingByWeightRecord)
         {
             await _sbwtRepository.DeleteAsync(shippingByWeightRecord, false);

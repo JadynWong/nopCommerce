@@ -50,6 +50,7 @@ namespace Nop.Services.Common
         /// Deletes an address
         /// </summary>
         /// <param name="address">Address</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAddressAsync(Address address)
         {
             await _addressRepository.DeleteAsync(address);
@@ -104,6 +105,7 @@ namespace Nop.Services.Common
         /// Inserts an address
         /// </summary>
         /// <param name="address">Address</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertAddressAsync(Address address)
         {
             if (address == null)
@@ -124,6 +126,7 @@ namespace Nop.Services.Common
         /// Updates the address
         /// </summary>
         /// <param name="address">Address</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateAddressAsync(Address address)
         {
             if (address == null)

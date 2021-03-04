@@ -83,6 +83,7 @@ namespace Nop.Web.Factories
         /// <param name="model">Blog post model</param>
         /// <param name="blogPost">Blog post entity</param>
         /// <param name="prepareComments">Whether to prepare blog comments</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task PrepareBlogPostModelAsync(BlogPostModel model, BlogPost blogPost, bool prepareComments)
         {
             if (model == null)

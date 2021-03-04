@@ -67,6 +67,7 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics
         /// <summary>
         /// Install plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             var settings = new GoogleAnalyticsSettings
@@ -110,6 +111,7 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics
         /// <summary>
         /// Uninstall plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //settings

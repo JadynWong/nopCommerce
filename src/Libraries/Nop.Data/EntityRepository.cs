@@ -272,6 +272,7 @@ namespace Nop.Data
         /// </summary>
         /// <param name="entity">Entity entry</param>
         /// <param name="publishEvent">Whether to publish event notification</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertAsync(TEntity entity, bool publishEvent = true)
         {
             if (entity == null)
@@ -289,6 +290,7 @@ namespace Nop.Data
         /// </summary>
         /// <param name="entities">Entity entries</param>
         /// <param name="publishEvent">Whether to publish event notification</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertAsync(IList<TEntity> entities, bool publishEvent = true)
         {
             if (entities == null)
@@ -323,6 +325,7 @@ namespace Nop.Data
         /// </summary>
         /// <param name="entity">Entity entry</param>
         /// <param name="publishEvent">Whether to publish event notification</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateAsync(TEntity entity, bool publishEvent = true)
         {
             if (entity == null)
@@ -340,6 +343,7 @@ namespace Nop.Data
         /// </summary>
         /// <param name="entities">Entity entries</param>
         /// <param name="publishEvent">Whether to publish event notification</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateAsync(IList<TEntity> entities, bool publishEvent = true)
         {
             if (entities == null)
@@ -356,6 +360,7 @@ namespace Nop.Data
         /// </summary>
         /// <param name="entity">Entity entry</param>
         /// <param name="publishEvent">Whether to publish event notification</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAsync(TEntity entity, bool publishEvent = true)
         {
             switch (entity)
@@ -383,6 +388,7 @@ namespace Nop.Data
         /// </summary>
         /// <param name="entities">Entity entries</param>
         /// <param name="publishEvent">Whether to publish event notification</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAsync(IList<TEntity> entities, bool publishEvent = true)
         {
             if (entities == null)
@@ -436,6 +442,7 @@ namespace Nop.Data
         /// Truncates database table
         /// </summary>
         /// <param name="resetIdentity">Performs reset identity column</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task TruncateAsync(bool resetIdentity = false)
         {
             await (await _dataProvider.GetTableAsync<TEntity>()).TruncateAsync(resetIdentity);

@@ -156,6 +156,7 @@ namespace Nop.Services.Catalog
         /// Deletes a specification attribute group
         /// </summary>
         /// <param name="specificationAttributeGroup">The specification attribute group</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSpecificationAttributeGroupAsync(SpecificationAttributeGroup specificationAttributeGroup)
         {
             await _specificationAttributeGroupRepository.DeleteAsync(specificationAttributeGroup);
@@ -165,6 +166,7 @@ namespace Nop.Services.Catalog
         /// Inserts a specification attribute group
         /// </summary>
         /// <param name="specificationAttributeGroup">The specification attribute group</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertSpecificationAttributeGroupAsync(SpecificationAttributeGroup specificationAttributeGroup)
         {
             await _specificationAttributeGroupRepository.InsertAsync(specificationAttributeGroup);
@@ -174,6 +176,7 @@ namespace Nop.Services.Catalog
         /// Updates the specification attribute group
         /// </summary>
         /// <param name="specificationAttributeGroup">The specification attribute group</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateSpecificationAttributeGroupAsync(SpecificationAttributeGroup specificationAttributeGroup)
         {
             await _specificationAttributeGroupRepository.UpdateAsync(specificationAttributeGroup);
@@ -252,6 +255,7 @@ namespace Nop.Services.Catalog
         /// Deletes a specification attribute
         /// </summary>
         /// <param name="specificationAttribute">The specification attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSpecificationAttributeAsync(SpecificationAttribute specificationAttribute)
         {
             await _specificationAttributeRepository.DeleteAsync(specificationAttribute);
@@ -261,6 +265,7 @@ namespace Nop.Services.Catalog
         /// Deletes specifications attributes
         /// </summary>
         /// <param name="specificationAttributes">Specification attributes</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSpecificationAttributesAsync(IList<SpecificationAttribute> specificationAttributes)
         {
             if (specificationAttributes == null)
@@ -274,6 +279,7 @@ namespace Nop.Services.Catalog
         /// Inserts a specification attribute
         /// </summary>
         /// <param name="specificationAttribute">The specification attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertSpecificationAttributeAsync(SpecificationAttribute specificationAttribute)
         {
             await _specificationAttributeRepository.InsertAsync(specificationAttribute);
@@ -283,6 +289,7 @@ namespace Nop.Services.Catalog
         /// Updates the specification attribute
         /// </summary>
         /// <param name="specificationAttribute">The specification attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateSpecificationAttributeAsync(SpecificationAttribute specificationAttribute)
         {
             await _specificationAttributeRepository.UpdateAsync(specificationAttribute);
@@ -333,6 +340,7 @@ namespace Nop.Services.Catalog
         /// Deletes a specification attribute option
         /// </summary>
         /// <param name="specificationAttributeOption">The specification attribute option</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteSpecificationAttributeOptionAsync(SpecificationAttributeOption specificationAttributeOption)
         {
             await _specificationAttributeOptionRepository.DeleteAsync(specificationAttributeOption);
@@ -342,6 +350,7 @@ namespace Nop.Services.Catalog
         /// Inserts a specification attribute option
         /// </summary>
         /// <param name="specificationAttributeOption">The specification attribute option</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertSpecificationAttributeOptionAsync(SpecificationAttributeOption specificationAttributeOption)
         {
             await _specificationAttributeOptionRepository.InsertAsync(specificationAttributeOption);
@@ -351,6 +360,7 @@ namespace Nop.Services.Catalog
         /// Updates the specification attribute
         /// </summary>
         /// <param name="specificationAttributeOption">The specification attribute option</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateSpecificationAttributeOptionAsync(SpecificationAttributeOption specificationAttributeOption)
         {
             await _specificationAttributeOptionRepository.UpdateAsync(specificationAttributeOption);
@@ -466,6 +476,7 @@ namespace Nop.Services.Catalog
         /// Deletes a product specification attribute mapping
         /// </summary>
         /// <param name="productSpecificationAttribute">Product specification attribute</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteProductSpecificationAttributeAsync(ProductSpecificationAttribute productSpecificationAttribute)
         {
             await _productSpecificationAttributeRepository.DeleteAsync(productSpecificationAttribute);
@@ -530,6 +541,7 @@ namespace Nop.Services.Catalog
         /// Inserts a product specification attribute mapping
         /// </summary>
         /// <param name="productSpecificationAttribute">Product specification attribute mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertProductSpecificationAttributeAsync(ProductSpecificationAttribute productSpecificationAttribute)
         {
             await _productSpecificationAttributeRepository.InsertAsync(productSpecificationAttribute);
@@ -539,6 +551,7 @@ namespace Nop.Services.Catalog
         /// Updates the product specification attribute mapping
         /// </summary>
         /// <param name="productSpecificationAttribute">Product specification attribute mapping</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateProductSpecificationAttributeAsync(ProductSpecificationAttribute productSpecificationAttribute)
         {
             await _productSpecificationAttributeRepository.UpdateAsync(productSpecificationAttribute);

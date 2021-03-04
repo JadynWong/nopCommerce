@@ -50,6 +50,7 @@ namespace Nop.Services.Security
         /// Inserts an ACL record
         /// </summary>
         /// <param name="aclRecord">ACL record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InsertAclRecordAsync(AclRecord aclRecord)
         {
             await _aclRecordRepository.InsertAsync(aclRecord);
@@ -125,6 +126,7 @@ namespace Nop.Services.Security
         /// Deletes an ACL record
         /// </summary>
         /// <param name="aclRecord">ACL record</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteAclRecordAsync(AclRecord aclRecord)
         {
             await _aclRecordRepository.DeleteAsync(aclRecord);
@@ -159,6 +161,7 @@ namespace Nop.Services.Security
         /// <typeparam name="TEntity">Type of entity that supports the ACL</typeparam>
         /// <param name="entity">Entity</param>
         /// <param name="customerRoleId">Customer role id</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertAclRecordAsync<TEntity>(TEntity entity, int customerRoleId) where TEntity : BaseEntity, IAclSupported
         {
             if (entity == null)

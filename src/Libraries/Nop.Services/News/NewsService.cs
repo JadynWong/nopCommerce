@@ -49,6 +49,7 @@ namespace Nop.Services.News
         /// Deletes a news
         /// </summary>
         /// <param name="newsItem">News item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteNewsAsync(NewsItem newsItem)
         {
             await _newsItemRepository.DeleteAsync(newsItem);
@@ -106,6 +107,7 @@ namespace Nop.Services.News
         /// Inserts a news item
         /// </summary>
         /// <param name="news">News item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertNewsAsync(NewsItem news)
         {
             await _newsItemRepository.InsertAsync(news);
@@ -115,6 +117,7 @@ namespace Nop.Services.News
         /// Updates the news item
         /// </summary>
         /// <param name="news">News item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateNewsAsync(NewsItem news)
         {
             await _newsItemRepository.UpdateAsync(news);
@@ -233,6 +236,7 @@ namespace Nop.Services.News
         /// Deletes a news comment
         /// </summary>
         /// <param name="newsComment">News comment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteNewsCommentAsync(NewsComment newsComment)
         {
             await _newsCommentRepository.DeleteAsync(newsComment);
@@ -242,6 +246,7 @@ namespace Nop.Services.News
         /// Deletes a news comments
         /// </summary>
         /// <param name="newsComments">News comments</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteNewsCommentsAsync(IList<NewsComment> newsComments)
         {
             if (newsComments == null)
@@ -255,6 +260,7 @@ namespace Nop.Services.News
         /// Inserts a news comment
         /// </summary>
         /// <param name="comment">News comment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertNewsCommentAsync(NewsComment comment)
         {
             await _newsCommentRepository.InsertAsync(comment);
@@ -264,6 +270,7 @@ namespace Nop.Services.News
         /// Update a news comment
         /// </summary>
         /// <param name="comment">News comment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateNewsCommentAsync(NewsComment comment)
         {
             await _newsCommentRepository.UpdateAsync(comment);

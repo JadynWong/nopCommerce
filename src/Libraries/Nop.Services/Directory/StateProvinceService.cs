@@ -40,6 +40,7 @@ namespace Nop.Services.Directory
         /// Deletes a state/province
         /// </summary>
         /// <param name="stateProvince">The state/province</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteStateProvinceAsync(StateProvince stateProvince)
         {
             await _stateProvinceRepository.DeleteAsync(stateProvince);
@@ -141,6 +142,7 @@ namespace Nop.Services.Directory
         /// Inserts a state/province
         /// </summary>
         /// <param name="stateProvince">State/province</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertStateProvinceAsync(StateProvince stateProvince)
         {
             await _stateProvinceRepository.InsertAsync(stateProvince);
@@ -150,6 +152,7 @@ namespace Nop.Services.Directory
         /// Updates a state/province
         /// </summary>
         /// <param name="stateProvince">State/province</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateStateProvinceAsync(StateProvince stateProvince)
         {
             await _stateProvinceRepository.UpdateAsync(stateProvince);

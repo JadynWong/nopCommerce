@@ -85,6 +85,7 @@ namespace Nop.Plugin.Pickup.PickupInStore.Services
         /// Inserts a pickup point
         /// </summary>
         /// <param name="pickupPoint">Pickup point</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertStorePickupPointAsync(StorePickupPoint pickupPoint)
         {
             await _storePickupPointRepository.InsertAsync(pickupPoint, false);
@@ -95,6 +96,7 @@ namespace Nop.Plugin.Pickup.PickupInStore.Services
         /// Updates the pickup point
         /// </summary>
         /// <param name="pickupPoint">Pickup point</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateStorePickupPointAsync(StorePickupPoint pickupPoint)
         {
             await _storePickupPointRepository.UpdateAsync(pickupPoint, false);
@@ -105,6 +107,7 @@ namespace Nop.Plugin.Pickup.PickupInStore.Services
         /// Deletes a pickup point
         /// </summary>
         /// <param name="pickupPoint">Pickup point</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteStorePickupPointAsync(StorePickupPoint pickupPoint)
         {
             await _storePickupPointRepository.DeleteAsync(pickupPoint, false);

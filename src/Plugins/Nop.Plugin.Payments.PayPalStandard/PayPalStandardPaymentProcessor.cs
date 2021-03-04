@@ -155,6 +155,7 @@ namespace Nop.Plugin.Payments.PayPalStandard
         /// </summary>
         /// <param name="parameters">Query parameters</param>
         /// <param name="postProcessPaymentRequest">Payment info required for an order processing</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         private async Task AddItemsParametersAsync(IDictionary<string, string> parameters, PostProcessPaymentRequest postProcessPaymentRequest)
         {
             //upload order items
@@ -264,6 +265,7 @@ namespace Nop.Plugin.Payments.PayPalStandard
         /// </summary>
         /// <param name="parameters">Query parameters</param>
         /// <param name="postProcessPaymentRequest">Payment info required for an order processing</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         private async Task AddOrderTotalParametersAsync(IDictionary<string, string> parameters, PostProcessPaymentRequest postProcessPaymentRequest)
         {
             //round order total
@@ -348,6 +350,7 @@ namespace Nop.Plugin.Payments.PayPalStandard
         /// Post process payment (used by payment gateways that require redirecting to a third-party URL)
         /// </summary>
         /// <param name="postProcessPaymentRequest">Payment info required for an order processing</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task PostProcessPaymentAsync(PostProcessPaymentRequest postProcessPaymentRequest)
         {
             var baseUrl = _payPalStandardPaymentSettings.UseSandbox ?
@@ -520,6 +523,7 @@ namespace Nop.Plugin.Payments.PayPalStandard
         /// <summary>
         /// Install the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //settings
@@ -572,6 +576,7 @@ namespace Nop.Plugin.Payments.PayPalStandard
         /// <summary>
         /// Uninstall the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //settings

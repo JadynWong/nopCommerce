@@ -119,6 +119,7 @@ namespace Nop.Services.Media
         /// <summary>
         /// Create cloud Blob container
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task CreateCloudBlobContainer()
         {
             await _blobContainerClient.CreateIfNotExistsAsync(PublicAccessType.Blob);
@@ -151,6 +152,7 @@ namespace Nop.Services.Media
         /// Initiates an asynchronous operation to delete picture thumbs
         /// </summary>
         /// <param name="picture">Picture</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected override async Task DeletePictureThumbsAsync(Picture picture)
         {
             //create a string containing the Blob name prefix
@@ -196,6 +198,7 @@ namespace Nop.Services.Media
         /// <param name="thumbFileName">Thumb file name</param>
         /// <param name="mimeType">MIME type</param>
         /// <param name="binary">Picture binary</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected override async Task SaveThumbAsync(string thumbFilePath, string thumbFileName, string mimeType, byte[] binary)
         {
             var blobClient = _blobContainerClient.GetBlobClient(thumbFileName);

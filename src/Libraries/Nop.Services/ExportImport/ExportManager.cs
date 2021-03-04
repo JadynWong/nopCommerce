@@ -177,6 +177,7 @@ namespace Nop.Services.ExportImport
 
         #region Utilities
 
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task WriteCategoriesAsync(XmlWriter xmlWriter, int parentCategoryId)
         {
             var categories = await _categoryService.GetAllCategoriesByParentCategoryIdAsync(parentCategoryId, true);

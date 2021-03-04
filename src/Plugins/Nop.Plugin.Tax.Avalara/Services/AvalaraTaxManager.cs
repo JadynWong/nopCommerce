@@ -823,6 +823,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// <summary>
         /// Delete generic attributes used in the plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task DeleteAttributesAsync()
         {
             await DeleteSystemTaxCodesAsync();
@@ -1133,6 +1134,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// Void tax transaction
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task VoidTaxTransactionAsync(Order order)
         {
             await HandleFunctionAsync(() =>
@@ -1152,6 +1154,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// Delete tax transaction
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task DeleteTaxTransactionAsync(Order order)
         {
             await HandleFunctionAsync(() =>
@@ -1172,6 +1175,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
         /// </summary>
         /// <param name="order">Order</param>
         /// <param name="amountToRefund">Amount to refund</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task RefundTaxTransactionAsync(Order order, decimal amountToRefund)
         {
             await HandleFunctionAsync(() =>

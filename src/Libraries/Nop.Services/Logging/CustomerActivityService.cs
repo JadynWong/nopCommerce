@@ -44,6 +44,7 @@ namespace Nop.Services.Logging
         /// Updates an activity log type item
         /// </summary>
         /// <param name="activityLogType">Activity log type item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateActivityTypeAsync(ActivityLogType activityLogType)
         {
             await _activityLogTypeRepository.UpdateAsync(activityLogType);
@@ -125,6 +126,7 @@ namespace Nop.Services.Logging
         /// Deletes an activity log item
         /// </summary>
         /// <param name="activityLog">Activity log type</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteActivityAsync(ActivityLog activityLog)
         {
             await _activityLogRepository.DeleteAsync(activityLog);
@@ -192,6 +194,7 @@ namespace Nop.Services.Logging
         /// <summary>
         /// Clears activity log
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ClearAllActivitiesAsync()
         {
             await _activityLogRepository.TruncateAsync();

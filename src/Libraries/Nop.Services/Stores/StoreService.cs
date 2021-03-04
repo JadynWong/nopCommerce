@@ -62,6 +62,7 @@ namespace Nop.Services.Stores
         /// Deletes a store
         /// </summary>
         /// <param name="store">Store</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteStoreAsync(Store store)
         {
             if (store == null)
@@ -102,6 +103,7 @@ namespace Nop.Services.Stores
         /// Inserts a store
         /// </summary>
         /// <param name="store">Store</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertStoreAsync(Store store)
         {
             await _storeRepository.InsertAsync(store);
@@ -111,6 +113,7 @@ namespace Nop.Services.Stores
         /// Updates the store
         /// </summary>
         /// <param name="store">Store</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateStoreAsync(Store store)
         {
             await _storeRepository.UpdateAsync(store);

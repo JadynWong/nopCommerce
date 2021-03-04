@@ -99,6 +99,7 @@ namespace Nop.Services.Payments
         /// </summary>
         /// <param name="paymentMethod">Payment method</param>
         /// <param name="countryIds">List of country identifiers</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveRestrictedCountriesAsync(IPaymentMethod paymentMethod, IList<int> countryIds)
         {
             if (paymentMethod == null)

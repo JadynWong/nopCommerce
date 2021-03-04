@@ -48,6 +48,7 @@ namespace Nop.Services.Blogs
         /// Deletes a blog post
         /// </summary>
         /// <param name="blogPost">Blog post</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteBlogPostAsync(BlogPost blogPost)
         {
             await _blogPostRepository.DeleteAsync(blogPost);
@@ -187,6 +188,7 @@ namespace Nop.Services.Blogs
         /// Inserts a blog post
         /// </summary>
         /// <param name="blogPost">Blog post</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertBlogPostAsync(BlogPost blogPost)
         {
             await _blogPostRepository.InsertAsync(blogPost);
@@ -196,6 +198,7 @@ namespace Nop.Services.Blogs
         /// Updates the blog post
         /// </summary>
         /// <param name="blogPost">Blog post</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateBlogPostAsync(BlogPost blogPost)
         {
             await _blogPostRepository.UpdateAsync(blogPost);
@@ -354,6 +357,7 @@ namespace Nop.Services.Blogs
         /// Deletes a blog comment
         /// </summary>
         /// <param name="blogComment">Blog comment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteBlogCommentAsync(BlogComment blogComment)
         {
             await _blogCommentRepository.DeleteAsync(blogComment);
@@ -363,6 +367,7 @@ namespace Nop.Services.Blogs
         /// Deletes blog comments
         /// </summary>
         /// <param name="blogComments">Blog comments</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteBlogCommentsAsync(IList<BlogComment> blogComments)
         {
             await _blogCommentRepository.DeleteAsync(blogComments);
@@ -372,6 +377,7 @@ namespace Nop.Services.Blogs
         /// Inserts a blog comment
         /// </summary>
         /// <param name="blogComment">Blog comment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertBlogCommentAsync(BlogComment blogComment)
         {
             await _blogCommentRepository.InsertAsync(blogComment);
@@ -381,6 +387,7 @@ namespace Nop.Services.Blogs
         /// Update a blog comment
         /// </summary>
         /// <param name="blogComment">Blog comment</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateBlogCommentAsync(BlogComment blogComment)
         {
             await _blogCommentRepository.UpdateAsync(blogComment);

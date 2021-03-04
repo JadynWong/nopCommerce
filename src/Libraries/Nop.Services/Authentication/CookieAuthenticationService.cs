@@ -44,6 +44,7 @@ namespace Nop.Services.Authentication
         /// </summary>
         /// <param name="customer">Customer</param>
         /// <param name="isPersistent">Whether the authentication session is persisted across multiple requests</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SignInAsync(Customer customer, bool isPersistent)
         {
             if (customer == null)
@@ -79,6 +80,7 @@ namespace Nop.Services.Authentication
         /// <summary>
         /// Sign out
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SignOutAsync()
         {
             //reset cached customer

@@ -74,6 +74,7 @@ namespace Nop.Services.Orders
         /// Update reward points balance if necessary
         /// </summary>
         /// <param name="query">Input query</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task UpdateRewardPointsBalanceAsync(IQueryable<RewardPointsHistory> query)
         {
             //get expired points
@@ -126,6 +127,7 @@ namespace Nop.Services.Orders
         /// Insert the reward point history entry
         /// </summary>
         /// <param name="rewardPointsHistory">Reward point history entry</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InsertRewardPointsHistoryEntryAsync(RewardPointsHistory rewardPointsHistory)
         {
             await _rewardPointsHistoryRepository.InsertAsync(rewardPointsHistory);
@@ -263,6 +265,7 @@ namespace Nop.Services.Orders
         /// Update the reward point history entry
         /// </summary>
         /// <param name="rewardPointsHistory">Reward point history entry</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateRewardPointsHistoryEntryAsync(RewardPointsHistory rewardPointsHistory)
         {
             await _rewardPointsHistoryRepository.UpdateAsync(rewardPointsHistory);
@@ -272,6 +275,7 @@ namespace Nop.Services.Orders
         /// Delete the reward point history entry
         /// </summary>
         /// <param name="rewardPointsHistory">Reward point history entry</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteRewardPointsHistoryEntryAsync(RewardPointsHistory rewardPointsHistory)
         {
             await _rewardPointsHistoryRepository.DeleteAsync(rewardPointsHistory);

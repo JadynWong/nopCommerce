@@ -79,6 +79,7 @@ namespace Nop.Services.Logging
         /// Deletes a log item
         /// </summary>
         /// <param name="log">Log item</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteLogAsync(Log log)
         {
             if (log == null)
@@ -91,6 +92,7 @@ namespace Nop.Services.Logging
         /// Deletes a log items
         /// </summary>
         /// <param name="logs">Log items</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteLogsAsync(IList<Log> logs)
         {
             await _logRepository.DeleteAsync(logs, false);
@@ -99,6 +101,7 @@ namespace Nop.Services.Logging
         /// <summary>
         /// Clears a log
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ClearLogAsync()
         {
             await _logRepository.TruncateAsync();
@@ -197,6 +200,7 @@ namespace Nop.Services.Logging
         /// <param name="message">Message</param>
         /// <param name="exception">Exception</param>
         /// <param name="customer">Customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InformationAsync(string message, Exception exception = null, Customer customer = null)
         {
             //don't log thread abort exception
@@ -213,6 +217,7 @@ namespace Nop.Services.Logging
         /// <param name="message">Message</param>
         /// <param name="exception">Exception</param>
         /// <param name="customer">Customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task WarningAsync(string message, Exception exception = null, Customer customer = null)
         {
             //don't log thread abort exception
@@ -229,6 +234,7 @@ namespace Nop.Services.Logging
         /// <param name="message">Message</param>
         /// <param name="exception">Exception</param>
         /// <param name="customer">Customer</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task ErrorAsync(string message, Exception exception = null, Customer customer = null)
         {
             //don't log thread abort exception

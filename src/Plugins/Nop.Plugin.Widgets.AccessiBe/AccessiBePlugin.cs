@@ -86,6 +86,7 @@ namespace Nop.Plugin.Widgets.AccessiBe
         /// <summary>
         /// Install plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             await _settingService.SaveSettingAsync(new AccessiBeSettings
@@ -108,6 +109,7 @@ namespace Nop.Plugin.Widgets.AccessiBe
         /// <summary>
         /// Uninstall plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             await _settingService.DeleteSettingAsync<AccessiBeSettings>();

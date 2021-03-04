@@ -557,6 +557,7 @@ namespace Nop.Plugin.Payments.PayPalSmartPaymentButtons.Services
         /// Delete webhook
         /// </summary>
         /// <param name="settings">Plugin settings</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task DeleteWebhookAsync(PayPalSmartPaymentButtonsSettings settings)
         {
             await HandleFunctionAsync(settings, () =>
@@ -572,6 +573,7 @@ namespace Nop.Plugin.Payments.PayPalSmartPaymentButtons.Services
         /// </summary>
         /// <param name="settings">Plugin settings</param>
         /// <param name="request">HTTP request</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task HandleWebhookAsync(PayPalSmartPaymentButtonsSettings settings, Microsoft.AspNetCore.Http.HttpRequest request)
         {
             await HandleFunctionAsync(settings, async () =>

@@ -34,6 +34,7 @@ namespace Nop.Services.Messages
         /// Inserts an email account
         /// </summary>
         /// <param name="emailAccount">Email account</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertEmailAccountAsync(EmailAccount emailAccount)
         {
             if (emailAccount == null)
@@ -64,6 +65,7 @@ namespace Nop.Services.Messages
         /// Updates an email account
         /// </summary>
         /// <param name="emailAccount">Email account</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateEmailAccountAsync(EmailAccount emailAccount)
         {
             if (emailAccount == null)
@@ -94,6 +96,7 @@ namespace Nop.Services.Messages
         /// Deletes an email account
         /// </summary>
         /// <param name="emailAccount">Email account</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteEmailAccountAsync(EmailAccount emailAccount)
         {
             if (emailAccount == null)

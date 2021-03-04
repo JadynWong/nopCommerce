@@ -79,6 +79,7 @@ namespace Nop.Services.Localization
         /// Deletes a localized property
         /// </summary>
         /// <param name="localizedProperty">Localized property</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task DeleteLocalizedPropertyAsync(LocalizedProperty localizedProperty)
         {
             await _localizedPropertyRepository.DeleteAsync(localizedProperty);
@@ -88,6 +89,7 @@ namespace Nop.Services.Localization
         /// Inserts a localized property
         /// </summary>
         /// <param name="localizedProperty">Localized property</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InsertLocalizedPropertyAsync(LocalizedProperty localizedProperty)
         {
             await _localizedPropertyRepository.InsertAsync(localizedProperty);
@@ -97,6 +99,7 @@ namespace Nop.Services.Localization
         /// Updates the localized property
         /// </summary>
         /// <param name="localizedProperty">Localized property</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task UpdateLocalizedPropertyAsync(LocalizedProperty localizedProperty)
         {
             await _localizedPropertyRepository.UpdateAsync(localizedProperty);
@@ -149,6 +152,7 @@ namespace Nop.Services.Localization
         /// <param name="keySelector">Key selector</param>
         /// <param name="localeValue">Locale value</param>
         /// <param name="languageId">Language ID</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveLocalizedValueAsync<T>(T entity,
             Expression<Func<T, string>> keySelector,
             string localeValue,
@@ -166,6 +170,7 @@ namespace Nop.Services.Localization
         /// <param name="keySelector">Key selector</param>
         /// <param name="localeValue">Locale value</param>
         /// <param name="languageId">Language ID</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SaveLocalizedValueAsync<T, TPropType>(T entity,
             Expression<Func<T, TPropType>> keySelector,
             TPropType localeValue,

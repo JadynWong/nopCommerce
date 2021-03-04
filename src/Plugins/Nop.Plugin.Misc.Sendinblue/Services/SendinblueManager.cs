@@ -437,6 +437,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
         /// Subscribe new contact
         /// </summary>
         /// <param name="subscription">Subscription</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task SubscribeAsync(NewsLetterSubscription subscription)
         {
             try
@@ -589,6 +590,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
         /// Unsubscribe contact
         /// </summary>
         /// <param name="subscription">Subscription</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task UnsubscribeAsync(NewsLetterSubscription subscription)
         {
             try
@@ -625,6 +627,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
         /// Unsubscribe contact
         /// </summary>
         /// <param name="unsubscribeContact">Contact information</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task UnsubscribeWebhookAsync(string unsubscribeContact)
         {
             try
@@ -701,6 +704,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
         /// Update contact after completing order
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task UpdateContactAfterCompletingOrderAsync(Order order)
         {
             try
@@ -1209,6 +1213,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
         /// <param name="to">Phone number of the receiver</param>
         /// <param name="from">Name of sender</param>
         /// <param name="text">Text</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public async Task SendSMSAsync(string to, string from, string text)
         {
             //whether SMS notifications enabled

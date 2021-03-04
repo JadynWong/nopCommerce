@@ -65,6 +65,7 @@ namespace Nop.Plugin.Widgets.NivoSlider
         /// <summary>
         /// Install plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task InstallAsync()
         {
             //pictures
@@ -108,6 +109,7 @@ namespace Nop.Plugin.Widgets.NivoSlider
         /// <summary>
         /// Uninstall plugin
         /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public override async Task UninstallAsync()
         {
             //settings

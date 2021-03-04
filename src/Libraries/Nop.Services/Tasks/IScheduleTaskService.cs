@@ -19,21 +19,30 @@ namespace Nop.Services.Tasks
         /// Gets a task
         /// </summary>
         /// <param name="taskId">Task identifier</param>
-        /// <returns>Task</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the ask
+        /// </returns>
         Task<ScheduleTask> GetTaskByIdAsync(int taskId);
 
         /// <summary>
         /// Gets a task by its type
         /// </summary>
         /// <param name="type">Task type</param>
-        /// <returns>Task</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the ask
+        /// </returns>
         Task<ScheduleTask> GetTaskByTypeAsync(string type);
 
         /// <summary>
         /// Gets all tasks
         /// </summary>
         /// <param name="showHidden">A value indicating whether to show hidden records</param>
-        /// <returns>Tasks</returns>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the asks
+        /// </returns>
         Task<IList<ScheduleTask>> GetAllTasksAsync(bool showHidden = false);
 
         /// <summary>

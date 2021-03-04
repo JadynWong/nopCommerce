@@ -48,6 +48,7 @@ namespace Nop.Services.Orders
         /// Deletes a gift card
         /// </summary>
         /// <param name="giftCard">Gift card</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteGiftCardAsync(GiftCard giftCard)
         {
             await _giftCardRepository.DeleteAsync(giftCard);
@@ -120,6 +121,7 @@ namespace Nop.Services.Orders
         /// Inserts a gift card
         /// </summary>
         /// <param name="giftCard">Gift card</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertGiftCardAsync(GiftCard giftCard)
         {
             await _giftCardRepository.InsertAsync(giftCard);
@@ -129,6 +131,7 @@ namespace Nop.Services.Orders
         /// Updates the gift card
         /// </summary>
         /// <param name="giftCard">Gift card</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task UpdateGiftCardAsync(GiftCard giftCard)
         {
             await _giftCardRepository.UpdateAsync(giftCard);
@@ -193,6 +196,7 @@ namespace Nop.Services.Orders
         /// Delete gift card usage history
         /// </summary>
         /// <param name="order">Order</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task DeleteGiftCardUsageHistoryAsync(Order order)
         {
             var giftCardUsageHistory = await GetGiftCardUsageHistoryAsync(order);
@@ -263,6 +267,7 @@ namespace Nop.Services.Orders
         /// Inserts a gift card usage history entry
         /// </summary>
         /// <param name="giftCardUsageHistory">Gift card usage history entry</param>
+        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task InsertGiftCardUsageHistoryAsync(GiftCardUsageHistory giftCardUsageHistory)
         {
             await _giftCardUsageHistoryRepository.InsertAsync(giftCardUsageHistory);
