@@ -692,7 +692,7 @@ namespace Nop.Web.Framework.Migrations.UpgradeTo440
                 ["Admin.ContentManagement.Forums.Forum.Fields.Name.Required"] = "Forum name is required.",
 
                 //#5349
-                ["Admin.Configuration.Settings.Shipping.EstimateShippingCityNameEnabled"] = "Use city name for estimate shipping",
+                ["Admin.Configuration.Settings.Shipping.EstimateShippingCityNameEnabled"] = "Use the name of the city to estimate shipping",
                 ["Admin.Configuration.Settings.Shipping.EstimateShippingCityNameEnabled.Hint"] = "Check to allow customers to enter the city name instead zip postal code.",
                 ["Shipping.EstimateShippingPopUp.City"] = "City",
                 ["Shipping.EstimateShipping.City.Required"] = "City is required",

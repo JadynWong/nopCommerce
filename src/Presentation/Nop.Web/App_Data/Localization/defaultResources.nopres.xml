@@ -8476,7 +8476,7 @@
     <Value>Check to allow customers to estimate shipping on the shopping cart page.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Settings.Shipping.EstimateShippingCityNameEnabled">
-    <Value>Use city name for estimate shipping</Value>
+    <Value>Use the name of the city to estimate shipping</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Settings.Shipping.EstimateShippingCityNameEnabled.Hint">
     <Value>Check to allow customers to enter the city name instead zip postal code.</Value>

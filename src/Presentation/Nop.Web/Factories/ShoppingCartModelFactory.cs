@@ -1270,6 +1270,9 @@ namespace Nop.Web.Factories
         /// <returns>Estimate shipping result model</returns>
         public virtual async Task<EstimateShippingResultModel> PrepareEstimateShippingResultModelAsync(IList<ShoppingCartItem> cart, EstimateShippingModel request, bool cacheShippingOptions)
         {
+            if (request is null)
+                throw new ArgumentNullException(nameof(request));
+
             var model = new EstimateShippingResultModel();
 
             if (await _shoppingCartService.ShoppingCartRequiresShippingAsync(cart))
