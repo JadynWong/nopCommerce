@@ -306,7 +306,7 @@ namespace Nop.Web.Areas.Admin.Factories
             //get URL of discount with coupon code
             if (model.RequiresCouponCode && !string.IsNullOrEmpty(model.CouponCode))
             {
-                model.DiscountUrl = QueryHelpers.AddQueryString((_webHelper.GetStoreLocation()).TrimEnd('/'),
+                model.DiscountUrl = QueryHelpers.AddQueryString((await _webHelper.GetStoreLocationAsync()).TrimEnd('/'),
                     NopDiscountDefaults.DiscountCouponQueryParameter, model.CouponCode);
             }
 

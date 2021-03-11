@@ -52,9 +52,9 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return _webHelper.GetStoreLocation() + "Admin/WidgetsGoogleAnalytics/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/WidgetsGoogleAnalytics/Configure";
         }
 
         /// <summary>

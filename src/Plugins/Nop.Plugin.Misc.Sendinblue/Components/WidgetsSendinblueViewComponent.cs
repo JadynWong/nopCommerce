@@ -63,7 +63,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Components
                 .Replace(SendinblueDefaults.TrackingScriptId, _sendinblueSettings.MarketingAutomationKey)
                 .Replace(SendinblueDefaults.TrackingScriptCustomerEmail, customerEmail);
 
-            return View("~/Plugins/Misc.Sendinblue/Views/PublicInfo.cshtml", trackingScript);
+            return await PublishAndViewAsync("~/Plugins/Misc.Sendinblue/Views/PublicInfo.cshtml", trackingScript);
         }
 
         #endregion

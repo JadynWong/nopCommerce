@@ -124,9 +124,10 @@ namespace Nop.Plugin.Tax.Avalara
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override Task<string> GetConfigurationPageUrlAsync()
         {
-            return _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext).RouteUrl(AvalaraTaxDefaults.ConfigurationRouteName);
+            var url = _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext).RouteUrl(AvalaraTaxDefaults.ConfigurationRouteName);
+            return Task.FromResult(url);
         }
 
         /// <summary>

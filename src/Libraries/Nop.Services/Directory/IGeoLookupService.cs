@@ -1,3 +1,5 @@
+﻿using System.Threading.Tasks;
+
 namespace Nop.Services.Directory
 {
     /// <summary>
@@ -10,13 +12,13 @@ namespace Nop.Services.Directory
         /// </summary>
         /// <param name="ipAddress">IP address</param>
         /// <returns>Country name</returns>
-        string LookupCountryIsoCode(string ipAddress);
+        Task<string> LookupCountryIsoCodeAsync(string ipAddress);
 
         /// <summary>
         /// Get country name
         /// </summary>
         /// <param name="ipAddress">IP address</param>
         /// <returns>Country name</returns>
-        string LookupCountryName(string ipAddress);
+        Task<string> LookupCountryNameAsync(string ipAddress);
     }
 }

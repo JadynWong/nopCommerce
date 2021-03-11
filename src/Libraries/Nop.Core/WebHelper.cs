@@ -165,13 +165,13 @@ namespace Nop.Core
         /// <param name="useSsl">Value indicating whether to get SSL secured page URL. Pass null to determine automatically</param>
         /// <param name="lowercaseUrl">Value indicating whether to lowercase URL</param>
         /// <returns>Page URL</returns>
-        public virtual string GetThisPageUrl(bool includeQueryString, bool? useSsl = null, bool lowercaseUrl = false)
+        public virtual async Task<string> GetThisPageUrlAsync(bool includeQueryString, bool? useSsl = null, bool lowercaseUrl = false)
         {
             if (!IsRequestAvailable())
                 return string.Empty;
 
             //get store location
-            var storeLocation = GetStoreLocation(useSsl ?? IsCurrentConnectionSecured());
+            var storeLocation = await GetStoreLocationAsync(useSsl ?? IsCurrentConnectionSecured());
 
             //add local path to the URL
             var pageUrl = $"{storeLocation.TrimEnd('/')}{_httpContextAccessor.HttpContext.Request.Path}";
@@ -237,7 +237,7 @@ namespace Nop.Core
         /// </summary>
         /// <param name="useSsl">Whether to get SSL secured URL; pass null to determine automatically</param>
         /// <returns>Store location</returns>
-        public virtual string GetStoreLocation(bool? useSsl = null)
+        public virtual async Task<string> GetStoreLocationAsync(bool? useSsl = null)
         {
             var storeLocation = string.Empty;
 
@@ -253,7 +253,7 @@ namespace Nop.Core
             if (string.IsNullOrEmpty(storeHost))
             {
                 //do not inject IWorkContext via constructor because it'll cause circular references
-                storeLocation = AsyncHelper.RunSync(EngineContext.Current.Resolve<IStoreContext>().GetCurrentStoreAsync)?.Url
+                storeLocation = (await EngineContext.Current.Resolve<IStoreContext>().GetCurrentStoreAsync())?.Url
                     ?? throw new Exception("Current store cannot be loaded");
             }
 
@@ -288,7 +288,7 @@ namespace Nop.Core
         /// <param name="key">Query parameter key to add</param>
         /// <param name="values">Query parameter values to add</param>
         /// <returns>New URL with passed query parameter</returns>
-        public virtual string ModifyQueryString(string url, string key, params string[] values)
+        public virtual async Task<string> ModifyQueryStringAsync(string url, string key, params string[] values)
         {
             if (string.IsNullOrEmpty(url))
                 return string.Empty;
@@ -304,7 +304,7 @@ namespace Nop.Core
             if (isLocalUrl)
             {
                 var pathBase = _httpContextAccessor.HttpContext.Request.PathBase;
-                uriStr = $"{GetStoreLocation().TrimEnd('/')}{(url.StartsWith(pathBase) ? url.Replace(pathBase, "") : url)}";
+                uriStr = $"{(await GetStoreLocationAsync()).TrimEnd('/')}{(url.StartsWith(pathBase) ? url.Replace(pathBase, "") : url)}";
             }
 
             var uri = new Uri(uriStr, UriKind.Absolute);
@@ -336,7 +336,7 @@ namespace Nop.Core
         /// <param name="key">Query parameter key to remove</param>
         /// <param name="value">Query parameter value to remove; pass null to remove all query parameters with the specified key</param>
         /// <returns>New URL without passed query parameter</returns>
-        public virtual string RemoveQueryString(string url, string key, string value = null)
+        public virtual async Task<string> RemoveQueryStringAsync(string url, string key, string value = null)
         {
             if (string.IsNullOrEmpty(url))
                 return string.Empty;
@@ -347,7 +347,7 @@ namespace Nop.Core
             //prepare URI object
             var urlHelper = _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext);
             var isLocalUrl = urlHelper.IsLocalUrl(url);
-            var uri = new Uri(isLocalUrl ? $"{GetStoreLocation().TrimEnd('/')}{url}" : url, UriKind.Absolute);
+            var uri = new Uri(isLocalUrl ? $"{(await GetStoreLocationAsync()).TrimEnd('/')}{url}" : url, UriKind.Absolute);
 
             //get current query parameters
             var queryParameters = QueryHelpers.ParseQuery(uri.Query)

@@ -32,7 +32,7 @@ namespace Nop.Web.Components
             var cart = await _shoppingCartService.GetShoppingCartAsync(await _workContext.GetCurrentCustomerAsync(), ShoppingCartType.ShoppingCart, (await _storeContext.GetCurrentStoreAsync()).Id);
 
             var model = await _shoppingCartModelFactory.PrepareOrderTotalsModelAsync(cart, isEditable);
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

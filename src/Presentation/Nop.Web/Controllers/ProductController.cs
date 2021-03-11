@@ -241,7 +241,7 @@ namespace Nop.Web.Controllers
                 model = new ProductDetailsModel.ProductEstimateShippingModel();
 
             var errors = new List<string>();
-            
+
             if (!_shippingSettings.EstimateShippingCityNameEnabled && string.IsNullOrEmpty(model.ZipPostalCode))
                 errors.Add(await _localizationService.GetResourceAsync("Shipping.EstimateShipping.ZipPostalCode.Required"));
 
@@ -353,11 +353,11 @@ namespace Nop.Web.Controllers
             var feed = new RssFeed(
                 $"{await _localizationService.GetLocalizedAsync(await _storeContext.GetCurrentStoreAsync(), x => x.Name)}: New products",
                 "Information about products",
-                new Uri(_webHelper.GetStoreLocation()),
+                new Uri(await _webHelper.GetStoreLocationAsync()),
                 DateTime.UtcNow);
 
             if (!_catalogSettings.NewProductsEnabled)
-                return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+                return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
 
             var items = new List<RssItem>();
 
@@ -381,7 +381,7 @@ namespace Nop.Web.Controllers
 
             }
             feed.Items = items;
-            return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+            return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
         }
 
         #endregion
@@ -402,7 +402,7 @@ namespace Nop.Web.Controllers
 
             //default value
             model.AddProductReview.Rating = _catalogSettings.DefaultProductRatingValue;
-            
+
             //default value for all additional review types
             if (model.ReviewTypeList.Count > 0)
                 foreach (var additionalProductReview in model.AddAdditionalProductReviewList)

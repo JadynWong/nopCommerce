@@ -87,9 +87,9 @@ namespace Nop.Plugin.Misc.Sendinblue
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return $"{_webHelper.GetStoreLocation()}Admin/Sendinblue/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/Sendinblue/Configure";
         }
 
         /// <summary>

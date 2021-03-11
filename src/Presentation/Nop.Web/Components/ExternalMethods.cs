@@ -29,7 +29,7 @@ namespace Nop.Web.Components
         {
             var model = await _externalAuthenticationModelFactory.PrepareExternalMethodsModelAsync();
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
 
         #endregion

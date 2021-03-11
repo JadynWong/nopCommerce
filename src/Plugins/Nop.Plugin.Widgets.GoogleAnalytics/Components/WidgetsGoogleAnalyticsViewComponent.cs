@@ -220,7 +220,7 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics.Components
             {
                 await _logger.InsertLogAsync(Core.Domain.Logging.LogLevel.Error, "Error creating scripts for Google eCommerce tracking", ex.ToString());
             }
-            return View("~/Plugins/Widgets.GoogleAnalytics/Views/PublicInfo.cshtml", script);
+            return await PublishAndViewAsync("~/Plugins/Widgets.GoogleAnalytics/Views/PublicInfo.cshtml", script);
         }
 
         #endregion

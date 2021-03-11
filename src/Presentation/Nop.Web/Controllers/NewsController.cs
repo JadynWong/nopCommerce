@@ -106,11 +106,11 @@ namespace Nop.Web.Controllers
             var feed = new RssFeed(
                 $"{await _localizationService.GetLocalizedAsync(await _storeContext.GetCurrentStoreAsync(), x => x.Name)}: News",
                 "News",
-                new Uri(_webHelper.GetStoreLocation()),
+                new Uri(await _webHelper.GetStoreLocationAsync()),
                 DateTime.UtcNow);
 
             if (!_newsSettings.Enabled)
-                return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+                return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
 
             var items = new List<RssItem>();
             var newsItems = await _newsService.GetAllNewsAsync(languageId, (await _storeContext.GetCurrentStoreAsync()).Id);
@@ -120,7 +120,7 @@ namespace Nop.Web.Controllers
                 items.Add(new RssItem(n.Title, n.Short, new Uri(newsUrl), $"urn:store:{(await _storeContext.GetCurrentStoreAsync()).Id}:news:blog:{n.Id}", n.CreatedOnUtc));
             }
             feed.Items = items;
-            return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+            return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
         }
 
         /// <returns>A task that represents the asynchronous operation</returns>

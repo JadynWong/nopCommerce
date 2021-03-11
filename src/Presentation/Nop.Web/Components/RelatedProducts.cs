@@ -46,7 +46,7 @@ namespace Nop.Web.Components
                 return Content(string.Empty);
 
             var model = (await _productModelFactory.PrepareProductOverviewModelsAsync(products, true, true, productThumbPictureSize)).ToList();
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

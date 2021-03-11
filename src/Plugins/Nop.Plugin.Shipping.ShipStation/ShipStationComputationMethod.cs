@@ -114,9 +114,9 @@ namespace Nop.Plugin.Shipping.ShipStation
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return $"{_webHelper.GetStoreLocation()}Admin/ShipStation/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/ShipStation/Configure";
         }
 
         /// <summary>

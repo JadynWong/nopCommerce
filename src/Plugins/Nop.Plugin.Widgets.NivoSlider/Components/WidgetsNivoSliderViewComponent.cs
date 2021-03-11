@@ -72,7 +72,7 @@ namespace Nop.Plugin.Widgets.NivoSlider.Components
                 //no pictures uploaded
                 return Content("");
 
-            return View("~/Plugins/Widgets.NivoSlider/Views/PublicInfo.cshtml", model);
+            return await PublishAndViewAsync("~/Plugins/Widgets.NivoSlider/Views/PublicInfo.cshtml", model);
         }
 
         /// <returns>A task that represents the asynchronous operation</returns>

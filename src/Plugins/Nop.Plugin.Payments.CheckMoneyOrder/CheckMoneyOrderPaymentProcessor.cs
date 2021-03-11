@@ -218,9 +218,9 @@ namespace Nop.Plugin.Payments.CheckMoneyOrder
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return $"{_webHelper.GetStoreLocation()}Admin/PaymentCheckMoneyOrder/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/PaymentCheckMoneyOrder/Configure";
         }
 
         /// <summary>

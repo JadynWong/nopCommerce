@@ -74,16 +74,16 @@ namespace Nop.Web.Areas.Admin.Factories
                 .ToPagedList(searchModel);
 
             //prepare grid model
-            var model = new WidgetListModel().PrepareToGrid(searchModel, widgets, () =>
+            var model = await new WidgetListModel().PrepareToGridAsync(searchModel, widgets, () =>
             {
-                return widgets.Select(widget =>
+                return widgets.SelectAwait(async widget =>
                 {
                     //fill in model values from the entity
                     var widgetMethodModel = widget.ToPluginModel<WidgetModel>();
 
                     //fill in additional values (not existing in the entity)
                     widgetMethodModel.IsActive = _widgetPluginManager.IsPluginActive(widget);
-                    widgetMethodModel.ConfigurationUrl = widget.GetConfigurationPageUrl();
+                    widgetMethodModel.ConfigurationUrl = await widget.GetConfigurationPageUrlAsync();
 
                     return widgetMethodModel;
                 });

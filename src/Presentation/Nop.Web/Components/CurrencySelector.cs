@@ -21,7 +21,7 @@ namespace Nop.Web.Components
             if (model.AvailableCurrencies.Count == 1)
                 return Content("");
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

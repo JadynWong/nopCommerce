@@ -32,7 +32,7 @@ namespace Nop.Web.Components
         {
             //use already prepared (shared) model
             if (overriddenModel != null)
-                return View(overriddenModel);
+                return await PublishAndViewAsync(overriddenModel);
 
             //if not passed, then create a new model
             var cart = await _shoppingCartService.GetShoppingCartAsync(await _workContext.GetCurrentCustomerAsync(), ShoppingCartType.ShoppingCart, (await _storeContext.GetCurrentStoreAsync()).Id);
@@ -41,7 +41,7 @@ namespace Nop.Web.Components
             model = await _shoppingCartModelFactory.PrepareShoppingCartModelAsync(model, cart,
                 isEditable: false,
                 prepareAndDisplayOrderReviewData: prepareAndDisplayOrderReviewData.GetValueOrDefault());
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

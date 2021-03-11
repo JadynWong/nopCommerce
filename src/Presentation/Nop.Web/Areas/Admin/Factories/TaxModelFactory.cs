@@ -70,15 +70,15 @@ namespace Nop.Web.Areas.Admin.Factories
             var taxProviders = (await _taxPluginManager.LoadAllPluginsAsync()).ToPagedList(searchModel);
 
             //prepare grid model
-            var model = new TaxProviderListModel().PrepareToGrid(searchModel, taxProviders, () =>
+            var model = await new TaxProviderListModel().PrepareToGridAsync(searchModel, taxProviders, () =>
             {
-                return taxProviders.Select(provider =>
+                return taxProviders.SelectAwait(async provider =>
                 {
                     //fill in model values from the entity
                     var taxProviderModel = provider.ToPluginModel<TaxProviderModel>();
 
                     //fill in additional values (not existing in the entity)
-                    taxProviderModel.ConfigurationUrl = provider.GetConfigurationPageUrl();
+                    taxProviderModel.ConfigurationUrl = await provider.GetConfigurationPageUrlAsync();
                     taxProviderModel.IsPrimaryTaxProvider = _taxPluginManager.IsPluginActive(provider);
 
                     return taxProviderModel;

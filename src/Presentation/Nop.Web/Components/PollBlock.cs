@@ -25,7 +25,7 @@ namespace Nop.Web.Components
             if (model == null)
                 return Content("");
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

@@ -65,17 +65,17 @@ namespace Nop.Web.Areas.Admin.Factories
             var multiFactorAuthenticationMethods = (await _multiFactorAuthenticationPluginManager.LoadAllPluginsAsync()).ToPagedList(searchModel);
 
             //prepare grid model
-            var model = new MultiFactorAuthenticationMethodListModel().PrepareToGrid(searchModel, multiFactorAuthenticationMethods, () =>
+            var model = await new MultiFactorAuthenticationMethodListModel().PrepareToGridAsync(searchModel, multiFactorAuthenticationMethods, () =>
             {
                 //fill in model values from the entity
-                return multiFactorAuthenticationMethods.Select(method =>
+                return multiFactorAuthenticationMethods.SelectAwait(async method =>
                 {
                     //fill in model values from the entity
                     var multiFactorAuthenticationMethodModel = method.ToPluginModel<MultiFactorAuthenticationMethodModel>();
 
                     //fill in additional values (not existing in the entity)
                     multiFactorAuthenticationMethodModel.IsActive = _multiFactorAuthenticationPluginManager.IsPluginActive(method);
-                    multiFactorAuthenticationMethodModel.ConfigurationUrl = method.GetConfigurationPageUrl();
+                    multiFactorAuthenticationMethodModel.ConfigurationUrl = await method.GetConfigurationPageUrlAsync();
 
                     return multiFactorAuthenticationMethodModel;
                 });

@@ -265,9 +265,9 @@ namespace Nop.Plugin.Tax.FixedOrByCountryStateZip
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return $"{_webHelper.GetStoreLocation()}Admin/FixedOrByCountryStateZip/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/FixedOrByCountryStateZip/Configure";
         }
 
         /// <summary>

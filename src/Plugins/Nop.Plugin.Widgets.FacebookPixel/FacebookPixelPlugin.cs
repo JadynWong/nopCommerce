@@ -55,9 +55,10 @@ namespace Nop.Plugin.Widgets.FacebookPixel
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override Task<string> GetConfigurationPageUrlAsync()
         {
-            return _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext).RouteUrl(FacebookPixelDefaults.ConfigurationRouteName);
+            var url = _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext).RouteUrl(FacebookPixelDefaults.ConfigurationRouteName);
+            return Task.FromResult(url);
         }
 
         /// <summary>

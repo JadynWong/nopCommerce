@@ -196,7 +196,7 @@ namespace Nop.Services.Logging
                 FullMessage = fullMessage,
                 IpAddress = _webHelper.GetCurrentIpAddress(),
                 CustomerId = customer?.Id,
-                PageUrl = _webHelper.GetThisPageUrl(true),
+                PageUrl = await _webHelper.GetThisPageUrlAsync(true),
                 ReferrerUrl = _webHelper.GetUrlReferrer(),
                 CreatedOnUtc = DateTime.UtcNow
             };

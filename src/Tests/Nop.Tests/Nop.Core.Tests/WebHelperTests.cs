@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Threading.Tasks;
+using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Nop.Core;
 using NUnit.Framework;
@@ -43,22 +44,22 @@ namespace Nop.Tests.Nop.Core.Tests
         }
 
         [Test]
-        public void CanGetStoreLocationWithoutSsl()
+        public async Task CanGetStoreLocationWithoutSsl()
         {
-            _webHelper.GetStoreLocation(false).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/");
+            (await _webHelper.GetStoreLocationAsync(false)).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/");
         }
 
         [Test]
-        public void CanGetStoreLocationWithSsl()
+        public async Task CanGetStoreLocationWithSsl()
         {
-            _webHelper.GetStoreLocation(true).Should().Be($"https://{NopTestsDefaults.HostIpAddress}/");
+            (await _webHelper.GetStoreLocationAsync(true)).Should().Be($"https://{NopTestsDefaults.HostIpAddress}/");
         }
 
         [Test]
-        public void CanGetStoreLocationInVirtualDirectory()
+        public async Task CanGetStoreLocationInVirtualDirectory()
         {
             _httpContext.Request.PathBase = "/nopCommercepath";
-            _webHelper.GetStoreLocation(false).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/nopCommercepath/");
+            (await _webHelper.GetStoreLocationAsync(false)).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/nopCommercepath/");
             _httpContext.Request.PathBase = string.Empty;
         }
 
@@ -71,65 +72,65 @@ namespace Nop.Tests.Nop.Core.Tests
         }
 
         [Test]
-        public void CanRemoveQueryString()
+        public async Task CanRemoveQueryString()
         {
             //empty URL
-            _webHelper.RemoveQueryString(null, null).Should().Be(string.Empty);
+            (await _webHelper.RemoveQueryStringAsync(null, null)).Should().Be(string.Empty);
             //empty key
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/", null).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/");
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/", null)).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/");
             //non-existing param with fragment
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/#fragment", "param").Should().Be($"http://{NopTestsDefaults.HostIpAddress}/#fragment");
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/#fragment", "param")).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/#fragment");
             //first param (?)
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param1")
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param1"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param2=value1");
             //second param (&)
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param2")
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param2"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1");
             //non-existing param
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param3")
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param3"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1");
             //with fragment
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1#fragment", "param1")
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1#fragment", "param1"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param2=value1#fragment");
             //specific value
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param1=value2&param2=value1", "param1", "value1")
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param1=value2&param2=value1", "param1", "value1"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value2&param2=value1");
             //all values
-            _webHelper.RemoveQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param1=value2&param2=value1", "param1")
+            (await _webHelper.RemoveQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param1=value2&param2=value1", "param1"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param2=value1");
         }
 
         [Test]
-        public void CanModifyQueryString()
+        public async Task CanModifyQueryString()
         {
             //empty URL
-            _webHelper.ModifyQueryString(null, null).Should().Be(string.Empty);
+            (await _webHelper.ModifyQueryStringAsync(null, null)).Should().Be(string.Empty);
             //empty key
-            _webHelper.ModifyQueryString($"http://{NopTestsDefaults.HostIpAddress}/", null).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/");
+            (await _webHelper.ModifyQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/", null)).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/");
             //empty value
-            _webHelper.ModifyQueryString($"http://{NopTestsDefaults.HostIpAddress}/", "param").Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param=");
+            (await _webHelper.ModifyQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/", "param")).Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param=");
             //first param (?)
-            _webHelper.ModifyQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "Param1", "value2")
+            (await _webHelper.ModifyQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "Param1", "value2"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value2&param2=value1");
             //second param (&)
-            _webHelper.ModifyQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param2", "value2")
+            (await _webHelper.ModifyQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param2", "value2"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value2");
             //non-existing param
-            _webHelper.ModifyQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param3", "value1")
+            (await _webHelper.ModifyQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param3", "value1"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1&param3=value1");
             //multiple values
-            _webHelper.ModifyQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param1", "value1", "value2", "value3")
+            (await _webHelper.ModifyQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1", "param1", "value1", "value2", "value3"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1,value2,value3&param2=value1");
             //with fragment
-            _webHelper.ModifyQueryString($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1#fragment", "param1", "value2")
+            (await _webHelper.ModifyQueryStringAsync($"http://{NopTestsDefaults.HostIpAddress}/?param1=value1&param2=value1#fragment", "param1", "value2"))
                 .Should().Be($"http://{NopTestsDefaults.HostIpAddress}/?param1=value2&param2=value1#fragment");
         }
 
         [Test]
-        public void CanModifyQueryStringInVirtualDirectory()
+        public async Task CanModifyQueryStringInVirtualDirectory()
         {
             _httpContext.Request.PathBase = "/nopCommercepath";
-            _webHelper.ModifyQueryString("/nopCommercepath/Controller/Action", "param1", "value1").Should().Be("/nopCommercepath/Controller/Action?param1=value1");
+            (await _webHelper.ModifyQueryStringAsync("/nopCommercepath/Controller/Action", "param1", "value1")).Should().Be("/nopCommercepath/Controller/Action?param1=value1");
             _httpContext.Request.PathBase = string.Empty;
         }
     }

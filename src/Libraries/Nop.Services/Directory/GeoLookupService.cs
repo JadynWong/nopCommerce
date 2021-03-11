@@ -1,6 +1,7 @@
 ﻿//This product includes GeoLite2 data created by MaxMind, available from http://www.maxmind.com
 
 using System;
+using System.Threading.Tasks;
 using MaxMind.GeoIP2;
 using MaxMind.GeoIP2.Exceptions;
 using MaxMind.GeoIP2.Responses;
@@ -40,7 +41,7 @@ namespace Nop.Services.Directory
         /// </summary>
         /// <param name="ipAddress">IP address</param>
         /// <returns>Information</returns>
-        protected virtual CountryResponse GetInformation(string ipAddress)
+        protected virtual async Task<CountryResponse> GetInformationAsync(string ipAddress)
         {
             if (string.IsNullOrEmpty(ipAddress))
                 return null;
@@ -75,7 +76,7 @@ namespace Nop.Services.Directory
             catch (Exception exc)
             {
                 //do not throw exceptions
-                AsyncHelper.RunSync(() => _logger.WarningAsync("Cannot load MaxMind record", exc));
+                await _logger.WarningAsync("Cannot load MaxMind record", exc);
                 return null;
             }
         }
@@ -89,9 +90,9 @@ namespace Nop.Services.Directory
         /// </summary>
         /// <param name="ipAddress">IP address</param>
         /// <returns>Country name</returns>
-        public virtual string LookupCountryIsoCode(string ipAddress)
+        public virtual async Task<string> LookupCountryIsoCodeAsync(string ipAddress)
         {
-            var response = GetInformation(ipAddress);
+            var response = await GetInformationAsync(ipAddress);
             if (response?.Country != null)
                 return response.Country.IsoCode;
 
@@ -103,9 +104,9 @@ namespace Nop.Services.Directory
         /// </summary>
         /// <param name="ipAddress">IP address</param>
         /// <returns>Country name</returns>
-        public virtual string LookupCountryName(string ipAddress)
+        public virtual async Task<string> LookupCountryNameAsync(string ipAddress)
         {
-            var response = GetInformation(ipAddress);
+            var response = await GetInformationAsync(ipAddress);
             if (response?.Country != null)
                 return response.Country.Name;
 

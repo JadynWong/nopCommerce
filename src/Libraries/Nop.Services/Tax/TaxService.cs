@@ -117,7 +117,7 @@ namespace Nop.Services.Tax
             if (country == null)
             {
                 var ipAddress = _webHelper.GetCurrentIpAddress();
-                var countryIsoCode = _geoLookupService.LookupCountryIsoCode(ipAddress);
+                var countryIsoCode = await _geoLookupService.LookupCountryIsoCodeAsync(ipAddress);
                 country = await _countryService.GetCountryByTwoLetterIsoCodeAsync(countryIsoCode);
             }
 

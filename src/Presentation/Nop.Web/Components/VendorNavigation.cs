@@ -29,7 +29,7 @@ namespace Nop.Web.Components
             if (!model.Vendors.Any())
                 return Content("");
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

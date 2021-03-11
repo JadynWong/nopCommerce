@@ -96,7 +96,7 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics
                 {
                     AccountCode = googleAnalyticsSettings.GoogleId,
                     Culture = "en-US",
-                    HostName = new Uri(_webHelper.GetThisPageUrl(false)).Host,
+                    HostName = new Uri(await _webHelper.GetThisPageUrlAsync(false)).Host,
                     PageTitle = add ? "AddTransaction" : "CancelTransaction"
                 };
 

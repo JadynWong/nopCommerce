@@ -13,6 +13,7 @@ namespace Nop.Services.Common
         #region Fields
 
         private readonly HttpClient _httpClient;
+        private readonly IWebHelper _webHelper;
 
         #endregion
 
@@ -21,10 +22,8 @@ namespace Nop.Services.Common
         public StoreHttpClient(HttpClient client,
             IWebHelper webHelper)
         {
-            //configure client
-            client.BaseAddress = new Uri(webHelper.GetStoreLocation());
-
             _httpClient = client;
+            _webHelper = webHelper;
         }
 
         #endregion
@@ -40,6 +39,8 @@ namespace Nop.Services.Common
         /// </returns>
         public virtual async Task KeepAliveAsync()
         {
+            //configure client
+            _httpClient.BaseAddress = new Uri(await _webHelper.GetStoreLocationAsync());
             await _httpClient.GetStringAsync(NopCommonDefaults.KeepAlivePath);
         }
 

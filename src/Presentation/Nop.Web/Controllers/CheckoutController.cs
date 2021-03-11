@@ -1872,7 +1872,7 @@ namespace Nop.Web.Controllers
                         //redirect
                         return Json(new
                         {
-                            redirect = $"{_webHelper.GetStoreLocation()}checkout/OpcCompleteRedirectionPayment"
+                            redirect = $"{await _webHelper.GetStoreLocationAsync()}checkout/OpcCompleteRedirectionPayment"
                         });
                     }
 

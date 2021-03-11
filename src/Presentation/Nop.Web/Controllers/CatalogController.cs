@@ -104,7 +104,7 @@ namespace Nop.Web.Controllers
             //'Continue shopping' URL
             await _genericAttributeService.SaveAttributeAsync(await _workContext.GetCurrentCustomerAsync(),
                 NopCustomerDefaults.LastContinueShoppingPageAttribute,
-                _webHelper.GetThisPageUrl(false),
+                await _webHelper.GetThisPageUrlAsync(false),
                 (await _storeContext.GetCurrentStoreAsync()).Id);
 
             //display "edit" (manage) link
@@ -173,7 +173,7 @@ namespace Nop.Web.Controllers
             //'Continue shopping' URL
             await _genericAttributeService.SaveAttributeAsync(await _workContext.GetCurrentCustomerAsync(),
                 NopCustomerDefaults.LastContinueShoppingPageAttribute,
-                _webHelper.GetThisPageUrl(false),
+                await _webHelper.GetThisPageUrlAsync(false),
                 (await _storeContext.GetCurrentStoreAsync()).Id);
 
             //display "edit" (manage) link
@@ -231,7 +231,7 @@ namespace Nop.Web.Controllers
             //'Continue shopping' URL
             await _genericAttributeService.SaveAttributeAsync(await _workContext.GetCurrentCustomerAsync(),
                 NopCustomerDefaults.LastContinueShoppingPageAttribute,
-                _webHelper.GetThisPageUrl(false),
+                await _webHelper.GetThisPageUrlAsync(false),
                 (await _storeContext.GetCurrentStoreAsync()).Id);
 
             //display "edit" (manage) link
@@ -318,7 +318,7 @@ namespace Nop.Web.Controllers
             //'Continue shopping' URL
             await _genericAttributeService.SaveAttributeAsync(await _workContext.GetCurrentCustomerAsync(),
                 NopCustomerDefaults.LastContinueShoppingPageAttribute,
-                _webHelper.GetThisPageUrl(true),
+                await _webHelper.GetThisPageUrlAsync(true),
                 (await _storeContext.GetCurrentStoreAsync()).Id);
 
             if (model == null)

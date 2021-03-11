@@ -249,7 +249,7 @@ namespace Nop.Web.Factories
                 {
                     //use default logo
                     var pathBase = _httpContextAccessor.HttpContext.Request.PathBase.Value ?? string.Empty;
-                    var storeLocation = _mediaSettings.UseAbsoluteImagePath ? _webHelper.GetStoreLocation() : $"{pathBase}/";
+                    var storeLocation = _mediaSettings.UseAbsoluteImagePath ? await _webHelper.GetStoreLocationAsync() : $"{pathBase}/";
                     logo = $"{storeLocation}Themes/{await _themeContext.GetWorkingThemeNameAsync()}/Content/images/logo.png";
                 }
 
@@ -938,19 +938,19 @@ namespace Nop.Web.Factories
                         //URLs are localizable. Append SEO code
                         foreach (var language in await _languageService.GetAllLanguagesAsync(storeId: (await _storeContext.GetCurrentStoreAsync()).Id))
                         {
-                            sb.AppendFormat("Sitemap: {0}{1}/sitemap.xml", _webHelper.GetStoreLocation(), language.UniqueSeoCode);
+                            sb.AppendFormat("Sitemap: {0}{1}/sitemap.xml", await _webHelper.GetStoreLocationAsync(), language.UniqueSeoCode);
                             sb.Append(newLine);
                         }
                     }
                     else
                     {
                         //localizable paths (without SEO code)
-                        sb.AppendFormat("Sitemap: {0}sitemap.xml", _webHelper.GetStoreLocation());
+                        sb.AppendFormat("Sitemap: {0}sitemap.xml", await _webHelper.GetStoreLocationAsync());
                         sb.Append(newLine);
                     }
                 }
                 //host
-                sb.AppendFormat("Host: {0}", _webHelper.GetStoreLocation());
+                sb.AppendFormat("Host: {0}", await _webHelper.GetStoreLocationAsync());
                 sb.Append(newLine);
 
                 //usual paths

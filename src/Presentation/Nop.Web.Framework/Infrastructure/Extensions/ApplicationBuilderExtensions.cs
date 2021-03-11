@@ -73,7 +73,7 @@ namespace Nop.Web.Framework.Infrastructure.Extensions
 #if DEBUG
                 //prevent save the update migrations into the DB during the developing process  
                 var versions = EngineContext.Current.Resolve<IRepository<MigrationVersionInfo>>();
-                versions.DeleteAsync(mvi => mvi.Description.StartsWith(string.Format(NopMigrationDefaults.UpdateMigrationDescriptionPrefix, NopVersion.FULL_VERSION)));
+                AsyncHelper.RunSync(() => versions.DeleteAsync(mvi => mvi.Description.StartsWith(string.Format(NopMigrationDefaults.UpdateMigrationDescriptionPrefix, NopVersion.FULL_VERSION))));
 #endif
             }
         }

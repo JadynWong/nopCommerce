@@ -118,7 +118,7 @@ namespace Nop.Plugin.Tax.Avalara.Components
             if (errorDetails.Any())
             {
                 //display error message to customer
-                return View("~/Plugins/Tax.Avalara/Views/Checkout/AddressValidation.cshtml", new AddressValidationModel
+                return await PublishAndViewAsync("~/Plugins/Tax.Avalara/Views/Checkout/AddressValidation.cshtml", new AddressValidationModel
                 {
                     Message = string.Format(await _localizationService.GetResourceAsync("Plugins.Tax.Avalara.AddressValidation.Error"),
                         WebUtility.HtmlEncode(string.Join("; ", errorDetails))),
@@ -177,7 +177,7 @@ namespace Nop.Plugin.Tax.Avalara.Components
             model.Message = string.Format(await _localizationService.GetResourceAsync("Plugins.Tax.Avalara.AddressValidation.Confirm"),
                 await getAddressLineAsync(address), await getAddressLineAsync(existingAddress ?? validatedAddress));
 
-            return View("~/Plugins/Tax.Avalara/Views/Checkout/AddressValidation.cshtml", model);
+            return await PublishAndViewAsync("~/Plugins/Tax.Avalara/Views/Checkout/AddressValidation.cshtml", model);
         }
 
         #endregion

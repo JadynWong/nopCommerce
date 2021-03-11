@@ -40,7 +40,7 @@ namespace Nop.Web.Areas.Admin.Components
             //prepare model
             var model = await _settingModelFactory.PrepareSettingModeModelAsync(modeName);
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
 
         #endregion

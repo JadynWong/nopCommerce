@@ -22,7 +22,7 @@ namespace Nop.Web.Components
             if (!model.ForumTopics.Any())
                 return Content("");
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

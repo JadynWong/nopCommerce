@@ -35,7 +35,7 @@ namespace Nop.Plugin.Payments.CheckMoneyOrder.Components
                     x => x.DescriptionText, (await _workContext.GetWorkingLanguageAsync()).Id, (await _storeContext.GetCurrentStoreAsync()).Id)
             };
 
-            return View("~/Plugins/Payments.CheckMoneyOrder/Views/PaymentInfo.cshtml", model);
+            return await PublishAndViewAsync("~/Plugins/Payments.CheckMoneyOrder/Views/PaymentInfo.cshtml", model);
         }
     }
 }

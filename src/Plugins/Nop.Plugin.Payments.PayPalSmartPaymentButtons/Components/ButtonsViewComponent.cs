@@ -76,7 +76,7 @@ namespace Nop.Plugin.Payments.PayPalSmartPaymentButtons.Components
                 return Content(string.Empty);
 
             var productId = additionalData is ProductDetailsModel.AddToCartModel model ? model.ProductId : 0;
-            return View("~/Plugins/Payments.PayPalSmartPaymentButtons/Views/Buttons.cshtml", (widgetZone, productId));
+            return await PublishAndViewAsync("~/Plugins/Payments.PayPalSmartPaymentButtons/Views/Buttons.cshtml", (widgetZone, productId));
         }
 
         #endregion

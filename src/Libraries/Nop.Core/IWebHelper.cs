@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Nop.Core
 {
@@ -26,7 +27,7 @@ namespace Nop.Core
         /// <param name="useSsl">Value indicating whether to get SSL secured page URL. Pass null to determine automatically</param>
         /// <param name="lowercaseUrl">Value indicating whether to lowercase URL</param>
         /// <returns>Page URL</returns>
-        string GetThisPageUrl(bool includeQueryString, bool? useSsl = null, bool lowercaseUrl = false);
+        Task<string> GetThisPageUrlAsync(bool includeQueryString, bool? useSsl = null, bool lowercaseUrl = false);
 
         /// <summary>
         /// Gets a value indicating whether current connection is secured
@@ -46,7 +47,7 @@ namespace Nop.Core
         /// </summary>
         /// <param name="useSsl">Whether to get SSL secured URL; pass null to determine automatically</param>
         /// <returns>Store location</returns>
-        string GetStoreLocation(bool? useSsl = null);
+        Task<string> GetStoreLocationAsync(bool? useSsl = null);
 
         /// <summary>
         /// Returns true if the requested resource is one of the typical resources that needn't be processed by the CMS engine.
@@ -61,7 +62,7 @@ namespace Nop.Core
         /// <param name="key">Query parameter key to add</param>
         /// <param name="values">Query parameter values to add</param>
         /// <returns>New URL with passed query parameter</returns>
-        string ModifyQueryString(string url, string key, params string[] values);
+        Task<string> ModifyQueryStringAsync(string url, string key, params string[] values);
 
         /// <summary>
         /// Remove query parameter from the URL
@@ -70,7 +71,7 @@ namespace Nop.Core
         /// <param name="key">Query parameter key to remove</param>
         /// <param name="value">Query parameter value to remove; pass null to remove all query parameters with the specified key</param>
         /// <returns>New URL without passed query parameter</returns>
-        string RemoveQueryString(string url, string key, string value = null);
+        Task<string> RemoveQueryStringAsync(string url, string key, string value = null);
 
         /// <summary>
         /// Gets query string value by name

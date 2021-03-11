@@ -458,7 +458,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
                     var useEuVatRules = (product?.IsTelecommunicationsOrBroadcastingOrElectronicServices ?? false)
                         && ((await _countryService.GetCountryByAddressAsync(billingAddress)
                             ?? await _countryService.GetCountryByIdAsync(await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.CountryIdAttribute))
-                            ?? await _countryService.GetCountryByTwoLetterIsoCodeAsync(_geoLookupService.LookupCountryIsoCode(customer.LastIpAddress)))
+                            ?? await _countryService.GetCountryByTwoLetterIsoCodeAsync(await _geoLookupService.LookupCountryIsoCodeAsync(customer.LastIpAddress)))
                             ?.SubjectToVat ?? false)
                         && await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.VatNumberStatusIdAttribute) != (int)VatNumberStatus.Valid;
 

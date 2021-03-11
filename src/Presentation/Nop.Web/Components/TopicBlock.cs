@@ -20,7 +20,7 @@ namespace Nop.Web.Components
             var model = await _topicModelFactory.PrepareTopicModelBySystemNameAsync(systemName);
             if (model == null)
                 return Content("");
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

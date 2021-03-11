@@ -40,8 +40,8 @@ namespace Nop.Services.Common
             if (await DataSettingsManager.IsDatabaseInstalledAsync())
             {
                 //keep alive page requested (we ignore it to prevent creating a guest customer records)
-                var keepAliveUrl = $"{webHelper.GetStoreLocation()}{NopCommonDefaults.KeepAlivePath}";
-                if ((webHelper.GetThisPageUrl(false)).StartsWith(keepAliveUrl, StringComparison.InvariantCultureIgnoreCase))
+                var keepAliveUrl = $"{await webHelper.GetStoreLocationAsync()}{NopCommonDefaults.KeepAlivePath}";
+                if (( await webHelper.GetThisPageUrlAsync(false)).StartsWith(keepAliveUrl, StringComparison.InvariantCultureIgnoreCase))
                     return;
             }
 

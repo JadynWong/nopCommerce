@@ -43,7 +43,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Components
             var model = new AuthModel();
             model = await _authenticationModelFactory.PrepareAuthModel(model);
 
-            return View("~/Plugins/MultiFactorAuth.GoogleAuthenticator/Views/Customer/GAAuthentication.cshtml", model);
+            return await PublishAndViewAsync("~/Plugins/MultiFactorAuth.GoogleAuthenticator/Views/Customer/GAAuthentication.cshtml", model);
         }
 
         #endregion

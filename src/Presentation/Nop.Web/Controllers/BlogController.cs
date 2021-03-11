@@ -127,11 +127,11 @@ namespace Nop.Web.Controllers
             var feed = new RssFeed(
                 $"{await _localizationService.GetLocalizedAsync(await _storeContext.GetCurrentStoreAsync(), x => x.Name)}: Blog",
                 "Blog",
-                new Uri(_webHelper.GetStoreLocation()),
+                new Uri(await _webHelper.GetStoreLocationAsync()),
                 DateTime.UtcNow);
 
             if (!_blogSettings.Enabled)
-                return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+                return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
 
             var items = new List<RssItem>();
             var blogPosts = await _blogService.GetAllBlogPostsAsync((await _storeContext.GetCurrentStoreAsync()).Id, languageId);
@@ -142,7 +142,7 @@ namespace Nop.Web.Controllers
                     $"urn:store:{(await _storeContext.GetCurrentStoreAsync()).Id}:blog:post:{blogPost.Id}", blogPost.CreatedOnUtc));
             }
             feed.Items = items;
-            return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+            return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
         }
 
         /// <returns>A task that represents the asynchronous operation</returns>
@@ -176,7 +176,7 @@ namespace Nop.Web.Controllers
             return View(model);
         }
 
-        [HttpPost, ActionName("BlogPost")]        
+        [HttpPost, ActionName("BlogPost")]
         [FormValueRequired("add-comment")]
         [ValidateCaptcha]
         /// <returns>A task that represents the asynchronous operation</returns>
@@ -236,7 +236,7 @@ namespace Nop.Web.Controllers
 
             //If we got this far, something failed, redisplay form
             await _blogModelFactory.PrepareBlogPostModelAsync(model, blogPost, true);
-            
+
             return View(model);
         }
 

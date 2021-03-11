@@ -59,7 +59,7 @@ namespace Nop.Web.Components
                 preparePictureModel,
                 productThumbPictureSize));
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

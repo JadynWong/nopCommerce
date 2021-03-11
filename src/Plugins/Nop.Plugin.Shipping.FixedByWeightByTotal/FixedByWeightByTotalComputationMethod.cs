@@ -241,9 +241,9 @@ namespace Nop.Plugin.Shipping.FixedByWeightByTotal
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return $"{_webHelper.GetStoreLocation()}Admin/FixedByWeightByTotal/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/FixedByWeightByTotal/Configure";
         }
 
         /// <summary>

@@ -22,7 +22,7 @@ namespace Nop.Web.Components
             if (model.AvailableLanguages.Count == 1)
                 return Content("");
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

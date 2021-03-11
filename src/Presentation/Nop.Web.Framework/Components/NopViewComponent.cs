@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Nop.Core;
@@ -14,7 +15,7 @@ namespace Nop.Web.Framework.Components
     /// </summary>
     public abstract class NopViewComponent : ViewComponent
     {
-        private void PublishModelPrepared<TModel>(TModel model)
+        private async Task PublishModelPreparedAsync<TModel>(TModel model)
         {
             //Components are not part of the controller life cycle.
             //Hence, we could no longer use Action Filters to intercept the Models being returned
@@ -27,7 +28,7 @@ namespace Nop.Web.Framework.Components
 
                 //we publish the ModelPrepared event for all models as the BaseNopModel, 
                 //so you need to implement IConsumer<ModelPrepared<BaseNopModel>> interface to handle this event
-                AsyncHelper.RunSync(() => eventPublisher.ModelPreparedAsync(model as BaseNopModel));
+                await eventPublisher.ModelPreparedAsync(model as BaseNopModel);
             }
 
             if (model is IEnumerable<BaseNopModel> modelCollection)
@@ -36,18 +37,19 @@ namespace Nop.Web.Framework.Components
 
                 //we publish the ModelPrepared event for collection as the IEnumerable<BaseNopModel>, 
                 //so you need to implement IConsumer<ModelPrepared<IEnumerable<BaseNopModel>>> interface to handle this event
-                AsyncHelper.RunSync(() => eventPublisher.ModelPreparedAsync(modelCollection));
+                await eventPublisher.ModelPreparedAsync(modelCollection);
             }
         }
+
         /// <summary>
         /// Returns a result which will render the partial view with name <paramref name="viewName"/>.
         /// </summary>
         /// <param name="viewName">The name of the partial view to render.</param>
         /// <param name="model">The model object for the view.</param>
-        /// <returns>A <see cref="ViewViewComponentResult"/>.</returns>
-        public new ViewViewComponentResult View<TModel>(string viewName, TModel model)
+        /// <returns>A <see cref="IViewComponentResult"/>.</returns>
+        public async Task<IViewComponentResult> PublishAndViewAsync<TModel>(string viewName, TModel model)
         {
-            PublishModelPrepared(model);
+            await PublishModelPreparedAsync(model);
 
             //invoke the base method
             return base.View<TModel>(viewName, model);
@@ -57,24 +59,13 @@ namespace Nop.Web.Framework.Components
         /// Returns a result which will render the partial view
         /// </summary>
         /// <param name="model">The model object for the view.</param>
-        /// <returns>A <see cref="ViewViewComponentResult"/>.</returns>
-        public new ViewViewComponentResult View<TModel>(TModel model)
+        /// <returns>A <see cref="IViewComponentResult"/>.</returns>
+        public async Task<IViewComponentResult> PublishAndViewAsync<TModel>(TModel model)
         {
-            PublishModelPrepared(model);
+            await PublishModelPreparedAsync(model);
 
             //invoke the base method
             return base.View<TModel>(model);
-        }
-
-        /// <summary>
-        ///  Returns a result which will render the partial view with name viewName
-        /// </summary>
-        /// <param name="viewName">The name of the partial view to render.</param>
-        /// <returns>A <see cref="ViewViewComponentResult"/>.</returns>
-        public new ViewViewComponentResult View(string viewName)
-        {
-            //invoke the base method
-            return base.View(viewName);
         }
     }
 }

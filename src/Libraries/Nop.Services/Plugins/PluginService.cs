@@ -316,25 +316,25 @@ namespace Nop.Services.Plugins
         /// A task that represents the asynchronous operation
         /// The task result contains the logo URL
         /// </returns>
-        public virtual Task<string> GetPluginLogoUrlAsync(PluginDescriptor pluginDescriptor)
+        public virtual async Task<string> GetPluginLogoUrlAsync(PluginDescriptor pluginDescriptor)
         {
             var pluginDirectory = _fileProvider.GetDirectoryName(pluginDescriptor.OriginalAssemblyFile);
             if (string.IsNullOrEmpty(pluginDirectory))
-                return Task.FromResult<string>(null);
+                return null;
 
             //check for supported extensions
             var logoExtension = NopPluginDefaults.SupportedLogoImageExtensions
                 .FirstOrDefault(ext => _fileProvider.FileExists(_fileProvider.Combine(pluginDirectory, $"{NopPluginDefaults.LogoFileName}.{ext}")));
             if (string.IsNullOrWhiteSpace(logoExtension))
-                return Task.FromResult<string>(null);
+                return null;
 
             var pathBase = _httpContextAccessor.HttpContext.Request.PathBase.Value ?? string.Empty;
-            var logoPathUrl = _mediaSettings.UseAbsoluteImagePath ? _webHelper.GetStoreLocation() : $"{pathBase}/";
+            var logoPathUrl = _mediaSettings.UseAbsoluteImagePath ? await _webHelper.GetStoreLocationAsync() : $"{pathBase}/";
 
             var logoUrl = $"{logoPathUrl}{NopPluginDefaults.PathName}/" +
                 $"{_fileProvider.GetDirectoryNameOnly(pluginDirectory)}/{NopPluginDefaults.LogoFileName}.{logoExtension}";
 
-            return Task.FromResult(logoUrl);
+            return logoUrl;
         }
 
         /// <summary>

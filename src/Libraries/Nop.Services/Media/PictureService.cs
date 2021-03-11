@@ -189,14 +189,14 @@ namespace Nop.Services.Media
         /// A task that represents the asynchronous operation
         /// The task result contains the 
         /// </returns>
-        protected virtual Task<string> GetImagesPathUrlAsync(string storeLocation = null)
+        protected virtual async Task<string> GetImagesPathUrlAsync(string storeLocation = null)
         {
             var pathBase = _httpContextAccessor.HttpContext.Request.PathBase.Value ?? string.Empty;
             var imagesPathUrl = _mediaSettings.UseAbsoluteImagePath ? storeLocation : $"{pathBase}/";
-            imagesPathUrl = string.IsNullOrEmpty(imagesPathUrl) ? _webHelper.GetStoreLocation() : imagesPathUrl;
+            imagesPathUrl = string.IsNullOrEmpty(imagesPathUrl) ? await _webHelper.GetStoreLocationAsync() : imagesPathUrl;
             imagesPathUrl += "images/";
 
-            return Task.FromResult(imagesPathUrl);
+            return imagesPathUrl;
         }
 
         /// <summary>

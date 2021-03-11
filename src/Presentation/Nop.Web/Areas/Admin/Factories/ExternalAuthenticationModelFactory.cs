@@ -65,17 +65,17 @@ namespace Nop.Web.Areas.Admin.Factories
             var externalAuthenticationMethods = (await _authenticationPluginManager.LoadAllPluginsAsync()).ToPagedList(searchModel);
 
             //prepare grid model
-            var model = new ExternalAuthenticationMethodListModel().PrepareToGrid(searchModel, externalAuthenticationMethods, () =>
+            var model = await new ExternalAuthenticationMethodListModel().PrepareToGridAsync(searchModel, externalAuthenticationMethods, () =>
             {
                 //fill in model values from the entity
-                return externalAuthenticationMethods.Select(method =>
+                return externalAuthenticationMethods.SelectAwait(async method =>
                 {
                     //fill in model values from the entity
                     var externalAuthenticationMethodModel = method.ToPluginModel<ExternalAuthenticationMethodModel>();
 
                     //fill in additional values (not existing in the entity)
                     externalAuthenticationMethodModel.IsActive = _authenticationPluginManager.IsPluginActive(method);
-                    externalAuthenticationMethodModel.ConfigurationUrl = method.GetConfigurationPageUrl();
+                    externalAuthenticationMethodModel.ConfigurationUrl = await method.GetConfigurationPageUrlAsync();
 
                     return externalAuthenticationMethodModel;
                 });

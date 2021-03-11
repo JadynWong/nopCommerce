@@ -302,7 +302,7 @@ namespace Nop.Services.Installation
         /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InstallStoresAsync()
         {
-            var storeUrl = _webHelper.GetStoreLocation();
+            var storeUrl = await _webHelper.GetStoreLocationAsync();
             var stores = new List<Store>
             {
                 new Store

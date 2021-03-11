@@ -86,7 +86,7 @@ namespace Nop.Plugin.Payments.PayPalSmartPaymentButtons.Components
 
             HttpContext.Session.Set(Defaults.PaymentRequestSessionKey, paymentRequest);
 
-            return View("~/Plugins/Payments.PayPalSmartPaymentButtons/Views/PaymentInfo.cshtml", model);
+            return await PublishAndViewAsync("~/Plugins/Payments.PayPalSmartPaymentButtons/Views/PaymentInfo.cshtml", model);
         }
 
         #endregion

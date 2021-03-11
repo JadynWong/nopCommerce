@@ -157,7 +157,7 @@ namespace Nop.Plugin.Tax.Avalara.Components
             model.AvalaraEntityUseCode = entity == null ? defaultValue :
                 await _genericAttributeService.GetAttributeAsync<string>(entity, AvalaraTaxDefaults.EntityUseCodeAttribute);
 
-            return View("~/Plugins/Tax.Avalara/Views/EntityUseCode/EntityUseCode.cshtml", model);
+            return await PublishAndViewAsync("~/Plugins/Tax.Avalara/Views/EntityUseCode/EntityUseCode.cshtml", model);
         }
 
         #endregion

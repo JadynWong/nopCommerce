@@ -45,7 +45,7 @@ namespace Nop.Web.Components
             if (!model.Enabled)
                 return Content(string.Empty);
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

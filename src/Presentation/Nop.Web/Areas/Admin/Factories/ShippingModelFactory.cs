@@ -147,7 +147,7 @@ namespace Nop.Web.Areas.Admin.Factories
 
                     //fill in additional values (not existing in the entity)
                     shippingProviderModel.IsActive = _shippingPluginManager.IsPluginActive(provider);
-                    shippingProviderModel.ConfigurationUrl = provider.GetConfigurationPageUrl();
+                    shippingProviderModel.ConfigurationUrl = await provider.GetConfigurationPageUrlAsync();
 
                     shippingProviderModel.LogoUrl = await _shippingPluginManager.GetPluginLogoUrlAsync(provider);
 
@@ -203,7 +203,7 @@ namespace Nop.Web.Areas.Admin.Factories
 
                     //fill in additional values (not existing in the entity)
                     pickupPointProviderModel.IsActive = _pickupPluginManager.IsPluginActive(provider);
-                    pickupPointProviderModel.ConfigurationUrl = provider.GetConfigurationPageUrl();
+                    pickupPointProviderModel.ConfigurationUrl = await provider.GetConfigurationPageUrlAsync();
 
                     pickupPointProviderModel.LogoUrl = await _pickupPluginManager.GetPluginLogoUrlAsync(provider);
 

@@ -25,7 +25,7 @@ namespace Nop.Web.Components
                 return Content("");
 
             var model = await _commonModelFactory.PrepareStoreThemeSelectorModelAsync();
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

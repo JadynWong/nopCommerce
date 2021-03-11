@@ -95,7 +95,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </summary>
         /// <param name="model">Plugin model</param>
         /// <param name="plugin">Plugin</param>
-        protected virtual void PrepareInstalledPluginModel(PluginModel model, IPlugin plugin)
+        protected virtual async Task PrepareInstalledPluginModelAsync(PluginModel model, IPlugin plugin)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
@@ -104,7 +104,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 throw new ArgumentNullException(nameof(plugin));
 
             //prepare configuration URL
-            model.ConfigurationUrl = plugin.GetConfigurationPageUrl();
+            model.ConfigurationUrl = await plugin.GetConfigurationPageUrlAsync();
 
             //prepare enabled/disabled (only for some plugin types)
             model.CanChangeEnabled = true;
@@ -212,7 +212,7 @@ namespace Nop.Web.Areas.Admin.Factories
                     pluginModel.LogoUrl = await _pluginService.GetPluginLogoUrlAsync(pluginDescriptor);
 
                     if (pluginDescriptor.Installed)
-                        PrepareInstalledPluginModel(pluginModel, pluginDescriptor.Instance<IPlugin>());
+                        await PrepareInstalledPluginModelAsync(pluginModel, pluginDescriptor.Instance<IPlugin>());
 
                     return pluginModel;
                 });
@@ -245,7 +245,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 model.SelectedCustomerRoleIds = pluginDescriptor.LimitedToCustomerRoles;
                 var plugin = pluginDescriptor.Instance<IPlugin>();
                 if (pluginDescriptor.Installed)
-                    PrepareInstalledPluginModel(model, plugin);
+                    await PrepareInstalledPluginModelAsync(model, plugin);
 
                 //define localized model configuration action
                 localizedModelConfiguration = async (locale, languageId) =>
@@ -391,13 +391,13 @@ namespace Nop.Web.Areas.Admin.Factories
             return await _staticCacheManager.GetAsync(cacheKey, async () =>
             {
                 //get installed plugins
-                return (await _pluginService.GetPluginDescriptorsAsync<IPlugin>(LoadPluginsMode.InstalledOnly, await _workContext.GetCurrentCustomerAsync()))
+                return await (await _pluginService.GetPluginDescriptorsAsync<IPlugin>(LoadPluginsMode.InstalledOnly, await _workContext.GetCurrentCustomerAsync()))
                     .Where(plugin => plugin.ShowInPluginsList)
-                    .Select(plugin => new AdminNavigationPluginModel
+                    .SelectAwait(async plugin => new AdminNavigationPluginModel
                     {
                         FriendlyName = plugin.FriendlyName,
-                        ConfigurationUrl = plugin.Instance<IPlugin>().GetConfigurationPageUrl()
-                    }).Where(model => !string.IsNullOrEmpty(model.ConfigurationUrl)).ToList();
+                        ConfigurationUrl = await plugin.Instance<IPlugin>().GetConfigurationPageUrlAsync()
+                    }).Where(model => !string.IsNullOrEmpty(model.ConfigurationUrl)).ToListAsync();
             });
         }
 

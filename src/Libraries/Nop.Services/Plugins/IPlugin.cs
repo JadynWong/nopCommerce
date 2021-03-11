@@ -11,7 +11,7 @@ namespace Nop.Services.Plugins
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        string GetConfigurationPageUrl();
+        Task<string> GetConfigurationPageUrlAsync();
 
         /// <summary>
         /// Gets or sets the plugin descriptor

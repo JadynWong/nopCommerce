@@ -24,7 +24,7 @@ namespace Nop.Web.Components
                 return Content("");
 
             var model = await _blogModelFactory.PrepareBlogPostTagListModelAsync();
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

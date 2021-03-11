@@ -26,7 +26,7 @@ namespace Nop.Web.Components
             if (!model.Tags.Any())
                 return Content("");
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

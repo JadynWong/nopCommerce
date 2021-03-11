@@ -20,7 +20,7 @@ namespace Nop.Web.Components
             var model = await _commonModelFactory.PrepareFaviconAndAppIconsModelAsync();
             if (string.IsNullOrEmpty(model.HeadCode))
                 return Content("");
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

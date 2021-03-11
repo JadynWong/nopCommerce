@@ -26,7 +26,7 @@ namespace Nop.Web.Components
                 throw new ArgumentNullException(nameof(customer));
 
             var model = await _profileModelFactory.PrepareProfileInfoModelAsync(customer);
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

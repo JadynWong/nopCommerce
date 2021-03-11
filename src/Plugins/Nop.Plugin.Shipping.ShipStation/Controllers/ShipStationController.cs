@@ -60,7 +60,7 @@ namespace Nop.Plugin.Shipping.ShipStation.Controllers
                 ActiveStoreScopeConfiguration = storeScope,
                 UserName = shipStationSettings.UserName,
                 Password = shipStationSettings.Password,
-                WebhookURL = $"{_webHelper.GetStoreLocation()}Plugins/ShipStation/Webhook"
+                WebhookURL = $"{_webHelper.GetStoreLocationAsync()}Plugins/ShipStation/Webhook"
             };
 
             if (storeScope <= 0)

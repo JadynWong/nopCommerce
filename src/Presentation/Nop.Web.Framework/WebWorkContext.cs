@@ -425,10 +425,10 @@ namespace Nop.Web.Framework
             if (_cachedCurrency != null)
                 return _cachedCurrency;
 
-            var adminAreaUrl = $"{_webHelper.GetStoreLocation()}admin";
+            var adminAreaUrl = $"{await _webHelper.GetStoreLocationAsync()}admin";
 
             //return primary store currency when we're in admin area/mode
-            if (_webHelper.GetThisPageUrl(false).StartsWith(adminAreaUrl, StringComparison.InvariantCultureIgnoreCase))
+            if ((await _webHelper.GetThisPageUrlAsync(false)).StartsWith(adminAreaUrl, StringComparison.InvariantCultureIgnoreCase))
             {
                 var primaryStoreCurrency = await _currencyService.GetCurrencyByIdAsync(_currencySettings.PrimaryStoreCurrencyId);
                 if (primaryStoreCurrency != null)

@@ -82,9 +82,9 @@ namespace Nop.Plugin.Shipping.UPS
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return $"{_webHelper.GetStoreLocation()}Admin/UPSShipping/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/UPSShipping/Configure";
         }
 
         /// <summary>

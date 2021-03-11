@@ -108,7 +108,7 @@ namespace Nop.Plugin.Payments.PayPalStandard
         private async Task<IDictionary<string, string>> CreateQueryParametersAsync(PostProcessPaymentRequest postProcessPaymentRequest)
         {
             //get store location
-            var storeLocation = _webHelper.GetStoreLocation();
+            var storeLocation = _webHelper.GetStoreLocationAsync();
 
             //choosing correct order address
             var orderAddress = await _addressService.GetAddressByIdAsync(
@@ -548,9 +548,9 @@ namespace Nop.Plugin.Payments.PayPalStandard
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return $"{_webHelper.GetStoreLocation()}Admin/PaymentPayPalStandard/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/PaymentPayPalStandard/Configure";
         }
 
         /// <summary>

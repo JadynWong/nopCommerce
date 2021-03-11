@@ -10,9 +10,9 @@ namespace Nop.Services.Plugins
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public virtual string GetConfigurationPageUrl()
+        public virtual Task<string> GetConfigurationPageUrlAsync()
         {
-            return null;
+            return Task.FromResult<string>(null);
         }
 
         /// <summary>

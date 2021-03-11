@@ -66,7 +66,7 @@ namespace Nop.Web.Components
                     productThumbPictureSize: productThumbPictureSize, forceRedirectionAfterAddingToCart: true))
                 .ToList();
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

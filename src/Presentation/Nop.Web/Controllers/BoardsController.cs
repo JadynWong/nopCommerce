@@ -121,7 +121,7 @@ namespace Nop.Web.Controllers
             }
             feed.Items = items;
 
-            return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+            return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
         }
 
         /// <returns>A task that represents the asynchronous operation</returns>
@@ -198,10 +198,10 @@ namespace Nop.Web.Controllers
 
                 feed.Items = items;
 
-                return new RssActionResult(feed, _webHelper.GetThisPageUrl(false));
+                return new RssActionResult(feed, await _webHelper.GetThisPageUrlAsync(false));
             }
 
-            return new RssActionResult(new RssFeed(new Uri(_webHelper.GetStoreLocation())), _webHelper.GetThisPageUrl(false));
+            return new RssActionResult(new RssFeed(new Uri(await _webHelper.GetStoreLocationAsync())), await _webHelper.GetThisPageUrlAsync(false));
         }
 
         [HttpPost]

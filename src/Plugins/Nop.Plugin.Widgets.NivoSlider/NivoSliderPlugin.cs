@@ -50,9 +50,9 @@ namespace Nop.Plugin.Widgets.NivoSlider
         /// <summary>
         /// Gets a configuration page URL
         /// </summary>
-        public override string GetConfigurationPageUrl()
+        public override async Task<string> GetConfigurationPageUrlAsync()
         {
-            return _webHelper.GetStoreLocation() + "Admin/WidgetsNivoSlider/Configure";
+            return $"{await _webHelper.GetStoreLocationAsync()}Admin/WidgetsNivoSlider/Configure";
         }
 
         /// <summary>
@@ -79,13 +79,13 @@ namespace Nop.Plugin.Widgets.NivoSlider
             {
                 Picture1Id = (await _pictureService.InsertPictureAsync(await _fileProvider.ReadAllBytesAsync(_fileProvider.Combine(sampleImagesPath, "banner1.jpg")), MimeTypes.ImagePJpeg, "banner_1")).Id,
                 Text1 = "",
-                Link1 = _webHelper.GetStoreLocation(false),
+                Link1 = await _webHelper.GetStoreLocationAsync(false),
                 Picture2Id = (await _pictureService.InsertPictureAsync(await _fileProvider.ReadAllBytesAsync(_fileProvider.Combine(sampleImagesPath, "banner2.jpg")), MimeTypes.ImagePJpeg, "banner_2")).Id,
                 Text2 = "",
-                Link2 = _webHelper.GetStoreLocation(false)
+                Link2 = await _webHelper.GetStoreLocationAsync(false)
                 //Picture3Id = _pictureService.InsertPicture(File.ReadAllBytes(_fileProvider.Combine(sampleImagesPath,"banner3.jpg")), MimeTypes.ImagePJpeg, "banner_3").Id,
                 //Text3 = "",
-                //Link3 = _webHelper.GetStoreLocation(false),
+                //Link3 = await _webHelper.GetStoreLocationAsync(false),
             };
             await _settingService.SaveSettingAsync(settings);
 

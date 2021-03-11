@@ -23,7 +23,7 @@ namespace Nop.Web.Components
             var forumPost = await _forumService.GetPostByIdAsync(forumPostId);
             var model = await _forumModelFactory.PrepareLastPostModelAsync(forumPost, showTopic);
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace Nop.Web.Areas.Admin.Components
             if (!models.Any())
                 return Content(string.Empty);
 
-            return View(models);
+            return await PublishAndViewAsync(models);
         }
 
         #endregion

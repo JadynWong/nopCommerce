@@ -57,7 +57,7 @@ namespace Nop.Web.Framework.Mvc.Filters
             /// </summary>
             /// <param name="context">Authorization filter context</param>
             /// <param name="withWww">Whether URL must start with WWW</param>
-            private void RedirectRequest(AuthorizationFilterContext context, bool withWww)
+            private async Task RedirectRequestAsync(AuthorizationFilterContext context, bool withWww)
             {
                 //get scheme depending on securing connection
                 var urlScheme = $"{_webHelper.GetCurrentRequestProtocol()}{Uri.SchemeDelimiter}";
@@ -66,7 +66,7 @@ namespace Nop.Web.Framework.Mvc.Filters
                 var urlWith3W = $"{urlScheme}www.";
 
                 //get requested URL
-                var currentUrl = _webHelper.GetThisPageUrl(true);
+                var currentUrl = await _webHelper.GetThisPageUrlAsync(true);
 
                 //whether requested URL starts with WWW
                 var urlStartsWith3W = currentUrl.StartsWith(urlWith3W, StringComparison.OrdinalIgnoreCase);
@@ -105,12 +105,12 @@ namespace Nop.Web.Framework.Mvc.Filters
                 {
                     case WwwRequirement.WithWww:
                         //redirect to URL with starting WWW
-                        RedirectRequest(context, true);
+                        await RedirectRequestAsync(context, true);
                         break;
 
                     case WwwRequirement.WithoutWww:
                         //redirect to URL without starting WWW
-                        RedirectRequest(context, false);
+                        await RedirectRequestAsync(context, false);
                         break;
 
                     case WwwRequirement.NoMatter:

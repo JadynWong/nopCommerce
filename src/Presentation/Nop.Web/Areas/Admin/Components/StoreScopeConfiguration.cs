@@ -42,7 +42,7 @@ namespace Nop.Web.Areas.Admin.Components
             if (model.Stores.Count < 2)
                 return Content(string.Empty);
             
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
 
         #endregion

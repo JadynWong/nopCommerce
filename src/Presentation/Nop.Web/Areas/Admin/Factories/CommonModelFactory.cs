@@ -204,8 +204,8 @@ namespace Nop.Web.Areas.Admin.Factories
             //check whether current store URL matches the store configured URL
             var currentStoreUrl = (await _storeContext.GetCurrentStoreAsync()).Url;
             if (!string.IsNullOrEmpty(currentStoreUrl) &&
-                (currentStoreUrl.Equals(_webHelper.GetStoreLocation(false), StringComparison.InvariantCultureIgnoreCase) ||
-                currentStoreUrl.Equals(_webHelper.GetStoreLocation(true), StringComparison.InvariantCultureIgnoreCase)))
+                (currentStoreUrl.Equals(await _webHelper.GetStoreLocationAsync(false), StringComparison.InvariantCultureIgnoreCase) ||
+                currentStoreUrl.Equals(await _webHelper.GetStoreLocationAsync(true), StringComparison.InvariantCultureIgnoreCase)))
             {
                 models.Add(new SystemWarningModel
                 {
@@ -219,7 +219,7 @@ namespace Nop.Web.Areas.Admin.Factories
             {
                 Level = SystemWarningLevel.Fail,
                 Text = string.Format(await _localizationService.GetResourceAsync("Admin.System.Warnings.URL.NoMatch"),
-                    currentStoreUrl, _webHelper.GetStoreLocation(false))
+                    currentStoreUrl, await _webHelper.GetStoreLocationAsync(false))
             });
         }
 
@@ -892,13 +892,15 @@ namespace Nop.Web.Areas.Admin.Factories
         /// A task that represents the asynchronous operation
         /// The task result contains the backup file list model
         /// </returns>
-        public virtual Task<BackupFileListModel> PrepareBackupFileListModelAsync(BackupFileSearchModel searchModel)
+        public virtual async Task<BackupFileListModel> PrepareBackupFileListModelAsync(BackupFileSearchModel searchModel)
         {
             if (searchModel == null)
                 throw new ArgumentNullException(nameof(searchModel));
 
             //get backup files
             var backupFiles = _maintenanceService.GetAllBackupFiles().ToPagedList(searchModel);
+
+            var storeLocation = await _webHelper.GetStoreLocationAsync(false);
 
             //prepare list model
             var model = new BackupFileListModel().PrepareToGrid(searchModel, backupFiles, () =>
@@ -910,11 +912,11 @@ namespace Nop.Web.Areas.Admin.Factories
                     //fill in additional values (not existing in the entity)
                     Length = $"{_fileProvider.FileLength(file) / 1024f / 1024f:F2} Mb",
 
-                    Link = $"{(_webHelper.GetStoreLocation(false))}db_backups/{_fileProvider.GetFileName(file)}"
+                    Link = $"{storeLocation}db_backups/{_fileProvider.GetFileName(file)}"
                 });
             });
 
-            return Task.FromResult(model);
+            return model;
         }
 
         /// <summary>

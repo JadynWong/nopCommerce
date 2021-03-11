@@ -103,7 +103,7 @@ namespace Nop.Services.Common
                 NopVersion.CURRENT_VERSION,
                 _webHelper.IsLocalRequest(_httpContextAccessor.HttpContext.Request),
                 _adminAreaSettings.HideAdvertisementsOnAdminArea,
-                _webHelper.GetStoreLocation(),
+                await _webHelper.GetStoreLocationAsync(),
                 language).ToLowerInvariant();
 
             //get news feed
@@ -128,7 +128,7 @@ namespace Nop.Services.Common
                 NopVersion.CURRENT_VERSION,
                 _webHelper.IsLocalRequest(_httpContextAccessor.HttpContext.Request),
                 WebUtility.UrlEncode(email),
-                _webHelper.GetStoreLocation(),
+                await _webHelper.GetStoreLocationAsync(),
                 languageCode,
                 culture)
                 .ToLowerInvariant();

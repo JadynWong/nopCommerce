@@ -39,7 +39,7 @@ namespace Nop.Web.Areas.Admin.Components
             //prepare model
             var model = await _commonModelFactory.PrepareLanguageSelectorModelAsync();
 
-            return View(model);
+            return await PublishAndViewAsync(model);
         }
 
         #endregion

@@ -89,7 +89,7 @@ namespace Nop.Web.Areas.Admin.Factories
 
                     //fill in additional values (not existing in the entity)
                     paymentMethodModel.IsActive = _paymentPluginManager.IsPluginActive(method);
-                    paymentMethodModel.ConfigurationUrl = method.GetConfigurationPageUrl();
+                    paymentMethodModel.ConfigurationUrl = await method.GetConfigurationPageUrlAsync();
 
                     paymentMethodModel.LogoUrl = await _paymentPluginManager.GetPluginLogoUrlAsync(method);
                     paymentMethodModel.RecurringPaymentType = await _localizationService.GetLocalizedEnumAsync(method.RecurringPaymentType);

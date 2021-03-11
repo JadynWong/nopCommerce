@@ -80,7 +80,7 @@ namespace Nop.Plugin.Widgets.AccessiBe.Controllers
             //prepare store URL
             model.Url = storeId > 0
                 ? (await _storeService.GetStoreByIdAsync(storeId))?.Url
-                : _webHelper.GetStoreLocation();
+                : await _webHelper.GetStoreLocationAsync();
 
             return View("~/Plugins/Widgets.AccessiBe/Views/Configure.cshtml", model);
         }

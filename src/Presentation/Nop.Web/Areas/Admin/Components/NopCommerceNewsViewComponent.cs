@@ -41,7 +41,7 @@ namespace Nop.Web.Areas.Admin.Components
                 //prepare model
                 var model = await _homeModelFactory.PrepareNopCommerceNewsModelAsync();
 
-                return View(model);
+                return await PublishAndViewAsync(model);
             }
             catch
             {

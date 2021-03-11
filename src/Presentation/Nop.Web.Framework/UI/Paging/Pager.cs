@@ -507,7 +507,7 @@ namespace Nop.Web.Framework.UI.Paging
             var aBuilder = new TagBuilder("a");
             aBuilder.InnerHtml.AppendHtml(text);
             aBuilder.MergeAttribute("data-page", pageNumber.ToString());
-            aBuilder.MergeAttribute("href", CreateDefaultUrl(pageNumber));
+            aBuilder.MergeAttribute("href", await CreateDefaultUrlAsync(pageNumber));
 
             liBuilder.InnerHtml.AppendHtml(aBuilder);
             return await liBuilder.RenderHtmlContentAsync();
@@ -518,7 +518,7 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="pageNumber">Page number</param>
         /// <returns>URL</returns>
-        protected virtual string CreateDefaultUrl(int pageNumber)
+        protected virtual async Task<string> CreateDefaultUrlAsync(int pageNumber)
         {
             var routeValues = new RouteValueDictionary();
 
@@ -556,13 +556,13 @@ namespace Nop.Web.Framework.UI.Paging
             }
 
             var webHelper = EngineContext.Current.Resolve<IWebHelper>();
-            var url = webHelper.GetThisPageUrl(false);
+            var url = await webHelper.GetThisPageUrlAsync(false);
             foreach (var routeValue in routeValues) 
-                url = webHelper.ModifyQueryString(url, routeValue.Key, routeValue.Value?.ToString());
+                url = await webHelper.ModifyQueryStringAsync(url, routeValue.Key, routeValue.Value?.ToString());
 
             if (_renderEmptyParameters && parametersWithEmptyValues.Any())
                 foreach (var key in parametersWithEmptyValues) 
-                    url = webHelper.ModifyQueryString(url, key);
+                    url = await webHelper.ModifyQueryStringAsync(url, key);
 
             return url;
         }

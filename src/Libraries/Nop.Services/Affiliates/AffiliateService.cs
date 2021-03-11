@@ -212,19 +212,19 @@ namespace Nop.Services.Affiliates
         /// A task that represents the asynchronous operation
         /// The task result contains the generated affiliate URL
         /// </returns>
-        public virtual Task<string> GenerateUrlAsync(Affiliate affiliate)
+        public virtual async Task<string> GenerateUrlAsync(Affiliate affiliate)
         {
             if (affiliate == null)
                 throw new ArgumentNullException(nameof(affiliate));
 
-            var storeUrl = _webHelper.GetStoreLocation(false);
+            var storeUrl = await _webHelper.GetStoreLocationAsync(false);
             var url = !string.IsNullOrEmpty(affiliate.FriendlyUrlName) ?
                 //use friendly URL
-                _webHelper.ModifyQueryString(storeUrl, NopAffiliateDefaults.AffiliateQueryParameter, affiliate.FriendlyUrlName) :
+                await _webHelper.ModifyQueryStringAsync(storeUrl, NopAffiliateDefaults.AffiliateQueryParameter, affiliate.FriendlyUrlName) :
                 //use ID
-                _webHelper.ModifyQueryString(storeUrl, NopAffiliateDefaults.AffiliateIdQueryParameter, affiliate.Id.ToString());
+                await _webHelper.ModifyQueryStringAsync(storeUrl, NopAffiliateDefaults.AffiliateIdQueryParameter, affiliate.Id.ToString());
 
-            return Task.FromResult(url);
+            return url;
         }
 
         /// <summary>
